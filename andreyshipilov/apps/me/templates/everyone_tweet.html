@@ -1,0 +1,100 @@
+{% load compress i18n %}{% spaceless %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta property="fb:admins" content="100000069125179" />
+	<meta property="og:title" content="Everyone tweet now!" />
+	<meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{ request.path|urlencode }}" />
+	<meta property="og:type" content="non_profit" />
+	<meta property="og:image" content="http://{{ request.META.HTTP_HOST }}{{ STATIC_URL }}everyone-tweet-logo.png" />
+	<meta property="og:description" content="Tweet to a Twtitter account with no registration. Just tweet it. Just tweet it." />
+	<title>Everyone tweet now!</title>
+	<link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
+
+	{% compress css %}
+		<link rel="stylesheet" href="{{ STATIC_URL }}everyone-tweet.css" type="text/css" media="screen,projection">
+	{% endcompress %}
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+	<script type="text/javascript" src="http://userapi.com/js/api/openapi.js?34"></script>
+	<script type="text/javascript">VK.init({apiId: 3118492, onlyWidgets: true});</script>
+	<script type="text/javascript" src="http://j.maxmind.com/app/geoip.js"></script>
+
+	{% compress js %}
+		<script type="text/javascript" src="{{ STATIC_URL }}jquery.everyone.tweet.js"></script>
+		<script type="text/javascript">
+			var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-791865-20']); _gaq.push(['_trackPageview']);
+			(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				var styles = [{"featureType": "water", "stylers": [{ "color": "#6FA4BD" }]}, {"featureType": "landscape", "stylers": [{ "visibility": "off" }]}];
+				var myLatlng = new google.maps.LatLng(geoip_latitude(), geoip_longitude());
+				var myOptions = {zoom: 3, minZoom: 3, center: myLatlng, mapTypeId: google.maps.MapTypeId.ROADMAP, styles: styles};
+				var map = new google.maps.Map(document.getElementById("map"), myOptions);
+				var bounds = new google.maps.LatLngBounds();
+				var markers = [];
+				{% for t in tweets %}myLatLng = new google.maps.LatLng({{ t.longitude }}, {{ t.latitude }}); var marker = new google.maps.Marker({position: myLatLng, map: map, title:'{{ t.text|escapejs }}'}); markers.push(marker);{% endfor %}
+				var iw = new google.maps.InfoWindow();
+				var oms = new OverlappingMarkerSpiderfier(map, {markersWontMove: true, markersWontHide: true});
+
+				oms.addListener('click', function(marker) {
+					iw.setContent(marker.title);
+					iw.open(map, marker);
+				});
+
+				oms.addListener('spiderfy', function(markers) {
+					iw.close();
+	      			});
+				$.each(markers, function(i, e){
+					oms.addMarker(e);
+				});
+			});
+		</script>
+	{% endcompress %}
+</head>
+<body>
+	<div id="status"><div></div></div>
+	<div id="everyone_tweet">
+		<form action="." id="form" method="post">
+			<h2><b>1</b></h2>
+			<h1>Tweet it</h1>
+			<div id="twitter-container">
+				<textarea type="text" name="text" id="text"></textarea>
+				<div id="submit-container">
+					<div id="counter-container">
+						<span id="counter">140</span>
+					</div>
+					<input type="submit" value="Tweet" id="submit" />
+				</div>
+			</div>
+			<h2><b>2</b></h2>
+			<h1>Watch it <a href="http://www.twitter.com/everyone_tweet">@everyone_tweet</a></h1>
+			<h2><b>3</b></h2>
+			<h1>?????</h1>
+			<h2><b>4</b></h2>
+			<h1>Profit</h1>
+		</form>
+	</div>
+	<div id="map"></div>
+	<div id="shares">
+		<div id="fb-root"></div><script src="http://connect.facebook.net/en_US/all.js#appId=147287118649863&amp;xfbml=1"></script><fb:like href="http://{{ request.META.HTTP_HOST }}{{ request.path|urlencode }}" send="false" layout="button_count" width="50" show_faces="false" action="like" font=""></fb:like>
+		<div><g:plusone size="medium"></g:plusone></div>
+		<div><a href="http://twitter.com/share" class="twitter-share-button" data-url="http://{{ request.META.HTTP_HOST }}{{ request.path|urlencode }}" data-text="Everyone's Twitter account" data-count="horizontal" data-via="andreyshipilov">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script></div>
+		<div id="vk_like"></div><script type="text/javascript">VK.Widgets.Like("vk_like", {type: "button", height: 20});</script>
+		<div id="copyright">
+			<p>&copy; <a href="{% url home %}">Andrey Shipilov</a></p>
+			<p id="description">Twitter limits the daily tweets amount to&nbsp;somewhat 1000 per day and some magical amount per hour. If&nbsp;anyone knows how to&nbsp;deal with it&nbsp;&mdash; <a href="mailto:a@andreyshipilov.ru">mail</a> me&nbsp;please. Thanks.</p>
+		</div>
+	</div>
+	<div id="counters">
+		<!--LiveInternet counter--><script type="text/javascript">document.write("<a href='http://www.liveinternet.ru/click' target=_blank><img src='http://counter.yadro.ru/hit?t41.6;r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u" + escape(document.URL) + ";" + Math.random() + "'><\/a>")</script><!--/LiveInternet-->
+	</div>
+</body>
+</html>{% endspaceless %}

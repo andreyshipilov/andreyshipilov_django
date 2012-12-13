@@ -1,0 +1,28 @@
+html	{background: url('/s/everyone-twitter-bg-stripe.jpg') 0 0 repeat-x #6fa4bd;}
+body	{background: url('/s/everyone-twitter-bg.jpg') 50% 0 no-repeat; font: normal 1em/1.3em "Helvetica Neue", Helvetica, Arial, sans-serif; margin: 0; padding: 0; min-width: 900px;}
+h1	{font: bold 1.4em "Helvetica Neue", Helvetica, Arial, sans-serif; text-align: center; color: #262626; text-shadow: 0 1px 1px #b7d7e3; margin: 0 0 0.5em;}
+a	{color: #356680;}
+a:hover	{color: #3f7c9c;}
+h2	{font: normal 20px/25px "Helvetica Neue", Helvetica, Arial, sans-serif; text-align: center; margin: 0.5em 0 0;}
+	h2 b	{border: 2px solid #fff; background-color: #262626; color: #fff; border-radius: 30px; -moz-border-radius: 30px; -webkit-border-radius: 30px; height: 25px; width: 25px; display: inline-block; font-weight: normal;}
+
+#everyone_tweet	{width: 500px; margin: 0 auto; padding: 150px 0 50px;}
+#twitter-container	{background-color: #fff; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 8px 10px; line-height: 0;}
+	#text	{font: normal 1.3em/1.3em "Helvetica Neue", Helvetica, Arial, sans-serif; width: 474px; height: 3em; color: #222; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border: 1px solid #eee; outline-color: #b5d5e3; resize: none;}
+	#submit-container	{text-align: right; margin-top: 5px; position: relative;}
+		#submit	{font: bold 1em "Helvetica Neue", Helvetica, Arial, sans-serif; color: #fff; padding: 3px 20px; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border: none; background-color: #356680; text-shadow: 0 -1px 1px #2f5a71;}
+#status	{display: none; position: absolute; top: 0; left: 0; width: 100%; color: #fff; font: normal 1em "Helvetica Neue", Helvetica, Arial, sans-serif;}
+	#status div	{margin: 5px 10px; text-align: center;}
+	.error	{background-color: red !important;}
+	.notice	{background-color: #fff !important; color: #222 !important;}
+#counter-container	{position: absolute; top: 15px; height: 30px;}
+#counter	{padding: 0 3px; font-size: 0.8em; color: #808080;}
+	.counter-error	{color: #fff !important; background-color: red; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;}
+#fuck-that	{background: url('/m/fuck-that.png') 0 0 no-repeat transparent; width: 168px; height: 200px; position: fixed; bottom: 0; right: 0;}
+#shares	{position: absolute; top: 50px; left: 7%;}
+#counters	{position: absolute; top: -999px;}
+#copyright	{margin-top: 2em; font-size: 0.9em;}
+	#copyright a	{text-shadow: 0 1px 1px #b7d7e3; color: #262626;}
+	#copyright a:hover	{color: #555;}
+		#description	{width: 130px; font-size: 0.8em; line-height: 1.4em;}
+#map	{height: 600px;}

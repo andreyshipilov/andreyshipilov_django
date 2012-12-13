@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% load localeurl_tags i18n compress %}
+
+{% block subtitle %}Curriculum Vitae{% endblock %}
+
+{% block all_content %}
+	{% if LANGUAGE_CODE == 'ru' %}
+		<h1>Curriculum Vitae.</h1>
+		<p>На русском языке мне эта страница никогда не помогала, потому что её никто не читает в России. Смотрите раздел <a href="{% url projects %}">проекты</a>.</p>
+		<p>Спасибо.</p>
+	{% else %}
+	<section id="cv">
+		<div id="cv-basic" class="clearfix">
+			<div style="float: left; width: 40%;">
+				<p>Web Developer since 2004.<br />Australia, SA, Adelaide, 5044.<br />Cell: +61 466 492 380.<br /><a href="mailto:a@andreyshipilov.com">a@andreyshipilov.com</a></p>
+			</div>
+			<div style="float: left; width: 60%;">
+				
+			{% comment %}
+				<!--h1 style="font-size: 2em; line-height: 1em;">Curriculum Vitae.<br />Resume.</h1-->
+				<!--ul class="list">
+					<li>I'm a web developer since 2004.</li>
+					<li>Worked for leading web studios of Russia for over 3 years.</li>
+					<li>I've sucessfully finished over a hundred of projects.</li>
+					<li>Projects range from one-page HTML to a full-wide governmental websites.</li>
+					<li>I know the words like xHTML, CSS3, JavaScript, hCard, SQL, cookies and stuff.</li>
+					<li>I do cross-platform cross-browser compatible web services and sites.</li>
+					<li>I prefer MySQL over sqlite, and I choose AJAX over dynamic HTML.</li>
+					<li>Mainly I use Python and Django framework.</li>
+					<li>I choose Nginx over Apache, and uWSGI over Fast CGI.</li>
+					<li>For easy web scripting I use <a href="http://www.parser.ru/en/">Parser3</a> in some cases.</li>
+					<li>I love when my websites work in all known browsers and devices.</li>
+					<li>And yes, I don't like PHP and I use Windows<sup>&reg;</sup>, but I don't like it either.</li>
+				</ul>
+				<br /><br /-->
+			{% endcomment %}	
+			</div>
+		</div>
+
+		<div class="clearfix">
+			<div style="float: left; width: 35%; padding-right: 5%;">
+				<h1>Professional&nbsp;summary</h1>
+				<p>Web developer since 2004. Proficient knowledge and extensive use of&nbsp;main web technologies and standards. Absolute and valid xHTML and CSS compliance with all devices. Expert usage of&nbsp;JavaScript and JavaScript frameworks. Database structure design, subsequent development and&nbsp;support.</p>
+				<p>Experienced knowledge of&nbsp;Adobe CS&nbsp;software including Photoshop, Illustrator. Developer of&nbsp;<span class="nobr">AJAX-only</span> driven multiuser websites using Python, Django framework and <span class="nobr">Django-based</span> applications. Highload Apache or&nbsp;Nginx, uWSGI or&nbsp;FastCGI backend development and support. Strict SEO compatible website development and Internet advertising management. Advanced Windows or&nbsp;Mac OS&nbsp;user, including a&nbsp;bulk of&nbsp;development software and&nbsp;tools.</p>
+				<h1>Qualifications</h1>
+				<p>Bachelor of&nbsp;Science, Engineering. People&rsquo;s Friendship University of&nbsp;Russia (2001&mdash;2006). Qualification of&nbsp;Interpreter from the English Language into Russian in&nbsp;Technical Specialties&nbsp;(2006).</p>
+
+				<h1>Notable projects</h1>
+				<p>"<a href="{% url projects %}i-farmer/">Become a Farmer</a>" Governmental Programme. <a href="http://conversgroup.anatolyzenkov.com/">Converse Group</a> website. <a href="{% url projects %}yes-credit/">Yes Credit</a>. PricewaterhouseCoopers' "<a href="{% url projects %}fastfacts/">FastFacts</a>". <a href="{% url projects %}prometheus-group/">Prometheus Group</a>. <a href="{% url projects %}rosa-khutor/">Rosa Khutor</a> Olympic Games Course. <a href="{% url projects %}iba/">Intellectual Building Agency</a>. "<a href="{% url projects %}bng-models/">BNG Models</a>" Modelling Agency. Cartoon Network’s <a href="{% url projects %}ben-10/">“Ben 10” Tournament</a>. <a href="{% url projects %}advanza/">Advanza</a> Event Management Agency. “<a href="{% url projects %}marussia/">Marussia</a>” car.</p>
+			</div>
+			<div style="float: left; width: 60%;">
+				<h1>Skills and&nbsp;technologies</h1>
+				<p>Web design, development and programming. Strict and valid xHTML coding. Strict and valid CSS coding. Native JavaScript development. jQuery, MooTools, ExtJS, Raphael, Google Web Toolkit JavaScript frameworks extensive use. AJAX development using JSON, XML, Yaml&nbsp;serialization.</p>
+				<p>Python web and software development. Django and custom Django applications development and support. <span class="nobr">Model-View-Controller</span> and <span class="nobr">Model-View-Template</span> websites development. uWSGI and FastCGI driven backends&nbsp;development.</p>
+				<p>Web crawling and scraping software development. Multiuser and multilanguage websites development. Database design and query optimization via ORM or&nbsp;raw SQL. Nginx and Apache web servers&nbsp;configuration.</p>
+				<p>Web systems administration. CMS development and administration. Technical and creative content writing. Strict SEO compliance, marketing and market research. Occasional website and logo design. Digital retouch and technical design. Familiarity with many other web technologies and design&nbsp;software.</p>
+				<ul class="list"><li>Operating systems: Microsoft Windows (NT, 95, 98, 2000, XP, Vista, 7), Apple Mac&nbsp;OS&nbsp;X.</li><li>Office software: Microsoft Word, Microsoft Excel, OpenOffice Writer, OpenOffice Calc, Adobe&nbsp;Acrobat.</li><li>Web technologies: HTML, CSS, native JavaScript, Python, PIL, Django, third party Django Apps, Parser3, XSL/XSLT, XML, AJAX, JSON, YAML, web scraping, Google Maps&nbsp;API.</li><li>JavaScript frameworks: jQuery, ExtJS, MooTools, Raphael, Google Web&nbsp;Toolkit.</li><li>CAD software: Autodesk AutoCAD, Graphisoft ArchiCAD, Autodesk 3D Studio&nbsp;Max.</li><li>Development software: Komodo, Eclipse IDE, Adobe Dreamweaver, FAR Manager,&nbsp;Putty.</li><li>Graphic software: Adobe Photoshop, Adobe Illustrator, Adobe 3D Studio Max, Adobe&nbsp;Lightroom.</li><li>Web browsers: Microsoft Internet Explorer versions from 6 to&nbsp;latest. Google Chrome. Mozilla FireFox versions from 2 to&nbsp;latest. Opera versions from 9 to&nbsp;latest. Apple Safari. Mobile versions of&nbsp;web browsers for&nbsp;testing.</li></ul>
+			</div>
+		</div>
+
+		<div id="cv-employment" class="clearfix">
+			<div style="float: left; width: 35%; padding-right: 5%; text-align: right;">
+				<h1>&nbsp;</h1>
+				
+				<p><i>June 2012 &mdash; {% now "F j, Y" %}</i><br />Lead Web Developer/Designer<br /><a href="http://www.wkndcrew.com/">“WKND Crew”</a><br />Adelaide, SA, Australia<br />Founder: Jimmy Zamani, +61 406 198 803</p>
+			</div>
+			<div style="float: left; width: 60%;">
+				<h1>Employment history</h1>
+				
+				<p>Python/Django development of&nbsp;a&nbsp;new web service and mobile version from scratch. XHTML, CSS, JavaScript, jQuery, Python, Django, AJAX and much more. Website design. Technical design. Web Marketing, and SEO. Building and programming intelligent contemporary features into the website. Facebook <span class="nobr">multi-user</span> application development. iOS development in&nbsp;the future. Integrating mobile app with existing web service, replacing mobile&nbsp;version.</p>
+				<ul class="list"><li>Python/Django development of&nbsp;a&nbsp;new web service and mobile version from&nbsp;scratch.</li><li>XHTML, CSS, JavaScript, jQuery, Python, Django, AJAX and much&nbsp;more.</li><li>Website design. Technical&nbsp;design.</li><li>Web Marketing, and&nbsp;SEO.</li><li>Building and programming intelligent contemporary features into the&nbsp;website.</li><li>Facebook <span class="nobr">multi-user</span> application&nbsp;development.</li><li>iOS development in&nbsp;the future. Integrating mobile app with existing web service, replacing mobile&nbsp;version.</li></ul>
+				<hr />
+			</div>
+
+			<div class="clear"></div>
+			<div style="float: left; width: 35%; padding-right: 5%; text-align: right;">
+				<p><i>September&mdash;November 2012</i><br />Backend/Frontend Web Developer<br />Mitimes Pty Ltd<br />Adelaide, SA, Australia</p>
+			</div>
+			<div style="float: left; width: 60%;">
+				<p>A&nbsp;startup project backend and frontend development and support.</p>
+				<ul class="list"><li>Google App Engine, Python, Django development and refactoring.</li><li>XHTML, CSS, JavaScript, jQuery, AJAX front end development.</li><li>iPhone/iPad&nbsp;optimization.</li></ul>
+				<hr />
+			</div>
+
+			<div class="clear"></div>
+			<div style="float: left; width: 35%; padding-right: 5%; text-align: right;">
+				<p><i>July 2010 &mdash; {% now "F j, Y" %}</i><br />Self-employed Web Developer<br />Freelance</p>
+			</div>
+			<div style="float: left; width: 60%;">
+				<p>Own clients. Direct client relations. Freelance team development. Designing and programming websites and services from scratch to&nbsp;finish. And all of the below. Python, Django, xHTML, CSS, XML, JavaScript, AJAX, jQuery, MooTools, extJS, Photoshop, Illustrator, Corel, CAD, 3D Max, MySQL, sqlite,&nbsp;Postgres.</p>
+
+				<p>Governmental projects, including Olympic websites and nationwide financial programmes. Highload websites. Own clients. Direct client relations. Client search and successful project starts. Freelance team development and lead. Designing and programming websites and services from scratch to&nbsp;end. Creative projects and&nbsp;services.</p>
+				<h2>Responsibilities</h2>
+				<ul class="list"><li>Content management and support for every built&nbsp;website.</li><li>XHTML, CSS, JavaScript, Python, Parser3 coding. Occasional PHP, Ruby&nbsp;coding.</li><li>Transfered almost every client onto Django framework based&nbsp;websites.</li><li>Supported all the previously developed&nbsp;websites.</li><li>Website design. Digital retouch. Technical&nbsp;design.</li><li>Web Marketing, and SEO on&nbsp;every&nbsp;website.</li><li>Developed a&nbsp;web scraping Python based software collecting the info hourly from almost 50&nbsp;websites.</li><li>Estimated project cost, expenses and risks directly with&nbsp;client.</li><li>Built and programmed intelligent features into the&nbsp;websites.</li><li>Built solely AJAX driven&nbsp;websites.</li><li>Facebook and VK.com <span class="nobr">multi-user</span> applications&nbsp;development.</li></ul>
+				<h2>Achievements</h2>
+				<ul class="list"><li>Solving any backend objective using Python and&nbsp;Django.</li><li>Successfully collaborated with development teams and freelance developers across the&nbsp;world.</li><li>Successfully finished governmental web&nbsp;projects.</li><li>Extensively used lots of&nbsp;web technologies, open source applications and&nbsp;libraries.</li><li>Completed a&nbsp;number of&nbsp;creative projects that were highlighted all over Internet (&laquo;Everyone Tweet&raquo;,&nbsp;&laquo;IOGraphica&raquo;)</li><li>Developed a&nbsp;team of&nbsp;freelance developers, designers, managers and&nbsp;testers.</li><li>Designed and programmed a&nbsp;number of&nbsp;websites that were ranked as&nbsp;&laquo;Site of&nbsp;the month&raquo; for the Russian Best Website&nbsp;competition.</li><li>Build large governmental websites, national financial websites, highload Olympic related&nbsp;websites.</li></ul>
+				<hr />
+			</div>
+
+			<div class="clear"></div>
+			<div style="float: left; width: 35%; padding-right: 5%; text-align: right;">
+				<p><i>2009 &mdash; 2010</i><br />Outsource Web Designer, HTML/CSS Coder<br /><a href="http://www.luxoft.ru/">Luxoft</a>, <a href="http://www.vicman.ru/">Vicman Soft</a><br />Russia, Moscow</p>
+			</div>
+			<div style="float: left; width: 60%;">
+				<h2>Responsibilities</h2>
+				<ul class="list"><li>Designed a&nbsp;number of&nbsp;websites. Lots of&nbsp;Photoshop templates every day. Logos and complete web&nbsp;pages.</li><li>XHTML, CSS, JavaScript&nbsp;coding.</li><li>Testing web sites on&nbsp;every platform, every&nbsp;browser.</li><li>Estimated project cost and&nbsp;expenses.</li><li>Designed and programmed intelligent features into the&nbsp;websites.</li></ul>
+				<h2>Achievements</h2>
+				<ul class="list"><li>Worked in&nbsp;a&nbsp;stressful environment without moving the&nbsp;deadlines.</li><li>Moved designer skills to&nbsp;a&nbsp;completely new&nbsp;level.</li></ul>
+				<hr />
+			</div>
+
+			<div class="clear"></div>
+			<div style="float: left; width: 35%; padding-right: 5%; text-align: right;">
+				<p><i>July 2007 &mdash; July 2010</i><br />Lead Web Developer<br /><a href="http://www.whitespace.ru/">White Space Studio</a><br />Russia, Moscow</p>
+			</div>
+			<div style="float: left; width: 60%;">
+				<p>Own business. Own clients. Client search. Designing and programming websites and services from scratch to&nbsp;finish. Planning, design and implementation of&nbsp;complete web sites. Over 30 projects and&nbsp;websites.</p>
+				<h2>Responsibilities</h2>
+				<ul class="list"><li>Managed client&nbsp;relationships.</li><li>Content management and support for over 30&nbsp;websites.</li><li>XHTML, CSS, JavaScript, Parser3&nbsp;coding.</li><li>Developed custom CMS for the use on&nbsp;all of&nbsp;ongoing&nbsp;websites.</li><li>Testing web sites on&nbsp;every platform, every&nbsp;browser.</li><li>Create macroses for large databases batch&nbsp;processing.</li><li>Occasional website design. Digital&nbsp;retouch.</li><li>Database normalization. Query&nbsp;optimization.</li><li>Web Marketing, and SEO on&nbsp;every&nbsp;website.</li><li>Managed client relationships, and finances. Estimated project cost and&nbsp;expenses.</li><li>Built and programmed intelligent features into the&nbsp;websites.</li></ul>
+				<h2>Achievements</h2>
+				<ul class="list"><li>Founded own&nbsp;company.</li><li>Had own client&nbsp;base.</li><li>Successfully started and finished over 30 web&nbsp;projects.</li><li>Designed and programmed company website, that was ranked as&nbsp;&laquo;Site of&nbsp;the month&raquo; for the Russian Best Website&nbsp;competition.</li><li>Always met most extreme deadlines&nbsp;ever.</li><li>Lead developer, project manager and team leader at&nbsp;a&nbsp;single&nbsp;position.</li><li>Developed planning and communication skills due to&nbsp;direct client&nbsp;relations.</li></ul>
+				<hr />
+			</div>
+                        
+			<div class="clear"></div>
+			<div style="float: left; width: 35%; padding-right: 5%; text-align: right;">
+				<p><i>February 2005 &mdash; July 2007</i><br />Web Developer, HTML CSS JS Developer<br /><a href="http://www.teletype.ru/">TeleType Studio</a><br />Russia, Moscow</p>
+			</div>
+			<div style="float: left; width: 60%;">
+				<p>A&nbsp;subdivision of&nbsp;Art. Lebedev Studio. Programming websites from scratch. PSD to&nbsp;HTML/CSS conversion from pure scratch. Lead web developer for the last year of&nbsp;work. Team building and management. Optimizing existing websites to&nbsp;work in&nbsp;every known browser. Websites content management and support. Direct contact with customers. Extensive use of&nbsp;all web technologies. Over 50 projects and&nbsp;websites.</p>
+				<h2>Responsibilities</h2>
+				<ul class="list"><li>Content management and support for over 100&nbsp;websites.</li><li>XHTML, CSS, XML/XSLT&nbsp;coding.</li><li>Custom JavaScript library&nbsp;development.</li><li>Testing web sites on&nbsp;every platform, every&nbsp;browser.</li><li>Database normalization. Query&nbsp;optimization.</li></ul>
+				<h2>Achievements</h2>
+				<ul class="list"><li>Always met extreme&nbsp;deadlines.</li><li>Became Lead&nbsp;developer.</li><li>Developed planning and communication skills due to&nbsp;direct client&nbsp;relations.</li><li>Learned a&nbsp;huge number of&nbsp;web&nbsp;technologies.</li></ul>
+				<hr />
+			</div>
+
+			<div class="clear"></div>
+			<div style="float: left; width: 35%; padding-right: 5%; text-align: right;">
+				<p><i>September 2004 &mdash; February 2005</i><br />Web Developer, HTML Coder<br /><a href="http://www.design.ru/">Art. Lebedev Studio</a><br />Russia, Moscow</p>
+			</div>
+			<div style="float: left; width: 60%;">
+				<p>Largest design studio web developer/coder responsibilities. PSD to&nbsp;HTML/CSS coding from scratch or&nbsp;support. Optimizing existing website to&nbsp;work in&nbsp;every known browser. Websites content management and support. Indirect contact with&nbsp;customers.</p>
+				<h2>Responsibilities</h2>
+				<ul class="list"><li>Content&nbsp;management.</li><li>HTML and CSS&nbsp;coding.</li><li>JavaScript&nbsp;development.</li><li>Testing web sites on&nbsp;every platform, every&nbsp;browser.</li><li>Converting paper documents into web&nbsp;format.</li><li>Client feedback&nbsp;analysis.</li></ul>
+				<h2>Achievements</h2>
+				<ul class="list"><li>Always met extreme&nbsp;deadlines.</li><li>Became efficient in&nbsp;<span class="nobr">multi-tasking</span> on&nbsp;projects, due to&nbsp;a&nbsp;large number&nbsp;of&nbsp;clients.</li><li>Developed planning and communication&nbsp;skills.</li><li>Learned how to&nbsp;work in&nbsp;a&nbsp;team of&nbsp;over hundred&nbsp;people.</li><li>Once had to&nbsp;code 60 paper pages into web format in&nbsp;3&nbsp;hours.</li></ul>
+			</div>
+		</div>
+
+		{% comment %}
+		<div id="cv-projects" class="clearfix">
+			<div style="float: left; width: 40%;">
+				<h1>Notable projects</h1>
+				<ul class="list">
+					<li>"<a href="{% url projects %}i-farmer/">Become a Farmer</a>" Governmental Programme.</li>
+					<li><a href="http://conversgroup.anatolyzenkov.com/">Converse Group</a> website.</li>
+					<li><a href="{% url projects %}yes-credit/">Yes Credit</a>.</li>
+					<li>PricewaterhouseCoopers' "<a href="{% url projects %}fastfacts/">FastFacts</a>".</li>
+					<li><a href="{% url projects %}prometheus-group/">Prometheus Group</a>.</li>
+					<li><a href="{% url projects %}rosa-khutor/">Rosa Khutor</a> Olympic Games Course.</li>
+					<li><a href="{% url projects %}iba/">Intellectual Building Agency</a>.</li>
+					<li>"<a href="{% url projects %}bng-models/">BNG Models</a>" Modelling Agency.</li>
+					<li>Cartoon Network’s <a href="{% url projects %}ben-10/">“Ben 10” Tournament</a>.</li>
+					<li><a href="{% url projects %}advanza/">Advanza</a> Event Management Agency.</li>
+					<li>“<a href="{% url projects %}marussia/">Marussia</a>” car.</li>
+				</ul>
+			</div>
+		</div>
+		{% endcomment %}
+	</section>
+	{% endif %}
+{% endblock %}
