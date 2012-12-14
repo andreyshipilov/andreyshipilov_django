@@ -33,6 +33,12 @@ DATABASES = {
     }
 }
 DATABASE_STATEMENT_TIMEOUT = 2 * 60 * 1000
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/home/tezro/django_projects/andreyshipilov/django_cache',
+    }
+}
 
 EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_PORT = '25'

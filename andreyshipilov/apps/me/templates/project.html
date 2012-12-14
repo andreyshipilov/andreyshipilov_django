@@ -17,7 +17,7 @@
 				{% if project.text %}<p id="project-text">{{ project.text|safe|typogrify }}</p>{% endif %}
 
 				{% if project.participation_set.count %}
-					{% for i in project.participation_set.language.all %}
+					{% for i in project.participation_set.all %}
 						<p class="participant">{% for r in i.role.language.all %}{% if forloop.first %}{{ r|capfirst }}{% else %}{{ r }}{% endif %}{% if not forloop.last %}, {% endif %}{% endfor %}: <i>{% if i.participant.link %}<a href="{{ i.participant.link }}" title="{{ i.participant }}">{% endif %}{{ i.participant }}{% if i.participant.link %}</a>{% endif %}</i></p>
 					{% endfor %}
 				{% endif %}
