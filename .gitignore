@@ -5,5 +5,7 @@
 .coverage
 local_settings.py
 secret_info.py
-andreyshipilov/static/media
+fabfile.py
 dev.db
+uwsgi
+andreyshipilov/static/media

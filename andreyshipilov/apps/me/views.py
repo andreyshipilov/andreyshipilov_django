@@ -27,7 +27,7 @@ def cv(request):
     return render(request, 'cv.html',)
 
 
-#@cache_page(CACHE['hour'] * 2)
+@cache_page(CACHE['hour'])
 def index(request):
     tweets, twitter_info = cache.get('tweets'), cache.get('twitter_info')
 
@@ -64,7 +64,7 @@ def projects(request):
     })
 
 
-@cache_page(CACHE['day'])
+@cache_page(CACHE['hour'])
 def type_or_project(request, slug):
     objects = Project.get_published().filter(project_type__slug = slug)
 
