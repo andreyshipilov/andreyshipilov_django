@@ -9,5 +9,6 @@ fabfile.py
 dev.db
 uwsgi
 andreyshipilov/static/media
+andreyshipilov/static/admin
 andreyshipilov/static/zip
 andreyshipilov/static/project_archives
