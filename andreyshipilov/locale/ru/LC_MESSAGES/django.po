@@ -5116,13 +5116,22 @@ msgid "I tweet rarely"
 msgstr "Я пишу редко"
 
 #: templates/index.html:49
-msgid "tweets"
-msgstr ""
+msgid "tweet"
+msgid_plural "tweets"
+msgstr[0] "твит"
+msgstr[1] "твита"
+msgstr[2] "твитов"
 
 #: templates/index.html:49
-msgid "followers"
-msgstr ""
+msgid "follower"
+msgid_plural "followers"
+msgstr[0] "апостол"
+msgstr[1] "апостола"
+msgstr[2] "апостолов"
 
 #: templates/index.html:49
-msgid "friends"
-msgstr ""
+msgid "friend"
+msgid_plural "friends"
+msgstr[0] "друг"
+msgstr[1] "друга"
+msgstr[2] "друзей"
