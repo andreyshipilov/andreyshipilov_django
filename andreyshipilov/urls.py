@@ -4,10 +4,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 
 from localeurl.sitemaps import LocaleurlSitemap
+from localeurl.models import patch_reverse
 
 from me.models import Project
 
 
+patch_reverse()
 admin.autodiscover()
 
 urlpatterns = patterns('',
