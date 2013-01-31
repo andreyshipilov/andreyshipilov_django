@@ -73,6 +73,8 @@ class Project(TranslatableModel):
     translations = TranslatedFields(
         explict_title = models.CharField(max_length=250,),
         title = models.CharField(max_length=250, blank=True,),
+        verbose_link = models.CharField(max_length=100, blank=True,),
+        verbose_link_text = models.CharField(max_length=100, blank=True,),
         text = models.TextField(blank=True,),
         client = models.TextField(blank=True,),
     )

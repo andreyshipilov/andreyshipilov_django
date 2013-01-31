@@ -27,7 +27,7 @@ def cv(request):
     return render(request, 'cv.html',)
 
 
-@cache_page(CACHE['hour'])
+@cache_page(CACHE['hour'] * 4)
 def index(request):
     tweets, twitter_info = cache.get('tweets'), cache.get('twitter_info')
 
@@ -59,7 +59,7 @@ def index(request):
     })
 
 
-@cache_page(CACHE['hour'])
+@cache_page(CACHE['hour'] * 4)
 def projects(request):
     return render(request, 'projects.html', {
         'project_types': ProjectType.objects.language().all().distinct(),
@@ -67,7 +67,7 @@ def projects(request):
     })
 
 
-@cache_page(CACHE['hour'])
+@cache_page(CACHE['hour'] * 4)
 def type_or_project(request, slug):
     objects = Project.get_published().filter(project_type__slug = slug)
 

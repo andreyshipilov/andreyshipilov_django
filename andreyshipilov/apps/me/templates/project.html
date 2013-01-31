@@ -6,11 +6,13 @@
 {% block all_content %}
 	<section id="project">
 		<h1>{{ project.title|typogrify }}</h1>
+
 		{% comment %}{% if project.link %}
 			<section>
 				<a href="{{ project.link }}" id="project-link">{{ project.link }}</a>
 			</section>
 		{% endif %}{% endcomment %}
+
 		<aside id="project-left-column" style="background-image: url('{{ project.image.thumbnail }}');"></aside>
 		<aside id="project-right-column">
 			<div>
@@ -28,11 +30,16 @@
 				
 				<p id="project-tags">{% for i in project.project_type.language.all %}<span title="{{ i.title }}">{% if forloop.first %}{{ i.title|capfirst }}{% else %}{{ i.title }}{% endif %}</span>{% if not forloop.last %}, {% endif %}{% endfor %}.</p>
 
-
-				{% if project.is_alive and project.link %}
-					<p>
-						<a href="{{ project.link }}" title="{{ project.title }}" id="project-link-button">{% trans "Visit" %} {{ project.link|cut:"http://"|cut:"/" }}</a>
-					</p>
+				{% if project.is_alive %}
+					{% if project.verbose_link and project.verbose_link_text %}
+						<p>
+							<a href="{{ project.verbose_link }}" title="{{ project.title }}" id="project-link-button">{{ project.verbose_link_text }}</a>
+						</p>
+					{% elif project.link %}
+						<p>
+							<a href="{{ project.link }}" title="{{ project.title }}" id="project-link-button">{% trans "Visit" %} {{ project.link|cut:"http://"|cut:"/" }}</a>
+						</p>
+					{% endif %}
 				{% else %}
 					{% if project.has_archive %}
 						<p>
@@ -44,13 +51,16 @@
 			</div>
 		</aside>
 	</section>
+
 	<section id="previous-next-projects">
 		<div id="next-project">{% if next %}<a href="{{ next.get_absolute_url }}" title="{{ next.title }}">{% trans "Next project" %}</a>{% endif %}&nbsp;<span id="next-project-title">{{ next.title }}</span></div>
 		{% if previous %}<div id="previous-project"><span id="previous-project-title">{{ previous.title }}</span>&nbsp;<a href="{{ previous.get_absolute_url }}" title="{{ previous.title }}">{% trans "Previous project" %}</a></div>{% endif %}
 	</section>
+
 	{% if has_screenshots %}
 		<section id="screenshots">
 			<header>{% trans "Website screenshots" %}</header>
+
 			<div id="screenshots-container" class="clearfix">
 				{% with project.title as title %}
 				{% for s in project.screenshot_set.all %}
@@ -79,6 +89,7 @@
 
 {% block compressed_js %}
 	{{ block.super }}
+
 	{% if has_screenshots %}
 		<script type="text/javascript" src="{{ STATIC_URL }}jquery.masonry.js"></script>
 		<script type="text/javascript">
