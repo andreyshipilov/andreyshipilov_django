@@ -17,18 +17,32 @@
 
 	{% compress js %}
 		{% block compressed_js %}
+			<script type="text/javascript" src="{{ STATIC_URL }}konami.js"></script>
 			<script type="text/javascript" src="{{ STATIC_URL }}jquery.base.js"></script>
 			<script type="text/javascript"> 
-				var $buoop = {} ;
-				$buoop.ol = window.onload; 
-				window.onload=function(){ 
-					try {if ($buoop.ol) $buoop.ol();}catch (e) {} 
-					var e = document.createElement("script"); 
-					e.setAttribute("type", "text/javascript"); 
-					e.setAttribute("src", "http://browser-update.org/update.js"); 
-					document.body.appendChild(e); 
-				} 
-			</script> 
+				var konami, buoop = {} ;
+
+				buoop.ol = window.onload; 
+				window.onload = function(){ 
+					try {
+						if (buoop.ol) buoop.ol();
+					} catch (e) {}
+
+					var e = document.createElement("script");
+
+					e.setAttribute("type", "text/javascript");
+					e.setAttribute("src", "http://browser-update.org/update.js");
+					document.body.appendChild(e);
+				}
+
+				konami = new Konami(function(){
+					var s = document.createElement("script");
+
+					s.setAttribute("src", "http://kathack.com/js/kh.js");
+					document.body.appendChild(s);
+				});
+			</script>
+
 			{% if not debug %}
 				<script type="text/javascript">
 					// Google
