@@ -131,7 +131,10 @@ THUMBNAIL_QUALITY = 80
 
 # Compressor
 COMPRESS_OUTPUT_DIR = 'zip'
-COMPRESS_CSS_FILTERS = ['compressor.filters.cssmin.CSSMinFilter',]
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.cssmin.CSSMinFilter',
+    'compressor.filters.css_default.CssAbsoluteFilter',
+]
 
 # Debug Toolbar and shit
 INTERNAL_IPS = ('127.0.0.1',)
