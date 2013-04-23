@@ -4,6 +4,7 @@ from django.shortcuts import get_object_or_404, get_list_or_404, render
 from django.http import HttpResponse
 from django.template.context import RequestContext
 from django.views.decorators.cache import cache_page
+from django.views.decorators.csrf import csrf_exempt
 from django.core.cache import cache
 from django.db.models import Count
 from django.utils.html import strip_tags
@@ -97,6 +98,7 @@ def type_or_project(request, slug):
         })
 
 
+@csrf_exempt
 def everyone_tweet(request):
     if request.method == 'POST':
         text = strip_tags(request.POST.get('text', ''))
