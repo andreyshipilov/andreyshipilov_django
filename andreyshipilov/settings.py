@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-import re, sys
+import re
+import sys
 from os.path import join, abspath, dirname
 
 from secret_info import *
