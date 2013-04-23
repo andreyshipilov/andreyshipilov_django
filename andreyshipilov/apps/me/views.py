@@ -30,22 +30,16 @@ def cv(request):
 
 @cache_page(CACHE['hour'] * 4)
 def index(request):
-    tweets, twitter_info = cache.get('tweets'), cache.get('twitter_info')
+    try:
+        tweets = tweepy.api.user_timeline('andreyshipilov')
+    except:
+        tweets = None
 
-    if not tweets:
-        try:
-            tweets = tweepy.api.user_timeline('andreyshipilov')
-            cache.set('tweets', tweets[0], CACHE['hour'])
-        except:
-            tweets = None
+    try:
+        twitter_info = tweepy.api.get_user("andreyshipilov")
+    except:
+        twitter_info = None
 
-
-    if tweets and not twitter_info:
-        try:
-            twitter_info = tweepy.api.get_user("andreyshipilov")
-            cache.set('twitter_info', twitter_info, CACHE['hour'])
-        except:
-            twitter_info = None
 
     if tweets and twitter_info:
         frequency = (datetime.today() - twitter_info.created_at).days / len(tweets)
