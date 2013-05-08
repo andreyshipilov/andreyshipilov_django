@@ -23,7 +23,7 @@ CACHE = {
 }
 
 
-#@cache_page(CACHE['day'])
+@cache_page(CACHE['day'])
 def cv(request):
     return render(request, 'cv.html',)
 
