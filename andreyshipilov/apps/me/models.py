@@ -45,6 +45,8 @@ class Project(TranslatableModel):
     is_published = models.BooleanField(default=False, db_index=True,)
     is_alive = models.BooleanField(default=False, db_index=True,
                                    help_text=u'Screenshots will be shown if is not alive.',)
+    is_notable = models.BooleanField(default=False,
+                                     help_text=u'Will be shown in CV.',)
     has_archive = models.BooleanField(default=False, db_index=True,)
     date = models.DateField(db_index=True,)
     slug = models.SlugField(max_length=200,)
@@ -94,11 +96,15 @@ class Project(TranslatableModel):
         return Project.objects.language().filter(is_published=True) \
                       .order_by('-date')
 
+    @staticmethod
+    def get_notable():
+        return Project.get_published().filter(is_notable=True)
+
     def get_screenshot_count_string(self):
         count = self.screenshot_set.count()
 
         if count:
-            return "%s %s" % (count, ungettext("screenshot", "screenshots", count))
+            return "{0} {1}".format(count, ungettext("screenshot", "screenshots", count))
         else:
             return ""
 

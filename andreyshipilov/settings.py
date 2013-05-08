@@ -54,7 +54,7 @@ LANGUAGES = (
 )
 SITE_ID = 1
 USE_I18N = True
-USE_L10N = False
+USE_L10N = True
 
 MEDIA_ROOT = join(PROJECT_DIR, 'static/media')
 MEDIA_URL = '/m/'
@@ -107,8 +107,10 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.messages',
     'django.contrib.admin',
+    'django.contrib.markup',
 
     'me',
+    'cv',
 
     'compressor',
     'debug_toolbar',

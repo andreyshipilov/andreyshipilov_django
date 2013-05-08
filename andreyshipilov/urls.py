@@ -19,7 +19,7 @@ urlpatterns = patterns('',
     url(r'^$', 'me.views.index', name="home"),
     url(r'^projects/$', 'me.views.projects', name='projects'),
     url(r'^projects/(?P<slug>[-\w]+)/$', 'me.views.type_or_project', name='type_or_project'),
-    url(r'^cv/$', 'me.views.cv', name='cv'),
+    url(r'^cv/$', 'cv.views.cv', name='cv'),
     url(r'^everyone-tweet/$', 'me.views.everyone_tweet', name='everyone_tweet'),
 
     (r'^robots.txt$', include('robots.urls')),
