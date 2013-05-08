@@ -127,6 +127,8 @@
 {% endblock %}
 
 {% block compressed_js %}
+	{{ block.super }}
+	
 	<script>
 		$(function(){
 			$('#cv-employment ul').addClass('list');
