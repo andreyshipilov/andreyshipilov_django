@@ -36,8 +36,10 @@ DATABASES = {
 DATABASE_STATEMENT_TIMEOUT = 2 * 60 * 1000
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/home/tezro/django_projects/andreyshipilov/django_cache',
+#        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#        'LOCATION': '/home/tezro/django_projects/andreyshipilov/django_cache',
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': 'unix:/home/tezro/__memcached.sock',
     }
 }
 
