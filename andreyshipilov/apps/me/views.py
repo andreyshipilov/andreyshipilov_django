@@ -13,7 +13,7 @@ import tweepy
 from tweepy.error import TweepError
 
 from me.models import ProjectType, Project, Tweet
-from secret_info import *
+from secret_info import TWITTER_SECRETS
 
 
 CACHE = {
@@ -30,16 +30,23 @@ def cv(request):
 
 @cache_page(CACHE['hour'] * 4)
 def index(request):
+    auth = tweepy.OAuthHandler(
+        TWITTER_SECRETS['andreyshipilov']['consumer_key'],
+        TWITTER_SECRETS['andreyshipilov']['consumer_secret'])
+    auth.set_access_token(
+        TWITTER_SECRETS['andreyshipilov']['access_token'],
+        TWITTER_SECRETS['andreyshipilov']['access_token_secret'])
+    api = tweepy.API(auth)
+
     try:
-        tweets = tweepy.api.user_timeline('andreyshipilov')
+        tweets = api.user_timeline('andreyshipilov')
     except:
         tweets = None
 
     try:
-        twitter_info = tweepy.api.get_user("andreyshipilov")
+        twitter_info = api.get_user('andreyshipilov')
     except:
         twitter_info = None
-
 
     if tweets and twitter_info:
         frequency = (datetime.today() - twitter_info.created_at).days / len(tweets)
@@ -102,12 +109,16 @@ def everyone_tweet(request):
         country = request.POST.get('country', '')
 
         if 0 < len(text) <= 140:
-            auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-            auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
-            twitter_api = tweepy.API(auth)
+            auth = tweepy.OAuthHandler(
+                TWITTER_SECRETS['everyone_tweet']['consumer_key'],
+                TWITTER_SECRETS['everyone_tweet']['consumer_secret'])
+            auth.set_access_token(
+                TWITTER_SECRETS['everyone_tweet']['access_token'],
+                TWITTER_SECRETS['everyone_tweet']['access_token_secret'])
+            api = tweepy.API(auth)
 
             try:
-                twitter_api.update_status(status=text, lat=lat, long=lng)
+                api.update_status(status=text, lat=lat, long=lng)
                 tweet = Tweet(text=text, country=country, longitude=lng,
                               latitude=lat,)
                 tweet.save()
@@ -117,9 +128,11 @@ def everyone_tweet(request):
                     'text': 'Sent it like a boss.',
                 }
             except TweepError, e:
+                error = eval(e.reason)[0]
+                
                 r = {
                     'status': False,
-                    'text': e.reason,
+                    'text': error['message'],
                 }
 
             return HttpResponse(simplejson.dumps(r), mimetype="text/plain")
@@ -137,6 +150,7 @@ def everyone_tweet(request):
                 'status': False,
                 'text': text,
             }
+
             return HttpResponse(simplejson.dumps(r), mimetype="text/plain")
     else:
         return render(request, 'everyone_tweet.html', {
