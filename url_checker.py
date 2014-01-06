@@ -28,7 +28,7 @@ pinged_bad = []
 for i in projects:
     try:
         # Trying to get any response.
-        response = urlopen(i['link'])
+        response = urlopen(i['link'], timeout=30)
 
         if IS_VERBOSE:
             print "+ '%s' is OK" % (i['slug'],)
