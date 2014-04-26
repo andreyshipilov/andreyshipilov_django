@@ -2,20 +2,20 @@
 {% load i18n typogrify_tags compress %}
 
 {% block all_content %}
-	<h4>28 {% trans "Some text about me" %}</h4>
+	<h4>{{ AGE }} {% trans "Some text about me" %}</h4>
 	<section id="projects" class="clearfix">
 		<header><a href="{% url me.views.projects %}">{% trans "Projects" %}</a></header>
 		<section id="projects-container">
 			{% for p in projects %}
 				<a{% if forloop.first %} id="latest-project"{% endif %} class="project" href="{{ p.get_absolute_url }}" style="background-image: url('{% if forloop.first %}{{ p.image.thumbnail }}{% else %}{{ p.image.extra_thumbnails.small }}{% endif %}');" title="{{ p }}">
-					
+
 					{% comment %}
 					/// Wait untill hvad.manager.annotate is implemented
-					
+
 					{% if p.num_screenshots %}
 						<div class="screenshot-count bg-300-{% cycle "0" "1" "2" "3" "4" %}">{{ p.get_screenshot_count_string }}</div>
 					{% endif %}
-					
+
 					{% endcomment %}
 
 					<div class="title bg-{% if forloop.first %}600{% else %}300{% endif %}-{% cycle "0" "1" "2" "3" "4" %}">
