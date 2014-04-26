@@ -19,11 +19,11 @@
 		{% block compressed_js %}
 			<script type="text/javascript" src="{{ STATIC_URL }}konami.js"></script>
 			<script type="text/javascript" src="{{ STATIC_URL }}jquery.base.js"></script>
-			<script type="text/javascript"> 
+			<script type="text/javascript">
 				var konami, buoop = {} ;
 
-				buoop.ol = window.onload; 
-				window.onload = function(){ 
+				buoop.ol = window.onload;
+				window.onload = function(){
 					try {
 						if (buoop.ol) buoop.ol();
 					} catch (e) {}
@@ -79,9 +79,9 @@
 				<li>{% if not is_index %}<a href="{% url home %}">{% endif %}{% trans "Andrey Shipilov" %}{% if not is_index %}</a>{% endif %}</li>
 				{% url projects as projects_url %}
 				<li>{% ifnotequal request.path projects_url %}<a href="{{ projects_url }}"{% if request.path|contains:projects_url %} class="in"{% endif %}>{% endifnotequal %}{% trans "Projects" %}{% ifnotequal request.path projects_url %}</a>{% endifnotequal %}</li>
-				
+
 				{% url cv as cv_url %}
-				
+
 				<li>{% if LANGUAGE_CODE != 'ru' %}{% if request.path == cv_url %}CV{% else %}<a href="{{ cv_url }}">CV</a>{% endif %}{% endif %}</li>
 				<li style="display: none;"><a href="#contact" id="contact-link">{% trans "Contact me" %}</a></li>
 			</ul>

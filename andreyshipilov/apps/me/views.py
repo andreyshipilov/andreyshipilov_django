@@ -129,7 +129,7 @@ def everyone_tweet(request):
                 }
             except TweepError, e:
                 error = eval(e.reason)[0]
-                
+
                 r = {
                     'status': False,
                     'text': error['message'],

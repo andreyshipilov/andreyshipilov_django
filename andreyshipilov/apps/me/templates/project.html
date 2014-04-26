@@ -27,7 +27,7 @@
 				{% if project.client %}
 					<p id="project-client">{{ project.client|typogrify }}</p>
 				{% endif %}
-				
+
 				<p id="project-tags">{% for i in project.project_type.language.all %}<span title="{{ i.title }}">{% if forloop.first %}{{ i.title|capfirst }}{% else %}{{ i.title }}{% endif %}</span>{% if not forloop.last %}, {% endif %}{% endfor %}.</p>
 
 				{% if project.is_alive %}
