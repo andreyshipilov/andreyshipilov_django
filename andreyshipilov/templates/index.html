@@ -2,7 +2,7 @@
 {% load i18n typogrify_tags compress %}
 
 {% block all_content %}
-	<h4>{{ AGE }} {% trans "Some text about me" %}</h4>
+	<h4 id="index-header">{{ AGE }} {% trans "Some text about me"|typogrify %}</h4>
 	<section id="projects" class="clearfix">
 		<header><a href="{% url me.views.projects %}">{% trans "Projects" %}</a></header>
 		<section id="projects-container">

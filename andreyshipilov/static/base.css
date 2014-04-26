@@ -66,6 +66,7 @@ footer {padding: 0; text-align: center; color: #6b6f4f;}
 
 
 /* Index */
+#index-header {width: 50%;}
 #flickr {overflow: hidden;}
 	#flickr header a {text-transform: uppercase; color: #798d7a; text-decoration: none; font-size: 0.68em;}
 #flickr_badge_uber_wrapper {width: 9999px; height: 145px; overflow: hidden;}
