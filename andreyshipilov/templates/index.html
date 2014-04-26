@@ -73,7 +73,7 @@
 
 {% block head_appendix %}
 	<meta name='yandex-verification' content='5246c0027cc097dd' />
-	<meta name="description" content="{% trans "Andrey Shipilov" %}. 28 {% trans "Some text about me" %}" />
+	<meta name="description" content="{% trans "Andrey Shipilov" %}. {{ AGE }} {% trans "Some text about me"|striptags %}" />
 	{% with projects|first as first %}
 		<link rel="image_src" href="{{ first.image.extra_thumbnails.facebook }}" />
 	{% endwith %}
