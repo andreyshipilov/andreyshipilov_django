@@ -59,6 +59,7 @@ def index(request):
         'tweet_frequency': frequency,
         'twitter_info': twitter_info,
         'projects': Project.get_published()[:30],
+        'projects_count': Project.get_published().values('pk').count()
     })
 
 

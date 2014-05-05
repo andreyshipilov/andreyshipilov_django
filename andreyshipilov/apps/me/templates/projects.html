@@ -4,40 +4,42 @@
 {% block subtitle %}{% trans "Projects" %}{% endblock %}
 
 {% block head_appendix %}
-	{% for p in projects %}
-		<link rel="image_src" href="{{ p.image.extra_thumbnails.facebook }}" />
-	{% endfor %}
+    <meta name="description" content="{% trans "Projects" %}" />
+    <meta name="keywords" content="{% for i in project_types %}{{ i|capfirst }}{% if not forloop.last %}, {% endif %}{% endfor %}" />
+    {% for p in projects %}
+        <link rel="image_src" href="{{ p.image.extra_thumbnails.facebook }}" />
+    {% endfor %}
 {% endblock %}
 
 {% block compressed_js %}
-	<script type="text/javascript" src="{{ STATIC_URL }}jquery.projects.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}jquery.projects.js"></script>
 {% endblock %}
 
 {% block all_content %}
-	<ul id="project-types">
-		<li>{% trans "Filter" %}</li>
-		{% for item in project_types %}
-			<li><a href="{{ item.get_absolute_url }}" rel="{{ item.slug }}">{{ item|capfirst }}</a></li>
-		{% endfor %}
-	</ul>
-	<section id="projects">
-		<section id="projects-container" style="height: auto;">
-			{% for p in projects %}
-				<a{% if forloop.first %} id="latest-project"{% endif %} class="project" href="{{ p.get_absolute_url }}" style="background-image: url('{% if forloop.first %}{{ p.image.thumbnail }}{% else %}{{ p.image.extra_thumbnails.small }}{% endif %}');" title="{{ p.title }}" rel="{% for i in p.project_type.language.all %}{{ i.slug }}{% if not forloop.last %} {% endif %}{% endfor %}">
-					
-					{% comment %}
-					{% with p.get_screenshot_count_string as count_string %}
-						{% if count_string %}
-							<div class="screenshot-count bg-300-{% cycle "0" "1" "2" "3" "4" %}">{{ count_string }}</div>
-						{% endif %}
-					{% endwith %}
-					{% endcomment %}
-					
-					<div class="title bg-{% if forloop.first %}600{% else %}300{% endif %}-{% cycle "0" "1" "2" "3" "4" %}">
-						<span>{{ p.explict_title }}</span>
-					</div>
-				</a>
-			{% endfor %}
-		</section>
-	</section>
+    <ul id="project-types">
+        <li>{% trans "Filter" %}</li>
+        {% for item in project_types %}
+            <li><a href="{{ item.get_absolute_url }}" rel="{{ item.slug }}">{{ item|capfirst }}</a></li>
+        {% endfor %}
+    </ul>
+    <section id="projects">
+        <section id="projects-container" style="height: auto;">
+            {% for p in projects %}
+                <a{% if forloop.first %} id="latest-project"{% endif %} class="project" href="{{ p.get_absolute_url }}" style="background-image: url('{% if forloop.first %}{{ p.image.thumbnail }}{% else %}{{ p.image.extra_thumbnails.small }}{% endif %}');" title="{{ p.title }}" rel="{% for i in p.project_type.language.all %}{{ i.slug }}{% if not forloop.last %} {% endif %}{% endfor %}">
+
+                    {% comment %}
+                    {% with p.get_screenshot_count_string as count_string %}
+                        {% if count_string %}
+                            <div class="screenshot-count bg-300-{% cycle "0" "1" "2" "3" "4" %}">{{ count_string }}</div>
+                        {% endif %}
+                    {% endwith %}
+                    {% endcomment %}
+
+                    <div class="title bg-{% if forloop.first %}600{% else %}300{% endif %}-{% cycle "0" "1" "2" "3" "4" %}">
+                        <h3>{{ p.explict_title }}</h3>
+                    </div>
+                </a>
+            {% endfor %}
+        </section>
+    </section>
 {% endblock %}

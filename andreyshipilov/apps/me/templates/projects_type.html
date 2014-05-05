@@ -5,25 +5,25 @@
 {% block subtitle %}{{ type_title|capfirst }}{% endblock %}
 
 {% block head_appendix %}
-	{% for p in projects %}
-		<link rel="image_src" href="{{ p.image.extra_thumbnails.facebook }}" />
-	{% endfor %}
+    {% for p in projects %}
+        <link rel="image_src" href="{{ p.image.extra_thumbnails.facebook }}" />
+    {% endfor %}
 {% endblock %}
 
 {% block compressed_js %}
-	<script type="text/javascript" src="{{ STATIC_URL }}jquery.projects.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}jquery.projects.js"></script>
 {% endblock %}
 
 {% block all_content %}
-	<section id="projects">
-		<section id="projects-container" style="height: auto;">
-			{% for p in projects %}
-				<a class="project" href="{{ p.get_absolute_url }}" style="background-image: url('{{ p.image.extra_thumbnails.small }}');" title="{{ p.sexplicit_title }}">
-					<div class="title {% if forloop.first %}long-{% endif %}{% cycle "dark" "light" "medium" %}-bg">
-						<span>{{ p.explict_title }}</span>
-					</div>
-				</a>
-			{% endfor %}
-		</section>
-	</section>
+    <section id="projects">
+        <div id="projects-container">
+            {% for p in projects %}
+                <a class="project" href="{{ p.get_absolute_url }}" style="background-image: url('{{ p.image.extra_thumbnails.small }}');" title="{{ p.sexplicit_title }}">
+                    <div class="title {% if forloop.first %}long-{% endif %}{% cycle "dark" "light" "medium" %}-bg">
+                        <h3>{{ p.explict_title }}</h3>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
 {% endblock %}

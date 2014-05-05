@@ -3,148 +3,168 @@
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="google-site-verification" content="RBS4_d_XjKiL6X9y4NO7joVLKucVxfPXfjmcJ3E43_A" />
-	<title>{% block meta_title %}{% trans "Andrey Shipilov" %} / {% block subtitle %}{% trans "Index Subtitle" %}{% endblock %}{% endblock %}</title>
-	<link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold&amp;subset=cyrillic,latin" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="google-site-verification" content="RBS4_d_XjKiL6X9y4NO7joVLKucVxfPXfjmcJ3E43_A" />
+    <title>{% block meta_title %}{% trans "Andrey Shipilov" %} / {% block subtitle %}{% trans "Index Subtitle" %}{% endblock %}{% endblock %}</title>
+    <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold&amp;subset=cyrillic,latin" />
 
-	{% compress css %}
-		<link rel="stylesheet" type="text/css" media="screen,projection" href="{{ STATIC_URL }}base.css" />
-	{% endcompress %}
+    {% compress css %}
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ STATIC_URL }}base.css" />
+    {% endcompress %}
 
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
-	{% compress js %}
-		{% block compressed_js %}
-			<script type="text/javascript" src="{{ STATIC_URL }}konami.js"></script>
-			<script type="text/javascript" src="{{ STATIC_URL }}jquery.base.js"></script>
-			<script type="text/javascript">
-				var konami, buoop = {} ;
+    {% compress js %}
+        {% block compressed_js %}
+            <script type="text/javascript" src="{{ STATIC_URL }}konami.js"></script>
+            <script type="text/javascript" src="{{ STATIC_URL }}jquery.base.js"></script>
+            <script type="text/javascript">
+                var konami, buoop = {} ;
 
-				buoop.ol = window.onload;
-				window.onload = function(){
-					try {
-						if (buoop.ol) buoop.ol();
-					} catch (e) {}
+                buoop.ol = window.onload;
+                window.onload = function(){
+                    try {
+                        if (buoop.ol) buoop.ol();
+                    } catch (e) {}
 
-					var e = document.createElement("script");
+                    var e = document.createElement("script");
 
-					e.setAttribute("type", "text/javascript");
-					e.setAttribute("src", "http://browser-update.org/update.js");
-					document.body.appendChild(e);
-				}
+                    e.setAttribute("type", "text/javascript");
+                    e.setAttribute("src", "http://browser-update.org/update.js");
+                    document.body.appendChild(e);
+                }
 
-				konami = new Konami(function(){
-					var s = document.createElement("script");
+                konami = new Konami(function(){
+                    var s = document.createElement("script");
 
-					s.setAttribute("src", "http://kathack.com/js/kh.js");
-					document.body.appendChild(s);
-				});
-			</script>
+                    s.setAttribute("src", "http://kathack.com/js/kh.js");
+                    document.body.appendChild(s);
+                });
+            </script>
 
-			{% if not debug %}
-				<script type="text/javascript">
-					// Google
-					var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-791865-20']); _gaq.push(['_trackPageview']);
-					(function() {
-						var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-						ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-					})();
+            {% if not debug %}
+                <script type="text/javascript">
+                    // Google
+                    var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-791865-20']); _gaq.push(['_trackPageview']);
+                    (function() {
+                        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                    })();
 
-					// Liveinternet
-					$(function(){
-						$('#counters').html("<a href='http://www.liveinternet.ru/click' target=_blank><img src='//counter.yadro.ru/hit?t41.6;r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u" + escape(document.URL) +";h"+escape(document.title.substring(0,80)) +  ";" + Math.random() + "' border=0 width=31 height=31 alt='' title='LiveInternet'><\/a>");
-					});
-				</script>
-			{% endif %}
-		{% endblock %}
-	{% endcompress %}
+                    // Liveinternet
+                    $(function(){
+                        $('#counters').html("<a href='http://www.liveinternet.ru/click' target=_blank><img src='//counter.yadro.ru/hit?t41.6;r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u" + escape(document.URL) +";h"+escape(document.title.substring(0,80)) +  ";" + Math.random() + "' border=0 width=31 height=31 alt='' title='LiveInternet'><\/a>");
+                    });
+                </script>
+            {% endif %}
+        {% endblock %}
+    {% endcompress %}
 
-	{% block head_appendix %}{% endblock %}
-	<!--[if IE]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+    {% block head_appendix %}{% endblock %}
+    <!--[if IE]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 </head>
 <body>
-	<section id="top-bg">
-		<!-- I could do that gradient stripe using webkit and moz background properties, but IE filter accepts only two colors to be drawn vertically. And forget about Opera. I could do that using Canvas element and some JavaScript, but even without minified ExplorerCanvas.js, the JavaScript code would be the equal size as an image and css. -->
-		<img src="{{ STATIC_URL }}i/top-bg.png" alt="" />
-	</section>
+    <section id="top-bg">
+        <!-- I could do that gradient stripe using webkit and moz background properties, but IE filter accepts only two colors to be drawn vertically. And forget about Opera. I could do that using Canvas element and some JavaScript, but even without minified ExplorerCanvas.js, the JavaScript code would be the equal size as an image and css. -->
+        <img src="{{ STATIC_URL }}i/top-bg.png" alt="" />
+    </section>
 
-	<div id="page">
-		<nav id="main-nav">
-			<ul lang="{{ LANGUAGE_CODE }}">
-				<li>{% if not is_index %}<a href="{% url home %}">{% endif %}{% trans "Andrey Shipilov" %}{% if not is_index %}</a>{% endif %}</li>
-				{% url projects as projects_url %}
-				<li>{% ifnotequal request.path projects_url %}<a href="{{ projects_url }}"{% if request.path|contains:projects_url %} class="in"{% endif %}>{% endifnotequal %}{% trans "Projects" %}{% ifnotequal request.path projects_url %}</a>{% endifnotequal %}</li>
+    <div id="page">
+        <nav id="main-nav">
+            <ul lang="{{ LANGUAGE_CODE }}">
+                <li>
+                    {% if is_index %}
+                        <h1>{% trans "Andrey Shipilov" %}</h1>
+                    {% else %}
+                        <a href="{% url home %}">{% trans "Andrey Shipilov" %}</a>
+                    {% endif %}
+                </li>
 
-				{% url cv as cv_url %}
+                {% url projects as projects_url %}
+                <li>
+                    {% ifequal request.path projects_url %}
+                        <h1>{% trans "Projects" %}</h1>
+                    {% else %}
+                        <a href="{{ projects_url }}"{% if request.path|contains:projects_url %} class="in"{% endif %}>{% trans "Projects" %}</a>
+                    {% endifequal %}
 
-				<li>{% if LANGUAGE_CODE != 'ru' %}{% if request.path == cv_url %}CV{% else %}<a href="{{ cv_url }}">CV</a>{% endif %}{% endif %}</li>
-				<li style="display: none;"><a href="#contact" id="contact-link">{% trans "Contact me" %}</a></li>
-			</ul>
-			<aside id="main-nav-right">
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-				<section id="share-line">
-					<div>
-						<div class="g-plusone" data-size="tall"></div>
-						<script type="text/javascript">(function(){var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;po.src = 'https://apis.google.com/js/plusone.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);})();</script>
-					</div>
-					<div>
-						<a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical"></a>
-					</div>
-					<div>
-						<iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F{{ request.META.HTTP_HOST|urlencode }}{{ request.path|urlencode }}&amp;send=false&amp;layout=box_count&amp;width=44&amp;show_faces=false&amp;font&amp;colorscheme=light&amp;action=like&amp;height=90&amp;appId=331958003555865" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:44px; height:65px;" allowTransparency="true"></iframe>
-					</div>
-				</section>
+                    {% if projects_count %}
+                        <span id="projects-count">{{ projects_count }}</span>
+                    {% endif %}
+                </li>
 
-				<nav id="language-switch">
-					{% for lang in LANGUAGES %}
-						{% ifnotequal lang.0 LANGUAGE_CODE %}
-							<a href="{{ request.path|chlocale:lang.0 }}">{% trans "Switch language" %}</a>
-						{% endifnotequal %}
-					{% endfor %}
-				</nav>
-			</aside>
-		</nav>
+                {% url cv as cv_url %}
 
-		{% comment %}
-			<a href="{% url everyone_tweet %}" id="everyone-tweet-link" title="Everyone Tweet - The anonymous Twitter account">
-				<img src="{{ STATIC_URL }}everyone-tweet-transparent-logo.png" alt="Everyone Tweet - The anonymous Twitter account" width="150" height="138" />
-			</a>
-		{% endcomment %}
+                <li>
+                    {% if LANGUAGE_CODE != "ru" %}
+                        {% if request.path == cv_url %}
+                            <h1>CV</h1>
+                        {% else %}
+                            <a href="{{ cv_url }}">CV</a>
+                        {% endif %}
+                    {% endif %}
+                </li>
+                <li style="display: none;"><a href="#contact" id="contact-link">{% trans "Contact me" %}</a></li>
+            </ul>
+            <aside id="main-nav-right">
+                <section id="share-line">
+                    <div>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-via="andreyshipilov" data-count="none" data-lang="en">Tweet</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    </div>
+                    <div>
+                        <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F{{ request.META.HTTP_HOST|urlencode }}{{ request.path|urlencode }}&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35&amp;appId=331958003555865" style="border: none; overflow: hidden; width: 50px; height: 35px;"></iframe>
+                    </div>
+                </section>
 
-		{% block all_content %}
-		{% endblock %}
+                <nav id="language-switch">
+                    {% for lang in LANGUAGES %}
+                        {% ifnotequal lang.0 LANGUAGE_CODE %}
+                            <a href="{{ request.path|chlocale:lang.0 }}">{% trans "Switch language" %}</a>
+                        {% endifnotequal %}
+                    {% endfor %}
+                </nav>
+            </aside>
+        </nav>
 
-		<section id="socialism" class="clearfix">
-			<table>
-				<tr>
-					{% for item in SOCIALS %}
-						<td>
-							<a href="{{ item.link }}" title="{% trans "Andrey Shipilov" %} / {{ item.title }}">
-								<img src="{{ MEDIA_URL }}{{ item.image }}" width="{{ item.image.width }}" height="{{ item.image.height }}" alt="{% trans "Andrey Shipilov" %} / {{ item.title }}"><br />
-								<header>{{ item.title }}</header>
-							</a>
-						</td>
-						{% if not forloop.last %}
-							<td style="width: {{ SOCIALS_SPACER_PERCENTAGE }}%;">&nbsp;</td>
-						{% endif %}
-					{% endfor %}
-				</tr>
-			</table>
-		</section>
-	</div>
+        {% comment %}
+            <a href="{% url everyone_tweet %}" id="everyone-tweet-link" title="Everyone Tweet - The anonymous Twitter account">
+                <img src="{{ STATIC_URL }}everyone-tweet-transparent-logo.png" alt="Everyone Tweet - The anonymous Twitter account" width="150" height="138" />
+            </a>
+        {% endcomment %}
 
-	<footer>
-		<p lang="{{ LANGUAGE_CODE }}">&copy; {% trans "Andrey Shipilov" %}, 1984&mdash;{% now "Y" %}.<br />
-			<a href="mailto:a@andreyshipilov.com">a@andreyshipilov.com</a>
-		</p>
-		<!-- p lang="en" id="bill-hicks">I do really appologize for the leaders of Russia &mdash; balless, soulless, spiritless corporate little bitches, suckers of Satan's cock, each and every one of them.</p -->
-	</footer>
-	<div id="counters"></div>
+        {% block all_content %}
+        {% endblock %}
+
+        <section id="socialism" class="clearfix">
+            <table>
+                <tr>
+                    {% for item in SOCIALS %}
+                        <td>
+                            <a href="{{ item.link }}" title="{% trans "Andrey Shipilov" %} / {{ item.title }}" rel="nofollow">
+                                <img src="{{ MEDIA_URL }}{{ item.image }}" width="{{ item.image.width }}" height="{{ item.image.height }}" alt="{% trans "Andrey Shipilov" %} / {{ item.title }}"><br />
+                                <header>{{ item.title }}</header>
+                            </a>
+                        </td>
+                        {% if not forloop.last %}
+                            <td style="width: {{ SOCIALS_SPACER_PERCENTAGE }}%;">&nbsp;</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            </table>
+        </section>
+    </div>
+
+    <footer>
+        <p lang="{{ LANGUAGE_CODE }}">&copy; {% trans "Andrey Shipilov" %}, 1984&mdash;{% now "Y" %}.<br /><a href="mailto:a@andreyshipilov.com">a@andreyshipilov.com</a>
+        </p>
+        <!-- p lang="en" id="bill-hicks">I do really appologize for the leaders of Russia &mdash; balless, soulless, spiritless corporate little bitches, suckers of Satan's cock, each and every one of them.</p -->
+    </footer>
+    <div id="counters"></div>
 </body>
 </html>
 {% endspaceless %}
