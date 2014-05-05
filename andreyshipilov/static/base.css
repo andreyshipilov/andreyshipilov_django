@@ -63,7 +63,7 @@ footer {padding: 0; text-align: center; color: #6b6f4f;}
     #bill-hicks {}
     footer a {color: #375a44}
 #counters {position: absolute; top: -999px;}
-#projects-count {position: absolute; left: 95%; top: 0; background-color: #da131a; border: 1px solid #fff; font-size: 0.25em; line-height: 1.1; padding: 3px; border-radius: 1em; font-family: Georgia, serif;}
+#projects-count {position: absolute; left: 95%; top: 0; background-color: #da131a; border: 1px solid #fff; font-size: 0.25em; line-height: 1.1; padding: 3px; border-radius: 1em;}
 
 
 /* Index */
