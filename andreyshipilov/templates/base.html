@@ -8,6 +8,7 @@
     <title>{% block meta_title %}{% trans "Andrey Shipilov" %} / {% block subtitle %}{% trans "Index Subtitle" %}{% endblock %}{% endblock %}</title>
     <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold&amp;subset=cyrillic,latin" />
+    <link rel="canonical" href="http://{{ request.META.HTTP_HOST|urlencode }}{{ request.path|urlencode }}" />
 
     {% compress css %}
         <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ STATIC_URL }}base.css" />
