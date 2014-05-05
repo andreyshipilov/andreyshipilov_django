@@ -164,6 +164,10 @@ footer {padding: 0; text-align: center; color: #6b6f4f;}
 .bg-600-4 {background: url(./i/bg/b_600_4.gif) repeat-y 50% 0}
 
 /* CV */
+#cv-basic .vcard .org,
+#cv-basic .vcard .fn {
+    display: none;
+}
 #cv-download {}
     #cv-download a:hover {color: #ccf;}
 #notable-projects {}

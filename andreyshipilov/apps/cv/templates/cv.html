@@ -1,137 +1,129 @@
 {% extends "base.html" %}
 {% load localeurl_tags i18n compress markup %}
 
+
 {% block subtitle %}Curriculum Vitae, Resumé{% endblock %}
 
 {% block all_content %}
-	{% if LANGUAGE_CODE == 'ru' %}
-		<h1>Curriculum Vitae.</h1>
-		<p>На русском языке мне эта страница никогда не помогала, потому что её никто не читает в России. Смотрите раздел <a href="{% url projects %}">проекты</a>.</p>
-		<p>Спасибо.</p>
-	{% else %}
-	<section id="cv">
-		<div id="cv-basic" class="clearfix">
-			<div style="float: left; width: 40%;">
-				<p>Web Developer since 2004.<br />Australia, SA, Adelaide, 5044.<br />Cell: +61 466 492 380.<br /><a href="mailto:a@andreyshipilov.com">a@andreyshipilov.com</a></p>
-			</div>
-			<div style="float: left; width: 40%;" id="cv-download">
-				<p>Download CV in&nbsp;<a href="/:3/Andrey Shipilov - Web Developer.pdf">Adobe PDF</a>, <a href="/:3/Andrey Shipilov - Web Developer.odt">Open Document</a> or&nbsp;<a href="/:3/Andrey Shipilov - Web Developer.doc">Microsoft Word</a>&nbsp;format.</p>
+    {% if LANGUAGE_CODE == 'ru' %}
+        <h1>Curriculum Vitae.</h1>
+        <p>На русском языке мне эта страница никогда не помогала, потому что её никто не читает в России. Смотрите раздел <a href="{% url projects %}">проекты</a>.</p>
+        <p>Спасибо.</p>
+    {% else %}
+    <section id="cv">
+        <div id="cv-basic" class="clearfix">
+            <div style="float: left; width: 40%;" id="hcard-Andrey-Shipilov" class="vcard">
+                <a class="url fn" href="http://www.andreyshipilov.com/">Andrey Shipilov</a>
+                <span class="org">Bear On Unicycle</span>
+                <p>
+                    <span>Web Developer since 2004.</span>
+                    <br />
+                    <span class="adr"><span class="country-name">Australia</span>, <span class="region">South Australia</span>, <span class="locality">Adelaide</span>.</span>
+                    <br />
+                    <span>Mobile: <a class="tel" href="tel:+61466492380">+61 466 492 380</a></span>
+                    <br />
+                    <span> E-mail: <a href="mailto:a@andreyshipilov.com" class="email">a@andreyshipilov.com</a></span>
+                </p>
+            </div>
+            <div style="float: left; width: 40%;" id="cv-download">
+                <p>Download CV in&nbsp;<a href="/:3/Andrey Shipilov - Web Developer.pdf">Adobe PDF</a>, <a href="/:3/Andrey Shipilov - Web Developer.odt">Open Document</a> or&nbsp;<a href="/:3/Andrey Shipilov - Web Developer.doc">Microsoft Word</a>&nbsp;format.</p>
+            </div>
+        </div>
 
-			{% comment %}
-				<h1 style="font-size: 2em; line-height: 1em;">Curriculum Vitae.<br />Resume.</h1>
-				<ul class="list">
-					<li>I'm a web developer since 2004.</li>
-					<li>Worked for leading web studios of Russia for over 3 years.</li>
-					<li>I've sucessfully finished over a hundred of projects.</li>
-					<li>Projects range from one-page HTML to a full-wide governmental websites.</li>
-					<li>I know the words like xHTML, CSS3, JavaScript, hCard, SQL, cookies and stuff.</li>
-					<li>I do cross-platform cross-browser compatible web services and sites.</li>
-					<li>I prefer MySQL over sqlite, and I choose AJAX over dynamic HTML.</li>
-					<li>Mainly I use Python and Django framework.</li>
-					<li>I choose Nginx over Apache, and uWSGI over Fast CGI.</li>
-					<li>For easy web scripting I use <a href="http://www.parser.ru/en/">Parser3</a> in some cases.</li>
-					<li>I love when my websites work in all known browsers and devices.</li>
-					<li>And yes, I don't like PHP and I use Windows<sup>&reg;</sup>, but I don't like it either.</li>
-				</ul>
-			{% endcomment %}
+        <div class="clearfix">
+            <div style="float: left; width: 35%; padding-right: 5%;">
+                <h2>Professional&nbsp;summary</h2>
+                <p>Web developer since 2004. Proficient knowledge and extensive use of&nbsp;main web technologies and standards. Absolute and valid xHTML and CSS compliance with all devices. Expert usage of&nbsp;JavaScript and JavaScript frameworks. Database structure design, subsequent development and&nbsp;support.</p>
+                <p>Experienced knowledge of&nbsp;Adobe CS&nbsp;software including Photoshop, Illustrator. Developer of&nbsp;<span class="nobr">AJAX-only</span> driven multiuser websites using Python, Django framework and <span class="nobr">Django-based</span> applications. Highload Apache or&nbsp;Nginx, uWSGI or&nbsp;FastCGI backend development and support. Strict SEO compatible website development and Internet advertising management. Advanced Windows or&nbsp;Mac OS&nbsp;user, including a&nbsp;bulk of&nbsp;development software and&nbsp;tools.</p>
+                <h2>Qualifications</h2>
+                <p>Bachelor of&nbsp;Science, Engineering. People&rsquo;s Friendship University of&nbsp;Russia (2001&mdash;2006). Qualification of&nbsp;Interpreter from the English Language into Russian in&nbsp;Technical Specialties&nbsp;(2006).</p>
 
-			</div>
-		</div>
+                <h2>Notable projects</h2>
+                <p id="notable-projects">
+                    {% for project in notable_projects %}
+                        <a href="{{ project.get_absolute_url }}" class="{% cycle "odd" "even" %}">{{ project }}</a>
+                        <span>{% if forloop.last %}.{% else %}, {% endif %}</span>
+                    {% endfor %}
+                </p>
 
-		<div class="clearfix">
-			<div style="float: left; width: 35%; padding-right: 5%;">
-				<h1>Professional&nbsp;summary</h1>
-				<p>Web developer since 2004. Proficient knowledge and extensive use of&nbsp;main web technologies and standards. Absolute and valid xHTML and CSS compliance with all devices. Expert usage of&nbsp;JavaScript and JavaScript frameworks. Database structure design, subsequent development and&nbsp;support.</p>
-				<p>Experienced knowledge of&nbsp;Adobe CS&nbsp;software including Photoshop, Illustrator. Developer of&nbsp;<span class="nobr">AJAX-only</span> driven multiuser websites using Python, Django framework and <span class="nobr">Django-based</span> applications. Highload Apache or&nbsp;Nginx, uWSGI or&nbsp;FastCGI backend development and support. Strict SEO compatible website development and Internet advertising management. Advanced Windows or&nbsp;Mac OS&nbsp;user, including a&nbsp;bulk of&nbsp;development software and&nbsp;tools.</p>
-				<h1>Qualifications</h1>
-				<p>Bachelor of&nbsp;Science, Engineering. People&rsquo;s Friendship University of&nbsp;Russia (2001&mdash;2006). Qualification of&nbsp;Interpreter from the English Language into Russian in&nbsp;Technical Specialties&nbsp;(2006).</p>
+            </div>
+            <div style="float: left; width: 60%;">
+                <h2>Skills and&nbsp;technologies</h2>
+                <p>Web design, development and programming. Strict and valid xHTML coding. Strict and valid CSS coding. Native JavaScript development. jQuery, MooTools, ExtJS, Raphael, Google Web Toolkit JavaScript frameworks extensive use. AJAX development using JSON, XML, Yaml&nbsp;serialization.</p>
+                <p>Python web and software development. Django and custom Django applications development and support. <span class="nobr">Model-View-Controller</span> and <span class="nobr">Model-View-Template</span> websites development. uWSGI and FastCGI driven backends&nbsp;development.</p>
+                <p>Web crawling and scraping software development. Multiuser and multilanguage websites development. Database design and query optimization via ORM or&nbsp;raw SQL. Nginx and Apache web servers&nbsp;configuration.</p>
+                <p>Web systems administration. CMS development and administration. Technical and creative content writing. Strict SEO compliance, marketing and market research. Occasional website and logo design. Digital retouch and technical design. Familiarity with many other web technologies and design&nbsp;software.</p>
+                <ul class="list">
+                    <li>Operating systems: Microsoft Windows (NT, 95, 98, 2000, XP, Vista, 7), Apple Mac&nbsp;OS&nbsp;X.</li>
+                    <li>Office software: Microsoft Word, Microsoft Excel, OpenOffice Writer, OpenOffice Calc, Adobe&nbsp;Acrobat.</li>
+                    <li>Languages and technologies: HTML, CSS, native JavaScript, GIT, Python, Virtualenv, PIL, Django, third party Django Apps, Parser3, XSL/XSLT, XML, AJAX, JSON, YAML, web scraping, Google Maps&nbsp;API.</li>
+                    <li>JavaScript frameworks: jQuery, ExtJS, MooTools, Raphael, Google Web&nbsp;Toolkit.</li>
+                    <li>CAD software: Autodesk AutoCAD, Graphisoft ArchiCAD, Autodesk 3D Studio&nbsp;Max.</li>
+                    <li>Development software and tools: Komodo, Eclipse IDE, Adobe Dreamweaver, FAR Manager, Putty, Hudson/Jenkins,&nbsp;JIRA.</li>
+                    <li>Graphic software: Adobe Photoshop, Adobe Illustrator, Adobe 3D Studio Max, Adobe&nbsp;Lightroom.</li>
+                    <li>Web browsers: Microsoft Internet Explorer versions from 6 to&nbsp;latest. Google Chrome. Mozilla FireFox versions from 2 to&nbsp;latest. Opera versions from 9 to&nbsp;latest. Apple Safari. Mobile versions of&nbsp;web browsers for&nbsp;testing.</li>
+                </ul>
+            </div>
+        </div>
 
-				<h1>Notable projects</h1>
-				<p id="notable-projects">
-					{% for project in notable_projects %}
-						<a href="{{ project.get_absolute_url }}" class="{% cycle "odd" "even" %}">{{ project }}</a>
-						<span>{% if forloop.last %}.{% else %}, {% endif %}</span>
-					{% endfor %}
-				</p>
+        <hr />
 
-			</div>
-			<div style="float: left; width: 60%;">
-				<h1>Skills and&nbsp;technologies</h1>
-				<p>Web design, development and programming. Strict and valid xHTML coding. Strict and valid CSS coding. Native JavaScript development. jQuery, MooTools, ExtJS, Raphael, Google Web Toolkit JavaScript frameworks extensive use. AJAX development using JSON, XML, Yaml&nbsp;serialization.</p>
-				<p>Python web and software development. Django and custom Django applications development and support. <span class="nobr">Model-View-Controller</span> and <span class="nobr">Model-View-Template</span> websites development. uWSGI and FastCGI driven backends&nbsp;development.</p>
-				<p>Web crawling and scraping software development. Multiuser and multilanguage websites development. Database design and query optimization via ORM or&nbsp;raw SQL. Nginx and Apache web servers&nbsp;configuration.</p>
-				<p>Web systems administration. CMS development and administration. Technical and creative content writing. Strict SEO compliance, marketing and market research. Occasional website and logo design. Digital retouch and technical design. Familiarity with many other web technologies and design&nbsp;software.</p>
-				<ul class="list">
-					<li>Operating systems: Microsoft Windows (NT, 95, 98, 2000, XP, Vista, 7), Apple Mac&nbsp;OS&nbsp;X.</li>
-					<li>Office software: Microsoft Word, Microsoft Excel, OpenOffice Writer, OpenOffice Calc, Adobe&nbsp;Acrobat.</li>
-					<li>Languages and technologies: HTML, CSS, native JavaScript, GIT, Python, Virtualenv, PIL, Django, third party Django Apps, Parser3, XSL/XSLT, XML, AJAX, JSON, YAML, web scraping, Google Maps&nbsp;API.</li>
-					<li>JavaScript frameworks: jQuery, ExtJS, MooTools, Raphael, Google Web&nbsp;Toolkit.</li>
-					<li>CAD software: Autodesk AutoCAD, Graphisoft ArchiCAD, Autodesk 3D Studio&nbsp;Max.</li>
-					<li>Development software and tools: Komodo, Eclipse IDE, Adobe Dreamweaver, FAR Manager, Putty, Hudson/Jenkins,&nbsp;JIRA.</li>
-					<li>Graphic software: Adobe Photoshop, Adobe Illustrator, Adobe 3D Studio Max, Adobe&nbsp;Lightroom.</li>
-					<li>Web browsers: Microsoft Internet Explorer versions from 6 to&nbsp;latest. Google Chrome. Mozilla FireFox versions from 2 to&nbsp;latest. Opera versions from 9 to&nbsp;latest. Apple Safari. Mobile versions of&nbsp;web browsers for&nbsp;testing.</li>
-				</ul>
-			</div>
-		</div>
+        <div id="cv-employment" class="clearfix">
+            {% for p in positions %}
+                <div class="left">
+                    <p>
+                        {% if p.show_only_years %}
+                            <i>{{ p.date_start|date:"Y" }}&mdash;{{ p.date_end|date:"Y" }}</i>
+                        {% else %}
+                            <i>{{ p.date_start|date:"F Y" }} &mdash; {% if p.date_end %}{{ p.date_end|date:"F Y" }}{% else %}{% now "DATE_FORMAT" %}{% endif %}</i>
+                        {% endif %}
+                        <br />
+                        <span>{{ p.title }}</span>
+                        <br />
+                        {% if p.company_website %}
+                            <a href="{{ p.company_website }}">{{ p.company_name }}</a>
+                        {% else %}
+                            <span>{{ p.company_name }}</span>
+                        {% endif %}
 
-		<hr />
+                        {% if p.company_alternate_name %}
+                            <span>, </span>
+                            {% if p.company_alternate_website %}
+                                <a href="{{ p.company_alternate_website }}">{{ p.company_alternate_name }}</a>
+                            {% else %}
+                                <span>{{ p.company_alternate_name }}</span>
+                            {% endif %}
+                        {% endif %}
 
-		<div id="cv-employment" class="clearfix">
-			{% for p in positions %}
-				<div class="left">
-					<p>
-						{% if p.show_only_years %}
-							<i>{{ p.date_start|date:"Y" }}&mdash;{{ p.date_end|date:"Y" }}</i>
-						{% else %}
-							<i>{{ p.date_start|date:"F Y" }} &mdash; {% if p.date_end %}{{ p.date_end|date:"F Y" }}{% else %}{% now "DATE_FORMAT" %}{% endif %}</i>
-						{% endif %}
-						<br />
-						<span>{{ p.title }}</span>
-						<br />
-						{% if p.company_website %}
-							<a href="{{ p.company_website }}">{{ p.company_name }}</a>
-						{% else %}
-							<span>{{ p.company_name }}</span>
-						{% endif %}
+                        {% if p.company_location %}
+                            <br />
+                            <span>{{ p.company_location }}</span>
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="right">
+                    {{ p.description|markdown }}
 
-						{% if p.company_alternate_name %}
-							<span>, </span>
-							{% if p.company_alternate_website %}
-								<a href="{{ p.company_alternate_website }}">{{ p.company_alternate_name }}</a>
-							{% else %}
-								<span>{{ p.company_alternate_name }}</span>
-							{% endif %}
-						{% endif %}
+                    {% if not forloop.last %}
+                        <hr />
+                    {% endif %}
+                </div>
 
-						{% if p.company_location %}
-							<br />
-							<span>{{ p.company_location }}</span>
-						{% endif %}
-					</p>
-				</div>
-				<div class="right">
-					{{ p.description|markdown }}
-
-					{% if not forloop.last %}
-						<hr />
-					{% endif %}
-				</div>
-
-				{% if not forloop.last %}
-					<div class="clear"></div>
-				{% endif %}
-			{% endfor %}
-		</div>
-	</section>
-	{% endif %}
+                {% if not forloop.last %}
+                    <div class="clear"></div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
 {% endblock %}
 
 {% block compressed_js %}
-	{{ block.super }}
-	
-	<script>
-		$(function(){
-			$('#cv-employment ul').addClass('list');
-		});
-	</script>
+    {{ block.super }}
+
+    <script>
+        $(function(){
+            $('#cv-employment ul').addClass('list');
+        });
+    </script>
 {% endblock %}
