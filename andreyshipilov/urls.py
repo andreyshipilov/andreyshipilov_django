@@ -24,7 +24,10 @@ urlpatterns = patterns('',
 
     (r'^robots.txt$', include('robots.urls')),
     (r'^localeurl/', include('localeurl.urls')),
-) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
 class ProjectsSitemap(LocaleurlSitemap):
