@@ -60,7 +60,8 @@ $(function(){
 		submit.val('Thinking');
 		text.prop('disabled', true);
 
-		$.post('.', {'text': text.val(), 'country': geoip_country_name(), 'lat': geoip_latitude(), 'lng': geoip_longitude()}, function(data){
+		$.getJSON("http://www.telize.com/geoip", function(json) {
+		$.post('.', {'text': text.val(), 'country': json.country, 'lat': json.latitude, 'lng': json.longitude}, function(data){
 			text.prop('disabled', false);
 			submit.val('Tweet');
 
@@ -73,6 +74,7 @@ $(function(){
 
 			text.focus();
 		}, 'json');
+		});
 		return false;
 	});
 });

@@ -124,7 +124,7 @@ footer {padding: 0; text-align: center; color: #6b6f4f;}
 #project-container {float: left; width: 100%;}
 #project-left-column,
 #project-right-column {float: left; width: 50%; height: 300px;}
-#project-left-column {background-position: 50% 0}
+#project-left-column {background-position: 50% 50%; background-size: cover;}
 #project-right-column {color: #fff; text-shadow: 0 1px 0 #222; background: url('../img/long-dark-bg.png') repeat-y 50% 0 transparent;}
     #project-right-column div {margin: 20px}
     #project-right-column h1 {color: #fff; font-size: 1.25em; line-height: 1.5em; margin: 0 0 20px 0; font-weight: bold;}
