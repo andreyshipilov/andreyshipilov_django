@@ -19,7 +19,8 @@ IS_VERBOSE = True if '-v' in sys.argv else False
 
 # Get projects from models.
 from me.models import Project
-projects = Project.get_published().filter(link__startswith="http://")\
+projects = Project.get_published().filter(is_alive=True,
+                                          link__startswith="http://") \
                   .values('link', 'slug')
 
 # List of bad hosts.
