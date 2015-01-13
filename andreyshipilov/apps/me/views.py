@@ -1,16 +1,17 @@
 from datetime import datetime
 
-from django.shortcuts import get_object_or_404, get_list_or_404, render
+from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
-from django.template.context import RequestContext
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
 from django.core.cache import cache
 from django.db.models import Count
 from django.utils.html import strip_tags
 from django.utils import simplejson
+from django.utils.translation import gettext as _
 import tweepy
 from tweepy.error import TweepError
+from meta.views import Meta
 
 from me.models import ProjectType, Project, Tweet
 from secret_info import TWITTER_SECRETS
@@ -65,7 +66,13 @@ def index(request):
 
 @cache_page(CACHE['hour'] * 4)
 def projects(request):
+    meta = Meta(
+        title=_('Projects'),
+        description=_('Andrey Shipilov\'s projects'),
+        keywords=['projects',]
+    )
     return render(request, 'projects.html', {
+        'meta': meta,
         'project_types': ProjectType.objects.language().all().distinct(),
         'projects': Project.get_published(),
     })

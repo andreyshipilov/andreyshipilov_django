@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.conf.urls.defaults import *
+from django.conf.urls import url, patterns, include
 from django.conf.urls.static import static
 from django.contrib import admin
 
@@ -9,7 +9,7 @@ from localeurl.models import patch_reverse
 from me.models import Project
 
 
-patch_reverse()
+# patch_reverse()
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -28,6 +28,7 @@ urlpatterns = patterns('',
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 
 class ProjectsSitemap(LocaleurlSitemap):

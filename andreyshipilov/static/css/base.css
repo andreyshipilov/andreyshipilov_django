@@ -96,7 +96,7 @@ footer {padding: 0; text-align: center; color: #6b6f4f;}
     #tweets-table p {margin: 15px 0}
     #tweets-table p.tweet-info {line-height: 1.1em; font-size: 0.8em;}
     #tweets-table a {color: #fff}
-#twitter-info {background: url("./i/jfk/jesus-1.jpg") no-repeat 50% 10%; color: #fff; text-shadow: 0 0 2px #222; padding: 20px 20px 30px; cursor: pointer; cursor: hand;}
+#twitter-info {background: url("../img/jfk/jesus-1.jpg") no-repeat 50% 10%; color: #fff; text-shadow: 0 0 2px #222; padding: 20px 20px 30px; cursor: pointer; cursor: hand;}
     #twitter-info header {}
         #twitter-info header h3 {margin: 15px 0 0 0; text-transform: uppercase; font-size: 1.1em; font-weight: bold;}
     #twitter-info p {margin: 5px 0; font-weight: bold;}
@@ -125,7 +125,7 @@ footer {padding: 0; text-align: center; color: #6b6f4f;}
 #project-left-column,
 #project-right-column {float: left; width: 50%; height: 300px;}
 #project-left-column {background-position: 50% 0}
-#project-right-column {color: #fff; text-shadow: 0 1px 0 #222; background: url('./i/long-dark-bg.png') repeat-y 50% 0 transparent;}
+#project-right-column {color: #fff; text-shadow: 0 1px 0 #222; background: url('../img/long-dark-bg.png') repeat-y 50% 0 transparent;}
     #project-right-column div {margin: 20px}
     #project-right-column h1 {color: #fff; font-size: 1.25em; line-height: 1.5em; margin: 0 0 20px 0; font-weight: bold;}
     #project-right-column p.participant {margin: 0.2em 0}
@@ -140,28 +140,28 @@ footer {padding: 0; text-align: center; color: #6b6f4f;}
 #previous-project {position: absolute; right: 0; top: 0;}
 #screenshots {margin: 20px 0;}
     #screenshots header {text-transform: uppercase; color: #d7d6d2; font-size: 0.68em;}
-    #screenshots-container {background: url('./i/screenshots-bg.png') -10% -1px #45675d;}
+    #screenshots-container {background: url('../img/screenshots-bg.png') -10% -1px #45675d;}
         #screenshots-container .screenshot {float: left; line-height: 0;}
-            #screenshots-container .screenshot .body {background: url('./i/small-screenshot-body.png') repeat-y 50% 0 transparent; text-align: center;}
+            #screenshots-container .screenshot .body {background: url('../img/small-screenshot-body.png') repeat-y 50% 0 transparent; text-align: center;}
             #screenshots-container .screenshot .site-url {position: absolute; top: 38px; left: 86px; font-size: 8px; color: #333; text-shadow: 0 0 1px #aaa; line-height: 1px; font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;}
 
 
 /* Commons */
-.dark-bg {background: url(./i/dark-bg.png) repeat-y 50% 0}
-.long-dark-bg {background: url(./i/long-dark-bg.png) repeat-y 50% 0}
-.medium-bg {background: url(./i/medium-bg.png) repeat-y 50% 0}
-.light-bg {background: url(./i/light-bg.png) repeat-y 50% 0}
+.dark-bg {background: url('../img/dark-bg.png') repeat-y 50% 0}
+.long-dark-bg {background: url('../img/long-dark-bg.png') repeat-y 50% 0}
+.medium-bg {background: url('../img/medium-bg.png') repeat-y 50% 0}
+.light-bg {background: url('../img/light-bg.png') repeat-y 50% 0}
 .underlined {text-decoration: underline !important}
-.bg-300-0 {background: url(./i/bg/b_300_0.gif) repeat-y 50% 0}
-.bg-300-1 {background: url(./i/bg/b_300_1.gif) repeat-y 50% 0}
-.bg-300-2 {background: url(./i/bg/b_300_2.gif) repeat-y 50% 0}
-.bg-300-3 {background: url(./i/bg/b_300_3.gif) repeat-y 50% 0}
-.bg-300-4 {background: url(./i/bg/b_300_4.gif) repeat-y 50% 0}
-.bg-600-0 {background: url(./i/bg/b_600_0.gif) repeat-y 50% 0}
-.bg-600-1 {background: url(./i/bg/b_600_1.gif) repeat-y 50% 0}
-.bg-600-2 {background: url(./i/bg/b_600_2.gif) repeat-y 50% 0}
-.bg-600-3 {background: url(./i/bg/b_600_3.gif) repeat-y 50% 0}
-.bg-600-4 {background: url(./i/bg/b_600_4.gif) repeat-y 50% 0}
+.bg-300-0 {background: url('../img/bg/b_300_0.gif') repeat-y 50% 0}
+.bg-300-1 {background: url('../img/bg/b_300_1.gif') repeat-y 50% 0}
+.bg-300-2 {background: url('../img/bg/b_300_2.gif') repeat-y 50% 0}
+.bg-300-3 {background: url('../img/bg/b_300_3.gif') repeat-y 50% 0}
+.bg-300-4 {background: url('../img/bg/b_300_4.gif') repeat-y 50% 0}
+.bg-600-0 {background: url('../img/bg/b_600_0.gif') repeat-y 50% 0}
+.bg-600-1 {background: url('../img/bg/b_600_1.gif') repeat-y 50% 0}
+.bg-600-2 {background: url('../img/bg/b_600_2.gif') repeat-y 50% 0}
+.bg-600-3 {background: url('../img/bg/b_600_3.gif') repeat-y 50% 0}
+.bg-600-4 {background: url('../img/bg/b_600_4.gif') repeat-y 50% 0}
 
 /* CV */
 #cv-basic .vcard .org,

@@ -1,11 +1,13 @@
 {% extends "base.html" %}
-{% load i18n typogrify_tags compress %}
+{% load i18n typogrify_tags compress static %}
 
 
 {% block all_content %}
     <h2 id="index-header">{{ AGE }} {% trans "Some text about me"|typogrify %}</h2>
     <section id="projects" class="clearfix">
-        <header><a href="{% url me.views.projects %}">{% trans "Projects" %}</a></header>
+        <header>
+            <a href="{% url "projects" %}">{% trans "Projects" %}</a>
+        </header>
         <section id="projects-container">
             {% for p in projects %}
                 <a{% if forloop.first %} id="latest-project"{% endif %} class="project" href="{{ p.get_absolute_url }}" style="background-image: url('{% if forloop.first %}{{ p.image.thumbnail }}{% else %}{{ p.image.extra_thumbnails.small }}{% endif %}');" title="{{ p }}">
@@ -83,6 +85,6 @@
 
 {% block compressed_js %}
     {{ block.super }}
-    <script type="text/javascript" src="{{ STATIC_URL }}jquery.index.js"></script>
-    <script type="text/javascript" src="{{ STATIC_URL }}jquery.projects.js"></script>
+    <script type="text/javascript" src="{% static "js/jquery.index.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/jquery.projects.js" %}"></script>
 {% endblock %}

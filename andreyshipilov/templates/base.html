@@ -1,4 +1,5 @@
-{% load localeurl_tags i18n cache my_tags compress %}{% spaceless %}
+{% load localeurl_tags i18n cache my_tags compress static %}{% spaceless %}
+{% get_current_language as LANGUAGE_CODE %}
 
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
@@ -6,22 +7,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="google-site-verification" content="RBS4_d_XjKiL6X9y4NO7joVLKucVxfPXfjmcJ3E43_A" />
     <title>{% block meta_title %}{% trans "Andrey Shipilov" %} / {% block subtitle %}{% trans "Index Subtitle" %}{% endblock %}{% endblock %}</title>
-    <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico" />
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold&amp;subset=cyrillic,latin" />
     <link rel="canonical" href="http://{{ request.META.HTTP_HOST|urlencode }}{{ request.path|urlencode }}" />
 
     {% compress css %}
-        <link rel="stylesheet" type="text/css" media="screen,projection" href="{{ STATIC_URL }}base.css" />
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="{% static "css/base.css" %}" />
     {% endcompress %}
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
     {% compress js %}
         {% block compressed_js %}
-            <script type="text/javascript" src="{{ STATIC_URL }}konami.js"></script>
-            <script type="text/javascript" src="{{ STATIC_URL }}jquery.base.js"></script>
+            <script type="text/javascript" src="{% static "js/konami.js" %}"></script>
+            <script type="text/javascript" src="{% static "js/jquery.base.js" %}"></script>
             <script type="text/javascript">
-                var konami, buoop = {} ;
+                var konami,
+                    buoop = {} ;
 
                 buoop.ol = window.onload;
                 window.onload = function(){
@@ -72,7 +73,7 @@
 <body>
     <section id="top-bg">
         <!-- I could do that gradient stripe using webkit and moz background properties, but IE filter accepts only two colors to be drawn vertically. And forget about Opera. I could do that using Canvas element and some JavaScript, but even without minified ExplorerCanvas.js, the JavaScript code would be the equal size as an image and css. -->
-        <img src="{{ STATIC_URL }}i/top-bg.png" alt="" />
+        <img src="{% static "img/top-bg.png" %}" alt="" />
     </section>
 
     <div id="page">
@@ -82,11 +83,11 @@
                     {% if is_index %}
                         <h1>{% trans "Andrey Shipilov" %}</h1>
                     {% else %}
-                        <a href="{% url home %}">{% trans "Andrey Shipilov" %}</a>
+                        <a href="{% url "home" %}">{% trans "Andrey Shipilov" %}</a>
                     {% endif %}
                 </li>
 
-                {% url projects as projects_url %}
+                {% url "projects" as projects_url %}
                 <li>
                     {% ifequal request.path projects_url %}
                         <h1>{% trans "Projects" %}</h1>
@@ -99,7 +100,7 @@
                     {% endif %}
                 </li>
 
-                {% url cv as cv_url %}
+                {% url "cv" as cv_url %}
 
                 <li>
                     {% if LANGUAGE_CODE != "ru" %}
