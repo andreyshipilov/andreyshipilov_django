@@ -115,8 +115,8 @@ LOCALE_INDEPENDENT_PATHS = (
 )
 
 # Sorl
-THUMBNAIL_ENABLE_CACHING = False
-THUMBNAIL_QUALITY = 80
+THUMBNAIL_QUALITY = 90
+THUMBNAIL_UPSCALE = False
 
 # Django compressor settings
 COMPRESS_PRECOMPILERS = (
@@ -129,11 +129,13 @@ AXES_COOLOFF_TIME = 0.08  # ~5 minutes.
 
 # Django Meta
 META_SITE_PROTOCOL = 'http'
-META_SITE_DOMAIN = 'andreyshipilov.com'
+META_SITE_DOMAIN = 'www.andreyshipilov.com'
 META_SITE_TYPE = 'website'
-META_DEFAULT_KEYWORDS = META_INCLUDE_KEYWORDS = ['Andrey Shipilov', 'Shipilov',
-                                                 'web developer', 'web design',
-                                                 'Bear On Unicycle', 'Adelaide']
+META_DEFAULT_KEYWORDS = ['Andrey Shipilov', 'Shipilov', 'web developer',
+                         'web design', 'website', 'freelance', 'python',
+                         'django', 'html', 'javascript', 'sql', 'css',
+                         'Bear On Unicycle', 'Adelaide']
+META_INCLUDE_KEYWORDS = META_DEFAULT_KEYWORDS
 META_USE_OG_PROPERTIES = True
 META_USE_TWITTER_PROPERTIES = True
 

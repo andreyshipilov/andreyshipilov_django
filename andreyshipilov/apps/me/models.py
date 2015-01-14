@@ -98,8 +98,7 @@ class Project(TranslatableModel):
 
     @staticmethod
     def get_published():
-        return Project.objects.language().filter(
-            is_published=True)
+        return Project.objects.language().filter(is_published=True)
 
     @staticmethod
     def get_notable():

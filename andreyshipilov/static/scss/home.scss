@@ -1,0 +1,144 @@
+#index-header {
+    width: 50%;
+}
+
+#flickr {
+    overflow: hidden;
+
+    header {
+        a {
+            color: #798d7a;
+            text-decoration: none;
+        }
+    }
+}
+
+#flickr_badge_uber_wrapper {
+    width: 9999px;
+    height: 145px;
+    overflow: hidden;
+}
+
+.flickr_badge_image {
+    float: left;
+    position: relative;
+
+    a {
+        float: left;
+        position: relative;
+    }
+}
+
+#flickr_badge_source {
+    text-align: left;
+    margin: 0 10px 0 10px;
+}
+
+#flickr_badge_icon {
+    float: left;
+    margin-right: 5px;
+}
+
+#flickr_badge_uber_wrapper {
+    a:hover,
+    a:link,
+    a:active,
+    a:visited {
+        text-decoration: none !important;
+        background: inherit !important;
+        color: #3993ff;
+    }
+}
+
+#flickr_badge_wrapper {
+    background-color: #000;
+    border: solid 1px #000;
+}
+
+#flickr_badge_source {
+    padding: 0 !important;
+    font: 11px $helvetica !important;
+    color: #000 !important;
+}
+
+.flickr_badge_title_hover {
+    height: 100px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding-top: 40px;
+    color: #fff;
+    display: none;
+}
+
+#twitter {
+    margin: 20px 0;
+    header a {
+        text-transform: uppercase;
+        color: #798d7a;
+        text-decoration: none;
+        font-size: 0.68em;
+    }
+}
+
+#tweets {
+    width: 100%;
+    text-shadow: 0 0 2px #222;
+}
+
+#tweets-table {
+    width: 100%
+}
+
+#tweets-table td {
+    padding: 0 15px;
+    white-space: pre-wrap;
+    color: #fff;
+}
+
+#tweets-table td.h {
+    display: none
+}
+
+#tweets-table td.v {
+    display: block;
+    display: table-cell;
+}
+
+#tweets-table p {
+    margin: 15px 0
+}
+
+#tweets-table p.tweet-info {
+    line-height: 1.1em;
+    font-size: 0.8em;
+}
+
+#tweets-table a {
+    color: #fff
+}
+
+#twitter-info {
+    background: url("../img/jfk/jesus-1.jpg") no-repeat 50% 10%;
+    color: #fff;
+    text-shadow: 0 0 2px #222;
+    padding: 20px 20px 30px;
+    cursor: pointer;
+    cursor: hand;
+}
+
+#twitter-info header {
+}
+
+#twitter-info header h3 {
+    margin: 15px 0 0 0;
+    text-transform: uppercase;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+#twitter-info p {
+    margin: 5px 0;
+    font-weight: bold;
+}

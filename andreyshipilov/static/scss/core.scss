@@ -1,0 +1,116 @@
+html {
+    font-size: 100%;
+}
+
+body {
+    padding: 20px;
+    margin: 0;
+    font: normal 62.5%/1.4 'PT Sans', Tahoma, $helvetica;
+    line-height: 140%;
+    color: #333;
+    background-color: #d7d6d2;
+    min-width: 900px;
+}
+
+a {
+    @include transition(all 0.2s);
+    color: #009cff;
+    outline: none;
+
+    &:hover {
+        color: #fff;
+    }
+}
+
+p {
+    font-size: 1.4em;
+    line-height: 1.4;
+}
+
+h1 {
+    font: normal 3.6em/1.4em 'PT Sans', Tahoma, $helvetica;
+    margin: 20px 0;
+}
+
+h2 {
+    font: normal 2em/1.4em 'PT Sans', Tahoma, $helvetica;
+    margin: 1.5em 0 0.5em;
+}
+
+h3 {
+    font: normal 1.6em/1.4em 'PT Sans', Tahoma, $helvetica;
+}
+
+h4 {
+    font: normal 1.5em/1.4em 'PT Sans', Tahoma, $helvetica;
+    margin: 1em 0 0.5em;
+}
+
+hr {
+    height: 1px;
+    border-style: none;
+    margin: 1em 0;
+    background-color: #2b3d4d;
+    color: #2b3d4d;
+}
+
+::-moz-selection {
+    background: #c56a60;
+    color: #fff;
+}
+
+::selection {
+    background: #c56a60;
+    color: #fff;
+}
+
+// Proper lists.
+ul.list {
+    list-style-type: none;
+    margin: 1em 0;
+    padding: 0;
+
+    li {
+        padding: 0;
+        margin: 0.5em 0;
+        font-size: 1.4em;
+        line-height: 1.5;
+    }
+    & > li:before {
+        content: '\2014\a0';
+        color: #666;
+        float: left;
+        padding-right: 0.5em;
+        white-space: nowrap;
+    }
+    & > li > *:first-child:-moz-first-node {
+        margin-top: -1.2em;
+    }
+}
+
+// Clearfix
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+.clearfix {
+    zoom: 1;
+
+    &:before,
+    &:after {
+        content: '\0020';
+        display: block;
+        overflow: hidden;
+        visibility: hidden;
+        width: 0;
+        height: 0;
+    }
+    &:after {
+        clear: both;
+    }
+}

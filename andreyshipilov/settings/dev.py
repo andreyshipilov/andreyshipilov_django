@@ -10,6 +10,8 @@ DEBUG = True
 
 TEMPLATE_DEBUG = DEBUG
 
+THUMBNAIL_DEBUG = DEBUG
+
 WSGI_APPLICATION = 'andreyshipilov.wsgi.dev.application'
 
 DATABASES = {
@@ -28,3 +30,7 @@ INTERNAL_IPS = ('127.0.0.1',)
 MIDDLEWARE_CLASSES += (
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
+
+COMPRESS_ENABLED = True
+
+COMPRESS_REBUILD_TIMEOUT = 1

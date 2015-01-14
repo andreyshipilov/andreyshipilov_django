@@ -9,14 +9,14 @@ from localeurl.models import patch_reverse
 from me.models import Project
 
 
-# patch_reverse()
+patch_reverse()
 admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^le_admin/', include(admin.site.urls)),
     (r'^i18n/', include('django.conf.urls.i18n')),
 
-    url(r'^$', 'me.views.index', name="home"),
+    url(r'^$', 'me.views.home', name='home'),
     url(r'^projects/$', 'me.views.projects', name='projects'),
     url(r'^projects/(?P<slug>[-\w]+)/$', 'me.views.type_or_project', name='type_or_project'),
     url(r'^cv/$', 'cv.views.cv', name='cv'),

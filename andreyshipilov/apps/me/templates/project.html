@@ -1,23 +1,21 @@
 {% extends "base.html" %}
-{% load localeurl_tags typogrify_tags i18n compress %}
+{% load localeurl_tags typogrify_tags i18n compress static thumbnail %}
 
-
-{% block meta_title %}{{ project.title }}{% endblock %}
 
 {% block all_content %}
     <section id="project">
-        <h1>{{ project.title|typogrify }}</h1>
+        <header>
+            <h1>{{ project.title|typogrify }}</h1>
+        </header>
 
-        {% comment %}{% if project.link %}
-            <section>
-                <a href="{{ project.link }}" id="project-link">{{ project.link }}</a>
-            </section>
-        {% endif %}{% endcomment %}
-
-        <aside id="project-left-column" style="background-image: url('{{ project.image.thumbnail }}');"></aside>
-        <aside id="project-right-column">
-            <div>
-                {% if project.text %}<h2 id="project-text">{{ project.text|safe|typogrify }}</h2>{% endif %}
+        <aside class="left-column" style="background-image: url('{{ project.image.url }}');"></aside>
+        <aside class="right-column">
+            <div class="wrap">
+                {% if project.text %}
+                    <article>
+                        <p class="text">{{ project.text|safe|typogrify }}</p>
+                    </article>
+                {% endif %}
 
                 {% if project.participation_set.count %}
                     {% for i in project.participation_set.all %}
@@ -26,78 +24,97 @@
                 {% endif %}
 
                 {% if project.client %}
-                    <p id="project-client">{{ project.client|typogrify }}</p>
+                    <p>{{ project.client|typogrify }}</p>
                 {% endif %}
 
-                <p id="project-tags">{% for i in project.project_type.language.all %}<span title="{{ i.title }}">{% if forloop.first %}{{ i.title|capfirst }}{% else %}{{ i.title }}{% endif %}</span>{% if not forloop.last %}, {% endif %}{% endfor %}.</p>
+                <p class="tags">
+                    {% for i in project.project_type.language.all %}
+                        <a title="{{ i.title }}" href="{{ i.get_absolute_url }}">{% if forloop.first %}{{ i.title|capfirst }}{% else %}{{ i.title }}{% endif %}</a>
+                        {% if not forloop.last %}
+                            <span>, </span>
+                        {% endif %}
+                    {% endfor %}
+                    <span>.</span>
+                </p>
 
                 {% if project.is_alive %}
                     {% if project.verbose_link and project.verbose_link_text %}
-                        <p>
-                            <a href="{{ project.verbose_link }}" title="{{ project.title }}" id="project-link-button">{{ project.verbose_link_text }}</a>
+                        <p class="link-button">
+                            <a href="{{ project.verbose_link }}" title="{{ project.title }}">{{ project.verbose_link_text }}</a>
                         </p>
                     {% elif project.link %}
-                        <p>
-                            <a href="{{ project.link }}" title="{{ project.title }}" id="project-link-button">{% trans "Visit" %} {{ project.link|cut:"http://"|cut:"/" }}</a>
+                        <p class="link-button">
+                            <a href="{{ project.link }}" title="{{ project.title }}">{{ project.link }}</a>
                         </p>
                     {% endif %}
                 {% else %}
                     {% if project.has_archive %}
-                        <p>
-                            <a href="{{ project.get_absolute_url }}archive/" title="{{ project.title }}" id="project-link-button" target="_blank">{% trans "View archived version" %}</a>
+                        <p class="link-button">
+                            <a href="{{ project.get_absolute_url }}archive/" title="{{ project.title }}" target="_blank">{% trans "View archived version" %}</a>
                         </p>
                     {% endif %}
                 {% endif %}
-
             </div>
         </aside>
     </section>
 
-    <section id="previous-next-projects">
-        <div id="next-project">{% if next %}<a href="{{ next.get_absolute_url }}" title="{{ next.title }}">{% trans "Next project" %}</a>{% endif %}&nbsp;<span id="next-project-title">{{ next.title }}</span></div>
-        {% if previous %}<div id="previous-project"><span id="previous-project-title">{{ previous.title }}</span>&nbsp;<a href="{{ previous.get_absolute_url }}" title="{{ previous.title }}">{% trans "Previous project" %}</a></div>{% endif %}
-    </section>
+    <div id="previous-next-projects">
+        <div class="next">
+            {% if next %}
+                <a href="{{ next.get_absolute_url }}" title="{{ next.title }}">{% trans "Next project" %}</a>
+                <span class="title"> &bull; {{ next.title }}</span>
+            {% else %}
+                <span>&nbsp;</span>
+            {% endif %}
+        </div>
+
+        {% if previous %}
+            <div class="previous">
+                <span class="title">{{ previous.title }} &bull; </span>
+                <a href="{{ previous.get_absolute_url }}" title="{{ previous.title }}">{% trans "Previous project" %}</a>
+            </div>
+        {% endif %}
+    </div>
 
     {% if has_screenshots %}
         <section id="screenshots">
-            <header>{% trans "Website screenshots" %}</header>
+            <header class="section-header">{% trans "Screenshots" %}</header>
 
-            <div id="screenshots-container" class="clearfix">
+            <div class="container clearfix">
                 {% with project.title as title %}
-                {% for s in project.screenshot_set.all %}
-                    <div class="screenshot">
-                        {% if project.is_alive %}<span class="site-url">{{ project.link }}</span>{% endif %}
-                        <div class="head">
-                            <img src="{{ STATIC_URL }}i/small-screenshot-head.png" width="450" height="62" alt="" />
+                    {% for s in project.screenshot_set.all %}
+                        <div class="screenshot">
+                            {% if project.is_alive %}
+                                <span class="site-url">{{ project.link }}</span>
+                            {% endif %}
+                            <div class="head">
+                                <img src="{% static "img/small-screenshot-head.png" %}" width="450" height="62" alt="" />
+                            </div>
+                            <div class="body">
+                                {% thumbnail s.image "412x9999" as img %}
+                                    <img src="{{ img.url }}" width="{{ img.width }}" height="{{ img.height }}" alt="{{ title }}" />
+                                {% endthumbnail %}
+                            </div>
+                            <div class="footer">
+                                <img src="{% static "img/small-screenshot-footer.png" %}" width="450" height="37" alt="" />
+                            </div>
                         </div>
-                        <div class="body">
-                            <img src="{{ s.image.thumbnail }}" width="{{ s.image.thumbnail.width }}" height="{{ s.image.thumbnail.height }}" alt="{% trans "Andrey Shipilov" %} - {{ title }}" />
-                        </div>
-                        <div class="footer">
-                            <img src="{{ STATIC_URL }}i/small-screenshot-footer.png" width="450" height="37" alt="" />
-                        </div>
-                    </div>
-                {% endfor %}
+                    {% endfor %}
                 {% endwith %}
             </div>
         </section>
     {% endif %}
 {% endblock %}
 
-{% block head_appendix %}
-    <meta name="description" content="{{ project.title }}" />
-    <meta name="keywords" content="{% for i in project.project_type.language.all %}{{ i.title }}{% if not forloop.last %}, {% endif %}{% endfor %}" />
-    <link rel="image_src" href="{{ project.image.extra_thumbnails.facebook }}" />
-{% endblock %}
 
 {% block compressed_js %}
     {{ block.super }}
 
     {% if has_screenshots %}
-        <script type="text/javascript" src="{{ STATIC_URL }}jquery.masonry.js"></script>
+        <script type="text/javascript" src="{% static "js/jquery.masonry.js" %}"></script>
         <script type="text/javascript">
-            $(function(){
-                $('#screenshots-container').masonry({
+            $(function () {
+                $('#screenshots .container').masonry({
                     itemSelector: '.screenshot',
                     isAnimated: true
                 });

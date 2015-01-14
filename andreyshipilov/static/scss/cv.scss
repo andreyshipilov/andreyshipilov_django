@@ -1,0 +1,17 @@
+#cv-basic .vcard .org,
+#cv-basic .vcard .fn {
+    display: none;
+}
+
+#cv-employment {
+    .left {
+        float: left;
+        width: 35%;
+        padding-right: 5%;
+        text-align: right;
+    }
+    .right {
+        float: left;
+        width: 60%;
+    }
+}

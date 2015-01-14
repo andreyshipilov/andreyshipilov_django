@@ -24,20 +24,20 @@ CACHE = {
 }
 
 
-@cache_page(CACHE['day'])
+# @cache_page(CACHE['day'])
 def cv(request):
-    return render(request, 'cv.html',)
+    return render(request, 'cv.html', )
 
 
-@cache_page(CACHE['hour'] * 4)
-def index(request):
-    auth = tweepy.OAuthHandler(
+# @cache_page(CACHE['hour'] * 4)
+def home(request):
+    """auth = tweepy.OAuthHandler(
         TWITTER_SECRETS['andreyshipilov']['consumer_key'],
         TWITTER_SECRETS['andreyshipilov']['consumer_secret'])
     auth.set_access_token(
         TWITTER_SECRETS['andreyshipilov']['access_token'],
         TWITTER_SECRETS['andreyshipilov']['access_token_secret'])
-    api = tweepy.API(auth)
+    api = tweepy.API(auth)"""
 
     try:
         tweets = api.user_timeline('andreyshipilov')
@@ -50,57 +50,79 @@ def index(request):
         twitter_info = None
 
     if tweets and twitter_info:
-        frequency = (datetime.today() - twitter_info.created_at).days / len(tweets)
+        frequency = (datetime.today() - twitter_info.created_at).days / len(
+            tweets)
     else:
         frequency = int()
 
-    return render(request, 'index.html', {
-        'is_index': True,
+    context = {
+        'is_home': True,
         'tweets': tweets,
         'tweet_frequency': frequency,
         'twitter_info': twitter_info,
-        'projects': Project.get_published()[:30],
+        'projects': Project.get_published()[:33],
         'projects_count': Project.get_published().values('pk').count()
-    })
+    }
+
+    return render(request, 'home.html', context)
 
 
-@cache_page(CACHE['hour'] * 4)
+# @cache_page(CACHE['hour'] * 4)
 def projects(request):
+    project_types = ProjectType.objects.language().all().distinct()
+    projects = Project.get_published()
     meta = Meta(
         title=_('Projects'),
         description=_('Andrey Shipilov\'s projects'),
-        keywords=['projects',]
+        keywords=[x.title for x in project_types],
+        image=projects[0].image.url,
+        url=request.path_info,
     )
+
     return render(request, 'projects.html', {
+        'is_types': True,
         'meta': meta,
-        'project_types': ProjectType.objects.language().all().distinct(),
-        'projects': Project.get_published(),
+        'project_types': project_types,
+        'projects': projects,
     })
 
 
-@cache_page(CACHE['hour'] * 4)
+# @cache_page(CACHE['hour'] * 4)
 def type_or_project(request, slug):
-    objects = Project.get_published().filter(project_type__slug = slug)
+    objects = Project.get_published().filter(project_type__slug=slug)
 
     if objects.count():
-        return render(request, 'projects_type.html', {
+        context = {
             'projects': objects,
-            'type_title': ProjectType.objects.language().get(slug = slug).title
-        })
+            'type_title': ProjectType.objects.language().get(slug=slug).title
+        }
+        return render(request, 'projects_type.html', context)
     else:
-        project = get_object_or_404(Project.get_published(), slug = slug)
+        project = get_object_or_404(Project.get_published(), slug=slug)
 
         next = False
         try:
             next = project.get_next_by_date(is_published=True)
-        except: pass
+        except:
+            pass
 
         previous = False
         try:
             previous = project.get_previous_by_date(is_published=True)
-        except: pass
+        except:
+            pass
+
+        meta = Meta(
+            title=project.title,
+            description=project.explict_title + '. ' + project.text,
+            keywords=project.project_type.language().values_list('title',
+                flat=True),
+            image=project.image.url,
+            url=project.get_absolute_url()
+        )
 
         return render(request, 'project.html', {
+            'meta': meta,
             'project': project,
             'next': next,
             'previous': previous,
@@ -128,7 +150,7 @@ def everyone_tweet(request):
             try:
                 api.update_status(status=text, lat=lat, long=lng)
                 tweet = Tweet(text=text, country=country, longitude=lng,
-                              latitude=lat,)
+                    latitude=lat, )
                 tweet.save()
 
                 r = {

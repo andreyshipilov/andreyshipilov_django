@@ -1,0 +1,18 @@
+{% load thumbnail %}
+
+<div class="projects-container clearfix{% if is_home %} home{% endif %}">
+    {% for p in projects %}
+        {% if forloop.first %}
+            <a id="latest-project" class="project latest" href="{{ p.get_absolute_url }}" style="background-image: url('{{ p.image.url }}');" title="{{ p.title }}"{% if is_types %} rel="{% for i in p.project_type.language.all %}{{ i.slug }}{% if not forloop.last %} {% endif %}{% endfor %}"{% endif %}>
+        {% else %}
+            {% thumbnail p.image "300x300" crop="center" as img %}
+                <a class="project" href="{{ p.get_absolute_url }}" style="background-image: url('{{ img.url }}');" title="{{ p.title }}"{% if is_types %} rel="{% for i in p.project_type.language.all %}{{ i.slug }}{% if not forloop.last %} {% endif %}{% endfor %}"{% endif %}>
+            {% endthumbnail %}
+        {% endif %}
+            <div class="title bg-{% if forloop.first %}600{% else %}300{% endif %}-{% cycle "0" "1" "2" "3" "4" %}">
+                <h3>{{ p.explict_title }}</h3>
+            </div>
+            {% if is_types %}<div class="overlay"></div>{% endif %}
+        </a>
+    {% endfor %}
+</div>

@@ -1,4 +1,4 @@
-/* Reset */
+-/* Reset */
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0px;padding:0px;}
 table{border-collapse:collapse;border-spacing:0px;}
 td,tr{vertical-align:top;}
@@ -23,47 +23,6 @@ hr {height: 1px; border-style: none; margin: 1em 0; background-color: #2b3d4d; c
 ::-moz-selection {background: #c56a60; color: #fff;}
 ::selection {background: #c56a60; color: #fff;}
 
-.clear {clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0;}
-.clearfix:before,
-.clearfix:after {content: '\0020'; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0;}
-.clearfix:after {clear: both;}
-.clearfix {zoom: 1;}
-
-ul.list {list-style-type: none; margin: 1em 0;}
-    ul.list li {padding: 0; margin: 0.5em 0;}
-    ul.list > li:before {content: '\2014\a0'; color: #666; float: left; padding-right: 0.5em; white-space: nowrap;}
-    ul.list > li > *:first-child:-moz-first-node {margin-top: -1.2em;}
-
-/* Base CSS */
-#top-bg {height: 7px; width: 100%; font: 0em/0em sans-serif;}
-    #top-bg img {width: 100%; height: 7px;}
-#page {background-color: #111; color: #d7d6d2; padding: 20px; position: relative;}
-#everyone-tweet-link {position: absolute; top: -200px; left: 64%; z-index: 1;}
-#main-nav {position: relative; zoom: 1;}
-    #main-nav ul {width: 100%; list-style: none; padding: 0; margin: 0; text-transform: uppercase;}
-    #main-nav li {font-size: 3em; line-height: 1em; display: inline; margin: 0 40px 0 0; position: relative;}
-    #main-nav li {color: #fff}
-            #main-nav li h1 {font-size: 1em; display: inline;}
-        #main-nav li a {color: #2b3d4d; text-decoration: none;}
-        #main-nav li a.in:hover,
-        #main-nav li a:hover {color: #eac485}
-        #main-nav li a.in {color: #acb178}
-#main-nav-right {position: absolute; top: 0; right: 0; float: right;}
-#language-switch {float: right; white-space: nowrap; -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; padding: 0 6px; background-color: #7a8e7a; line-height: 19px; font-size: 0.85em; text-decoration: none;}
-    #language-switch a {color: #fff; text-decoration: none;}
-    #language-switch a:hover {color: #ccc;}
-#share-line {float: right;}
-    #share-line div {float: right; margin-left: 20px;}
-#header {font-size: 1.1em; margin: 20px 0;}
-#socialism {font-size: 0.68em; margin-top: 40px;}
-    #socialism table {width: 100%}
-    #socialism td {text-align: center; vertical-align: bottom; white-space: nowrap;}
-    #socialism a {color: #798d7a; text-decoration: none; text-transform: uppercase;}
-footer {padding: 0; text-align: center; color: #6b6f4f;}
-    #bill-hicks {}
-    footer a {color: #375a44}
-#counters {position: absolute; top: -999px;}
-#projects-count {position: absolute; left: 95%; top: 0; background-color: #da131a; border: 1px solid #fff; font-size: 0.25em; line-height: 1.1; padding: 3px; border-radius: 1em;}
 
 
 /* Index */
@@ -101,77 +60,3 @@ footer {padding: 0; text-align: center; color: #6b6f4f;}
         #twitter-info header h3 {margin: 15px 0 0 0; text-transform: uppercase; font-size: 1.1em; font-weight: bold;}
     #twitter-info p {margin: 5px 0; font-weight: bold;}
 
-
-/* Projects */
-#projects {margin: 20px 0}
-#projects-container {height: 620px; overflow: hidden; visibility: hidden; opacity: 0; position: relative;}
-#projects header a {text-transform: uppercase; text-decoration: none; color: #c56a60; font-size: 0.8em; width: 230px;}
-#projects .project {display: block; width: 15%; float: left; height: 155px; position: relative; background-color: transparent; background-position: 50% 0; background-repeat: no-repeat; color: #fff; text-decoration: none;}
-#projects .project:hover {text-decoration: underline}
-#projects .project .title {position: absolute; bottom: 0; white-space: nowrap; display: block; width: 100%; text-shadow: 0 0 2px #222;}
-    #projects .project .title h3 {margin: 4px 10px; font-size: 1em;}
-    #projects .project .screenshot-count {padding: 4px 10px; text-shadow: 0 0 2px #222; position: absolute; top: 50%; right: -150px; margin-top: -15px; text-decoration: none;}
-#project-types {width: 100%; list-style: none; padding: 0; margin: 20px 0; font-size: 0.85em;}
-    #project-types li {line-height: 1.5em; display: inline; margin: 0 10px 0 0;}
-    #project-types a {line-height: 2em; background-color: #271f2a; color: #819181; text-decoration: none; padding: 4px 10px 5px; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; outline: none;}
-    #project-types a:hover {background-color: #c56a60; color: #2b3d4d;}
-    #project-types a.selected {color: #2b3d4d; background-color: #fff;}
-#project {overflow: auto;}
-    #project header {font-size: 1.1em; margin: 20px 0;}
-#project-link {color: #798d7a; text-transform: uppercase; text-decoration: none; font-size: 0.7em; font-weight: bold;}
-#project-link-button {color: #fff; text-decoration: none; font-size: 1.2em; padding: 5px 10px; background-color: #c16861; border-radius: 4px; -moz-border-radius: 4px; -webkit-border-radius: 4px; text-shadow: none; text-shadow: 0 0 2px #222;}
-#project-link-button:hover {background-color: #7a8e7a;}
-#project-container {float: left; width: 100%;}
-#project-left-column,
-#project-right-column {float: left; width: 50%; height: 300px;}
-#project-left-column {background-position: 50% 50%; background-size: cover;}
-#project-right-column {color: #fff; text-shadow: 0 1px 0 #222; background: url('../img/long-dark-bg.png') repeat-y 50% 0 transparent;}
-    #project-right-column div {margin: 20px}
-    #project-right-column h1 {color: #fff; font-size: 1.25em; line-height: 1.5em; margin: 0 0 20px 0; font-weight: bold;}
-    #project-right-column p.participant {margin: 0.2em 0}
-        #project-right-column p.participant a {color: #798d7a}
-        #project-right-column p.participant a:hover {color: #acb178}
-            #project-client {margin-top: 0;}
-#project-tags {font-size: 0.85em; color: #d7d6d2;}
-#project-text {font-size: 1.3em; line-height: 1.3em; margin: 0 0 1em;}
-#previous-next-projects {position: relative; text-transform: uppercase; font-weight: bold; font-size: 0.68em; zoom: 1;}
-    #previous-next-projects a {color: #acb178; text-decoration: none;}
-#previous-project {}
-#previous-project {position: absolute; right: 0; top: 0;}
-#screenshots {margin: 20px 0;}
-    #screenshots header {text-transform: uppercase; color: #d7d6d2; font-size: 0.68em;}
-    #screenshots-container {background: url('../img/screenshots-bg.png') -10% -1px #45675d;}
-        #screenshots-container .screenshot {float: left; line-height: 0;}
-            #screenshots-container .screenshot .body {background: url('../img/small-screenshot-body.png') repeat-y 50% 0 transparent; text-align: center;}
-            #screenshots-container .screenshot .site-url {position: absolute; top: 38px; left: 86px; font-size: 8px; color: #333; text-shadow: 0 0 1px #aaa; line-height: 1px; font-family: Lucida Sans Unicode, Lucida Grande, sans-serif;}
-
-
-/* Commons */
-.dark-bg {background: url('../img/dark-bg.png') repeat-y 50% 0}
-.long-dark-bg {background: url('../img/long-dark-bg.png') repeat-y 50% 0}
-.medium-bg {background: url('../img/medium-bg.png') repeat-y 50% 0}
-.light-bg {background: url('../img/light-bg.png') repeat-y 50% 0}
-.underlined {text-decoration: underline !important}
-.bg-300-0 {background: url('../img/bg/b_300_0.gif') repeat-y 50% 0}
-.bg-300-1 {background: url('../img/bg/b_300_1.gif') repeat-y 50% 0}
-.bg-300-2 {background: url('../img/bg/b_300_2.gif') repeat-y 50% 0}
-.bg-300-3 {background: url('../img/bg/b_300_3.gif') repeat-y 50% 0}
-.bg-300-4 {background: url('../img/bg/b_300_4.gif') repeat-y 50% 0}
-.bg-600-0 {background: url('../img/bg/b_600_0.gif') repeat-y 50% 0}
-.bg-600-1 {background: url('../img/bg/b_600_1.gif') repeat-y 50% 0}
-.bg-600-2 {background: url('../img/bg/b_600_2.gif') repeat-y 50% 0}
-.bg-600-3 {background: url('../img/bg/b_600_3.gif') repeat-y 50% 0}
-.bg-600-4 {background: url('../img/bg/b_600_4.gif') repeat-y 50% 0}
-
-/* CV */
-#cv-basic .vcard .org,
-#cv-basic .vcard .fn {
-    display: none;
-}
-#cv-download {}
-    #cv-download a:hover {color: #ccf;}
-#notable-projects {}
-    #notable-projects a:hover {color: #ccf;}
-#cv-employment {}
-    #cv-employment .left {float: left; width: 35%; padding-right: 5%; text-align: right;}
-    #cv-employment .right {float: left; width: 60%;}
