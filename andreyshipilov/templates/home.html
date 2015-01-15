@@ -12,6 +12,7 @@
         {% include "projects-include.html" %}
     </section>
 
+    {% comment %}
     <section id="flickr" class="clearfix">
         <header class="section-header">
             <a href="http://www.flickr.com/photos/andrey_shipilov/">Flickr</a>
@@ -22,48 +23,36 @@
             </div>
         </div>
     </section>
+    {% endcomment %}
 
     {% if tweets %}
         <section id="twitter" class="clearfix">
             <header class="section-header">
-                <a href="http://www.twitter.com/{{ twitter_info.screen_name }}">Twitter</a>
+                <a href="https://www.twitter.com/{{ twitter_info.screen_name }}">Twitter</a>
             </header>
-            <div id="tweets">
-                <table id="tweets-table">
-                    <tr>
-                        {% for tweet in tweets %}
-                            <td class="h bg-300-{% cycle "0" "1" "2" "3" "4" %}">
-                                <p>{{ tweet.text|urlize|typogrify }}</p>
-                                <p class="tweet-info">
-                                    <a href="http://www.twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id }}" rel="nofollow">{{ tweet.created_at }}</a>
-                                    {% if tweet.source %}
-                                        <span> via {{ tweet.source|safe|striptags }}</span>
-                                    {% endif %}
-                                    {% if tweet.in_reply_to_status_id %}
-                                        <span> @<a href="http://www.twitter.com/{{ tweet.in_reply_to_screen_name }}/status/{{ tweet.in_reply_to_status_id }}" rel="nofollow">{{ tweet.in_reply_to_screen_name }}</a></span>
-                                    {% endif %}
-                                </p>
-                            </td>
-                        {% endfor %}
-                        <td id="twitter-info" class="v">
-                            <section>
-                                <header>
-                                    <h3>{% trans "Follow me on Twitter" %}</h3>
-                                </header>
-                                <p>{% trans "I tweet rarely" %}: {{ twitter_info.statuses_count }} {% trans "tweet" %}, {{ twitter_info.followers_count }} {% trans "follower" %} and {{ twitter_info.friends_count }} {% trans "friend" %}.</p>
-                            </section>
-                            <script type="text/javascript">$('#twitter-info').click(function(){$('#twitter').slideUp(2000); window.location.href = 'http://www.twitter.com/{{ twitter_info.screen_name }}';});</script>
+            <table class="table">
+                <tr>
+                    {% for tweet in tweets %}
+                        <td class="h bg-300-{% cycle "0" "1" "2" "3" "4" %}">
+                            <p>{{ tweet.text|urlize|typogrify }}</p>
+                            <p class="tweet-info">
+                                <a href="https://www.twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id }}" rel="nofollow">{{ tweet.created_at }}</a>
+                                {% if tweet.source %}
+                                    <span> via {{ tweet.source|safe|striptags|typogrify }}</span>
+                                {% endif %}
+                                {% if tweet.in_reply_to_status_id %}
+                                    <span> @<a href="https://www.twitter.com/{{ tweet.in_reply_to_screen_name }}/status/{{ tweet.in_reply_to_status_id }}" rel="nofollow external">{{ tweet.in_reply_to_screen_name }}</a></span>
+                                {% endif %}
+                            </p>
                         </td>
-                    </tr>
-                </table>
-            </section>
-        </div>
+                    {% endfor %}
+                    <td class="twitter-info v">
+                        <h3>{% trans "Follow me on Twitter" %}</h3>
+                        <p>{% trans "I tweet rarely" %}: {{ twitter_info.statuses_count }} {% trans "tweet" %}, {{ twitter_info.followers_count }} {% trans "follower" %} and {{ twitter_info.friends_count }} {% trans "friend" %}.</p>
+                    </td>
+                </tr>
+            </table>
+        </section>
     {% endif %}
 {% endblock %}
 
-
-{% block head_appendix %}
-    {% with projects|first as first %}
-        <link rel="image_src" href="{{ first.image.url }}" />
-    {% endwith %}
-{% endblock %}

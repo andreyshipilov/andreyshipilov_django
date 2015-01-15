@@ -29,15 +29,15 @@ def cv(request):
     return render(request, 'cv.html', )
 
 
-# @cache_page(CACHE['hour'] * 4)
+@cache_page(CACHE['hour'] * 4)
 def home(request):
-    """auth = tweepy.OAuthHandler(
+    auth = tweepy.OAuthHandler(
         TWITTER_SECRETS['andreyshipilov']['consumer_key'],
         TWITTER_SECRETS['andreyshipilov']['consumer_secret'])
     auth.set_access_token(
         TWITTER_SECRETS['andreyshipilov']['access_token'],
         TWITTER_SECRETS['andreyshipilov']['access_token_secret'])
-    api = tweepy.API(auth)"""
+    api = tweepy.API(auth)
 
     try:
         tweets = api.user_timeline('andreyshipilov')
@@ -55,13 +55,21 @@ def home(request):
     else:
         frequency = int()
 
+
+    projects = Project.get_published()
+    meta = Meta(
+        url='/',
+        image=projects[0].image.url
+    )
+
     context = {
         'is_home': True,
+        'meta': meta,
         'tweets': tweets,
         'tweet_frequency': frequency,
         'twitter_info': twitter_info,
-        'projects': Project.get_published()[:33],
-        'projects_count': Project.get_published().values('pk').count()
+        'projects': projects[:33],
+        'projects_count': projects.count()
     }
 
     return render(request, 'home.html', context)

@@ -4,6 +4,10 @@ section {
         margin: 1em 0 0.5em;
         text-transform: uppercase;
         font-weight: bold;
+
+        a {
+            text-decoration: none;
+        }
     }
 }
 
@@ -137,6 +141,7 @@ section {
 }
 
 #footer {
+    padding-top: 20px;
     text-align: center;
     color: #6b6f4f;
 
