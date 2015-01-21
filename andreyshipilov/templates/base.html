@@ -10,7 +10,11 @@
 
         {% include "meta.html" %}
 
-        <title>{% block meta_title %}{% trans "Andrey Shipilov" %} / {% block subtitle %}{% trans "Index Subtitle" %}{% endblock %}{% endblock %}</title>
+        {% if is_home %}
+            <title>{% trans "Andrey Shipilov" %} / {% trans "Index Subtitle" %}</title>
+        {% else %}
+            <title>{{ subtitle }} / {% trans "Andrey Shipilov" %}</title>
+        {% endif %}
         <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold&amp;subset=cyrillic,latin" />
         <link rel="canonical" href="http://{{ request.META.HTTP_HOST|urlencode }}{{ request.path|urlencode }}" />
 
@@ -118,9 +122,9 @@
                             {% endif %}
                         {% endif %}
                     </li>
-                    <li style="display: none;">
-                        <a href="#contact" id="contact-link">{% trans "Contact me" %}</a>
-                    </li>
+{#                    <li style="display: none;">#}
+{#                        <a href="#contact" id="contact-link">{% trans "Contact me" %}</a>#}
+{#                    </li>#}
                 </ul>
 
                 <aside class="nav-right">
@@ -168,7 +172,7 @@
 
         <div id="footer">
             <p lang="{{ LANGUAGE_CODE }}">&copy; {% trans "Andrey Shipilov" %}, 1984&mdash;{% now "Y" %}.<br /><a href="mailto:a@andreyshipilov.com">a@andreyshipilov.com</a></p>
-            <p lang="en" id="bill-hicks">I do really appologize for the leaders of Russia &mdash; balless, soulless, spiritless corporate little bitches, suckers of Satan's cock, each and every one of them.</p>
+            <p lang="en">I do really appologize for the leaders of Russia &mdash; balless, soulless, spiritless corporate little bitches, suckers of Satan's cock, each and every one of them.</p>
         </div>
         <div id="counters"></div>
     </body>

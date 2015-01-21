@@ -1,14 +1,15 @@
+# -*- coding: utf-8 -*-
+
+import json
 from datetime import datetime
 
 from django.shortcuts import get_object_or_404, render
 from django.http import HttpResponse
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
-from django.core.cache import cache
-from django.db.models import Count
+# from django.core.cache import cache
 from django.utils.html import strip_tags
-from django.utils import simplejson
-from django.utils.translation import gettext as _
+from django.utils.translation import ugettext as _
 import tweepy
 from tweepy.error import TweepError
 from meta.views import Meta
@@ -59,7 +60,9 @@ def home(request):
     projects = Project.get_published()
     meta = Meta(
         url='/',
-        image=projects[0].image.url
+        image=projects[0].image.url,
+        title=_('Andrey Shipilov'),
+        description=_('Some text about me'),
     )
 
     context = {
@@ -92,6 +95,7 @@ def projects(request):
         'meta': meta,
         'project_types': project_types,
         'projects': projects,
+        'subtitle': _('Projects'),
     })
 
 
@@ -100,9 +104,21 @@ def type_or_project(request, slug):
     objects = Project.get_published().filter(project_type__slug=slug)
 
     if objects.count():
+        project_type = ProjectType.objects.language().get(slug=slug)
+        title = _('Projects tagged "%s"' % project_type.title)
+        meta = Meta(
+            title=title,
+            description=title,
+            keywords=[project_type.title],
+            image=objects[0].image.url,
+            url=project_type.get_absolute_url(),
+        )
+
         context = {
+            'meta': meta,
             'projects': objects,
-            'type_title': ProjectType.objects.language().get(slug=slug).title
+            'type_title': title + '.',
+            'subtitle': title
         }
         return render(request, 'projects_type.html', context)
     else:
@@ -126,7 +142,7 @@ def type_or_project(request, slug):
             keywords=project.project_type.language().values_list('title',
                 flat=True),
             image=project.image.url,
-            url=project.get_absolute_url()
+            url=project.get_absolute_url(),
         )
 
         return render(request, 'project.html', {
@@ -135,6 +151,7 @@ def type_or_project(request, slug):
             'next': next,
             'previous': previous,
             'has_screenshots': project.screenshot_set.exists(),
+            'subtitle': project.title
         })
 
 
@@ -173,7 +190,7 @@ def everyone_tweet(request):
                     'text': error['message'],
                 }
 
-            return HttpResponse(simplejson.dumps(r), mimetype="text/plain")
+            return HttpResponse(json.dumps(r), mimetype="text/plain")
         else:
             if len(text) == 0:
                 text = 'Write at least something.'
@@ -189,7 +206,7 @@ def everyone_tweet(request):
                 'text': text,
             }
 
-            return HttpResponse(simplejson.dumps(r), mimetype="text/plain")
+            return HttpResponse(json.dumps(r), mimetype="text/plain")
     else:
         return render(request, 'everyone_tweet.html', {
             'tweets': Tweet.objects.all(),

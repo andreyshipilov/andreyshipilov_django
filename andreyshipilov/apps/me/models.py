@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
+
 from django.db import models
 from django.utils.translation import ungettext
 
-# from plesonet_imagefield.fields import ImrpovedImageWithThumbnailsField
 from sorl.thumbnail import ImageField
 from pytils.translit import slugify
 from os.path import splitext
@@ -18,8 +18,6 @@ class Social(models.Model):
                                                  instance.title.lower()) or
                                               'icon',
                                               splitext(filename)[1].lower()),
-        #generate_on_save=True,
-        #thumbnail={'size': (100, 100),},
     )
 
     class Meta:
@@ -64,18 +62,6 @@ class Project(TranslatableModel):
                                              (instance.slug, instance.slug,
                                               splitext(filename)[1].lower()),
     )
-    """generate_on_save=True,
-    thumbnail={'size': (1000, 300), 'options': ['crop', ], },
-    extra_thumbnails={
-        'small': {
-            'size': (300, 130),
-            'options': ['crop', ],
-        },
-        'facebook': {
-            'size': (300, 300),
-            'options': ['crop', 'sharpen'],
-        },
-    },"""
 
     translations = TranslatedFields(
         explict_title=models.CharField(max_length=250),
@@ -123,8 +109,6 @@ class Screenshot(models.Model):
                 filename: "project/%s/screenshots/%s-screenshot%s" % \
                           (instance.project.slug, instance.project.slug,
                            splitext(filename)[1].lower()),
-        #generate_on_save=True,
-        #thumbnail={'size': (412, 9999), },
     )
 
 

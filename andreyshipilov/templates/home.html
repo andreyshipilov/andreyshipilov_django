@@ -3,7 +3,7 @@
 
 
 {% block all_content %}
-    <h2 id="index-header">{{ AGE }} {% trans "Some text about me"|typogrify %}</h2>
+    <h2 id="index-header">{% trans "Some text about me"|typogrify %}</h2>
     <section id="projects" class="clearfix">
         <header class="section-header">
             <a href="{% url "projects" %}">{% trans "Projects" %}</a>
@@ -46,9 +46,15 @@
                             </p>
                         </td>
                     {% endfor %}
-                    <td class="twitter-info v">
+                    <td class="info v">
                         <h3>{% trans "Follow me on Twitter" %}</h3>
-                        <p>{% trans "I tweet rarely" %}: {{ twitter_info.statuses_count }} {% trans "tweet" %}, {{ twitter_info.followers_count }} {% trans "follower" %} and {{ twitter_info.friends_count }} {% trans "friend" %}.</p>
+                        <p>
+                            <span>{% trans "I tweet rarely" %}: </span>
+                            <span>{% blocktrans count counter=twitter_info.statuses_count %}one {{ tweet }}{% plural %}{{ counter }} {{ tweet }}{% endblocktrans %} , </span>
+                            <span>{% blocktrans count counter=twitter_info.followers_count %}one {{ follower }}{% plural %}{{ counter }} {{ follower }}{% endblocktrans %}</span>
+                            <span> {% trans "and" %} </span>
+                            <span>{% blocktrans count counter=twitter_info.friends_count %}one {{ friend }}{% plural %}{{ counter }} {{ friend }}{% endblocktrans %}.</span>
+                        </p>
                     </td>
                 </tr>
             </table>

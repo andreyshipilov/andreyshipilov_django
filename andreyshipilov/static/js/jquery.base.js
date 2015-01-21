@@ -87,8 +87,6 @@ $(function () {
     var $twitterTable = $('#twitter').find('.table'),
         maxCells = Math.floor($twitterTable.width() / maxCellSize);
 
-    console.log($twitterTable)
-
     $('td', $twitterTable).slice(0, maxCells - 1).addClass('v').removeClass('h');
     $('td[class*="v"]', $twitterTable).css({'width': 100 / ($('td[class*="v"]', $twitterTable).length) + '%'});
 
@@ -106,7 +104,7 @@ $(function () {
     }).resize();
 
     // Twitter bar click.
-    $('#twitter-info').click(function () {
+    $('.info', $twitterTable).click(function () {
         window.location.href = 'https://twitter.com/andreyshipilov';
     });
 });

@@ -2,9 +2,6 @@
 {% load localeurl_tags i18n compress static %}
 
 
-{% block subtitle %}{{ type_title|capfirst }}{% endblock %}
-
-
 {% block head_appendix %}
     {% for p in projects %}
         <link rel="image_src" href="{{ p.image.url }}" />

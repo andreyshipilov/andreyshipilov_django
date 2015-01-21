@@ -71,8 +71,6 @@ TEMPLATE_CONTEXT_PROCESSORS += (
 
 ROOT_URLCONF = 'andreyshipilov.urls'
 
-TIME_ZONE = 'Australia/Adelaide'
-
 LANGUAGE_CODE = 'en'
 
 LANGUAGES = (
@@ -101,6 +99,10 @@ MEDIA_URL = '/media/'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, '../locale'),
 )
 
 """

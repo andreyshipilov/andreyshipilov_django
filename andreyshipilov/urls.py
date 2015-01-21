@@ -36,7 +36,7 @@ class ProjectsSitemap(LocaleurlSitemap):
     Multilingual sitemaps
     """
     priority = 0.6
-    changefreq = 'weekly'
+    changefreq = 'monthly'
 
     def items(self):
         return Project.get_published()

@@ -2,12 +2,10 @@
 {% load localeurl_tags i18n compress markdown_deux_tags %}
 
 
-{% block subtitle %}Curriculum Vitae, Resumé{% endblock %}
-
 {% block all_content %}
     {% if LANGUAGE_CODE == 'ru' %}
         <h1>Curriculum Vitae.</h1>
-        <p>На русском языке мне эта страница никогда не помогала, потому что её никто не читает в России. Смотрите раздел <a href="{% url projects %}">проекты</a>.</p>
+        <p>На русском языке мне эта страница никогда не помогала, потому что её никто не читает в России. Смотрите раздел <a href="{% url "projects" %}">проекты</a>.</p>
         <p>Спасибо.</p>
     {% else %}
     <section id="cv">
