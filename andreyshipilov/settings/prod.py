@@ -2,8 +2,18 @@
 Production settings
 
 """
-from common import *
+from base import *
 
+# DEBUG = True
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": DATABASE_NAME_USER,
+        "USER": DATABASE_NAME_USER,
+        "PASSWORD": DATABASE_PASSWORD,
+    }
+}
 
 DATABASE_STATEMENT_TIMEOUT = 2 * 60 * 1000
 
@@ -11,18 +21,21 @@ WSGI_APPLICATION = 'wsgi.prod.application'
 
 ALLOWED_HOSTS = ['.andreyshipilov.com']
 
-COMPRESS_CSS_FILTERS += [
+COMPRESS_CSS_FILTERS = [
+    'compressor.filters.template.TemplateFilter',
+    'compressor.filters.css_default.CssAbsoluteFilter',
     'compressor.filters.cssmin.CSSMinFilter',
 ]
 
-COMPRESS_JS_FILTERS += [
+COMPRESS_JS_FILTERS = [
+    'compressor.filters.template.TemplateFilter',
     'compressor.filters.jsmin.JSMinFilter',
 ]
 
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/home/ovaladmin/tmp/cache/dev.oneoval',
+        'LOCATION': '/home/tezro/temp/django_cache/andreyshipilov',
     }
 }
 

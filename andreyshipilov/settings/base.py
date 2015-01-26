@@ -83,7 +83,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-STATIC_URL = '/static/'
+STATIC_URL = '/s/'
 STATIC_ROOT = os.path.join(BASE_DIR, '../static_root')
 
 STATICFILES_DIRS = (
@@ -95,7 +95,7 @@ STATICFILES_FINDERS += (
 )
 
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media_root')
-MEDIA_URL = '/media/'
+MEDIA_URL = '/m/'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
