@@ -25,12 +25,12 @@ CACHE = {
 }
 
 
-# @cache_page(CACHE['day'])
+@cache_page(CACHE['day'])
 def cv(request):
     return render(request, 'cv.html', )
 
 
-@cache_page(CACHE['hour'] * 4)
+@cache_page(CACHE['hour'])
 def home(request):
     auth = tweepy.OAuthHandler(
         TWITTER_SECRETS['andreyshipilov']['consumer_key'],
@@ -78,7 +78,7 @@ def home(request):
     return render(request, 'home.html', context)
 
 
-# @cache_page(CACHE['hour'] * 4)
+@cache_page(CACHE['hour'])
 def projects(request):
     project_types = ProjectType.objects.language().all().distinct()
     projects = Project.get_published()
@@ -99,7 +99,7 @@ def projects(request):
     })
 
 
-# @cache_page(CACHE['hour'] * 4)
+@cache_page(CACHE['hour'])
 def type_or_project(request, slug):
     objects = Project.get_published().filter(project_type__slug=slug)
 
@@ -155,6 +155,7 @@ def type_or_project(request, slug):
         })
 
 
+@cache_page(CACHE['minute'] * 10)
 @csrf_exempt
 def everyone_tweet(request):
     if request.method == 'POST':
