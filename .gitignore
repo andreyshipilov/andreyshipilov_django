@@ -5,11 +5,10 @@
 .DS_Store
 .coverage
 .idea
+
 static_root
 media_root
-django_cache
 
-local_settings.py
 secret_info.py
 fabfile.py
-uwsgi
+
