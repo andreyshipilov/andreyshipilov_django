@@ -1,17 +1,14 @@
 #!/usr/bin/env python2.7
 # -*- coding: utf-8 -*-
 
-from os.path import join, abspath, dirname
+import os
 import sys
 from urllib2 import urlopen
-
-sys.path.insert(0, abspath(join(dirname(__file__), 'andreyshipilov')))
-
-import settings
-from django.core.management import setup_environ
 from django.core.mail import send_mail
-setup_environ(settings)
 
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'andreyshipilov/apps')))
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "andreyshipilov.settings.prod")
 
 
 # Is verbose output needed?
