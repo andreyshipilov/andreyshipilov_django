@@ -1,0 +1,20 @@
+body {color: #424242; font: normal 0.7em Arial; padding: 0; margin: 0; background: url('./i/bg.jpg') repeat-x top left;}
+img {border: 0;}
+h2 {font: normal 150%; color: black; margin: 0;}
+p {padding: 0; margin: 0 0 1em 0;}
+b {color: #DB003A; font-weight: normal;}
+a {color: #0082f1; text-decoration: underline;}
+a.e {color: #0079b2; text-decoration: underline;}
+.grey {color: #989898;}
+
+table.dots {font-size: 1.25em; margin: 1em 0 0.5em;}
+table.dots td.dots {background: url('./i/dots.gif') repeat-x bottom left;}
+table.dots td.left {padding-right: 0.5em;}
+table.dots td.right {padding-left: 0.5em;}
+table.dots2 {font-size: 1em; margin-bottom: 0.75em;}
+table.dots2 td.dots {background: url('./i/dots-2.gif') repeat-x bottom left;}
+table.dots2 td.left {padding-right: 1em; color: #a4a4a4;}
+table.dots2 td.center {padding-right: 0.5em;}
+table.dots2 td.center a {color: #a5b2c7;}
+table.dots2 td.right {padding-left: 0.5em;}
+table.dots2 td.right a {color: #636363;}

@@ -1,0 +1,19 @@
+html, body {background-color: #7a7a7a; height: inherit;}
+body {background: url(../pg-text.gif) no-repeat 50% 181px transparent;}
+#main {background: url(../pg-illustration.png) no-repeat 50% 10px transparent; min-height: 500px;}
+
+#logo {margin: 0 0 450px;}
+
+#menu {margin: 0 0 20px; float: left; width: 100%;}
+	#menu h1 {width: 290px; float: left; margin: 0 20px 0 0;}
+
+footer {margin-left: 0; width: 290px;float: left;}
+
+#copyright {float: left; padding-bottom: 40px;}
+#copyright a {color: #333; font-size: 0.85em; text-decoration: none; border-bottom: 1px dotted #333; outline: none;}
+#copyright-full {display: none; float: left; position: absolute; padding: 10px; background-color: #fff; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; box-shadow: 0 0 5px black; -moz-box-shadow: 0 0 10px rgba(0,0,0,0.5); -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.5);}
+	#copyright-full {color: #b3b3b3;}
+	#copyright-full p {margin: 0; line-height: 1.3em;}
+	#copyright-full a {color: #333; font-size: 1em;}
+		#hide {margin-top: 5px !important;}
+			#hide a {font-size: 0.85em; text-decoration: none; border-bottom: 1px dotted #333; outline: none;}

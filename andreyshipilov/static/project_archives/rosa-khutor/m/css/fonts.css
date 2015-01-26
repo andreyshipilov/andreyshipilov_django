@@ -1,0 +1,70 @@
+/*@font-face {
+	font-family: 'DINProBlack';
+	src: url('dinpro-black-webfont.eot');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINProBlack';
+	src: url(//:) format('no404'), url('dinpro-black-webfont.woff') format('woff'), url('dinpro-black-webfont.ttf') format('truetype'), url('dinpro-black-webfont.svg#webfontlb3wY0vF') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINPro';
+	src: url('dinpro-bold-webfont.eot');
+	font-weight: bold;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINPro';
+	src: url(//:) format('no404'), url('dinpro-bold-webfont.woff') format('woff'), url('dinpro-bold-webfont.ttf') format('truetype'), url('dinpro-bold-webfont.svg#webfontBz1vQ2FA') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+*/
+
+@font-face {
+	font-family: 'DINProLight';
+	src: url('dinpro-light-webfont.eot');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINProLight';
+	src: url(http://:/) format('no404'), url('dinpro-light-webfont.woff') format('woff'), url('dinpro-light-webfont.ttf') format('truetype'), url('dinpro-light-webfont.svg#webfontLddxB8Ki') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINProMedium';
+	src: url('dinpro-medium-webfont.eot');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINProMedium';
+	src: url(http://:/) format('no404'), url('dinpro-medium-webfont.woff') format('woff'), url('dinpro-medium-webfont.ttf') format('truetype'), url('dinpro-medium-webfont.svg#webfontHOCrtv0z') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINProNormal';
+	src: url('dinpro-regular-webfont.eot');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'DINProNormal';
+	src: url(http://:/) format('no404'), url('dinpro-regular-webfont.woff') format('woff'), url('dinpro-regular-webfont.ttf') format('truetype'), url('dinpro-regular-webfont.svg#webfontFBwsLjv9') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

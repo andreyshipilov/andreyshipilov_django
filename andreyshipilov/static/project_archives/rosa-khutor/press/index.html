@@ -1,0 +1,255 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Mirrored from www.rosakhutor.webfactional.com/press/ by HTTrack Website Copier/3.x [XR&CO'2010], Thu, 12 Jan 2012 01:41:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Для прессы | Роза Хутор</title><link rel="stylesheet" type="text/css" media="screen,projection" href="../m/css/fonts.css" /><link rel="stylesheet" type="text/css" media="screen,projection" href="../m/css/base.css" /><link rel="stylesheet" type="text/css" media="screen,projection" href="../m/nyromodal/nyromodal.css" /><link href="releases/feed/index.html" rel="alternate" type="application/rss+xml" title="Пресс-релизы" /><link href="publications/feed/index.html" rel="alternate" type="application/rss+xml" title="Публикации" /><!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script><script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script--><script type="text/javascript" src="../m/js/jquery.m.js"></script><script type="text/javascript" src="../m/js/jquery.ui.m.js"></script><script type="text/javascript" src="../m/js/rosa.js"></script><script type="text/javascript" src="../../vkontakte.ru/js/api/shared3d9.js?10"></script><link rel="shortcut icon" href="../m/favicon.ico" /><link rel="stylesheet" type="text/css" media="screen,projection" href="../m/css/black.css" /><link rel="stylesheet" type="text/css" media="screen,projection" href="../m/css/press.css" /><style type="text/css">
+		#releases-years td.wide {
+			width: 16%;
+		}
+		
+			#publications-years td.wide {
+				width: 33%;
+			}
+		
+	</style><script type="text/javascript">
+		$(function(){
+			$('#releases-slider').data({
+				'min': 2005,
+				'max': 2011,
+				'range': 7 - 1
+			});
+
+			$('#publications-slider').data({
+				'min': 2008,
+				'max': 2011,
+				'range': 4 - 1
+			});
+
+			$('#releases-slider').slider({
+				min: 0,
+				max: 1000,
+				animate: 250,
+				slide: function(event, ui){
+					var max = $(this).slider("option", "max"), data = $(this).data();
+					var S = max / data.range;
+					var year = Math.round(ui.value / S) + data.min;
+
+					$('#releases-content > .releases-container').not('#releases-' + year + '-content').slideUp(250);
+					$('#releases-' + year + '-content').slideDown(250);
+				},
+				change: function(event, ui){
+					var max = $(this).slider("option", "max"), data = $(this).data();
+					var S = max / data.range;
+					var year = Math.round(ui.value / S) + data.min;
+					var newValue = Math.round(Math.round(ui.value / S) * S);
+					if(ui.value != newValue){
+						location.hash = '#releases-' + year;
+						_ = this;
+						setTimeout(function(){
+							$(_).slider('value', newValue);
+						}, 250);
+					}
+					$('#releases-content > .releases-container').not('#releases-' + year + '-content').slideUp(250);
+					$('#releases-' + year + '-content').slideDown(250);
+				}
+			});
+			$('#releases-slider').slider('value', $('#releases-slider').slider('option', 'max'));
+
+		
+			$('#publications-slider').slider({
+				min: 0,
+				max: 1000,
+				animate: 250,
+				slide: function(event, ui){
+					var max = $(this).slider("option", "max"), data = $(this).data();
+					var S = max / data.range;
+					var year = Math.round(ui.value / S) + data.min;
+
+					$('#publications-content > .publications-container').not('#publications-' + year + '-content').slideUp(250);
+					$('#publications-' + year + '-content').slideDown(250);
+				},
+				change: function(event, ui){
+					var max = $(this).slider("option", "max"), data = $(this).data();
+					var S = max / data.range;
+					var year = Math.round(ui.value / S) + data.min;
+					var newValue = Math.round(Math.round(ui.value / S) * S);
+					if(ui.value != newValue){
+						location.hash = '#publications-' + year;
+						_ = this;
+						setTimeout(function(){
+							$(_).slider('value', newValue);
+						}, 250);
+					}
+					$('#publications-content > .publications-container').not('#publications-' + year + '-content').slideUp(250);
+					$('#publications-' + year + '-content').slideDown(250);
+				}
+			});
+			$('#publications-slider').slider('value', $('#publications-slider').slider('option', 'max'));
+		
+
+			var width = 0, height = 0;
+			$('#albums .album-info').each(function(){
+				$(this).attr('rel', $(this).attr('title')).attr('title', null);
+				width += $(this).outerWidth(true);
+				height = $(this).outerHeight(true) > height ? $(this).outerHeight(true) : height;
+			}).click(function(e){
+                            e.preventDefault();
+				$('#albums .album-info').removeClass('selected');
+				$(this).addClass('selected');
+				$('#albums-images .albums-images-wrap').not('#albums-images-' + $(this).attr('rel')).slideUp(200);
+				$('#albums-images-' + $(this).attr('rel')).slideDown(200);
+				return false;
+			});
+
+			$('#albums').width(width).height(height);
+			$('#albums-wrap').height(height);
+
+			$('#albums-slider').slider({
+				min: 0,
+				max: 1000,
+				animate: 200,
+				slide: function(event, ui){
+					var wrap = $('#albums');
+					wrap.css({
+						left: (910 - wrap.width()) * ui.value / 1000
+					});
+				}
+			});
+
+			var sliderName = location.hash.slice(0, location.hash.indexOf('-'));
+			var sliderObj = $(sliderName + '-slider');
+			if(sliderObj.length){
+				var year = location.hash.slice(location.hash.indexOf('-') + 1);
+				var pos = (1 - (sliderObj.data('max') - year) / sliderObj.data('range')) * sliderObj.slider('option', 'max')
+				sliderObj.slider('value', pos);
+				setTimeout(function(){
+					$.scrollTo($(sliderName + '-section'), 500, {
+						offset: -78
+					});
+				}, 500);
+			}
+		});
+	</script><script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-791865-19']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script></head><body><div id="top"><div id="top-nav-root"><div id="top-nav"><ul id="top-menu"><li><a href="../index.html"><img src="../m/home.png" /></a></li><li><a href="../project/index.html">Проект</a></li><li><a href="../resort/index.html">Курорт</a></li><li><a href="../olympics/index.html">Олимпиада</a></li><li><a href="../realty/index.html">Недвижимость</a></li><li><a href="../ecology/index.html">Экология</a></li><li class="selected">Для прессы</li><li><a href="../contacts/index.html">Контакты</a></li></ul><ul id="lang"><li><a href="../en/press/index.html"><img src="../m/flag-en.gif" alt="English" /></a></li></ul></div></div><div id="top-child-root"><ul id="top-child-menu"><li><a href="#releases">Пресс-релизы</a></li><li><a href="#publications">Публикации</a></li><li><a href="#media">Медиа</a></li><li><a href="#contacts">Контакты для прессы</a></li></ul></div><div id="top-shadow">&nbsp;</div></div><div id="home"></div><div id="content-container"><div id="content"><br /><a href="../index.html"><img src="../m/small-logo-ru.png" height="46" alt="" /></a><div class="columns_2"><div class="first"><p><img src="../m/press/illustration.jpg" height="265" alt="" /></p></div><div class="second"><p class="color-white leading-text">Если Вы&nbsp;хотите оперативно получать <span class="nobr">пресс-релизы</span> Компании по&nbsp;девелопменту горнолыжного курорта &laquo;Роза Хутор&raquo;, подпишитесь на&nbsp;нашу новостную рассылку, указав адрес вашей электронной&nbsp;почты:</p><form method="post" action="http://www.rosakhutor.webfactional.com/press/subscribe/"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='4c25a3a87ce9f223e620fd5230fc3128' /></div><input type="text" name="email" id="subscription-email" /><input type="submit" value="Подписаться" id="subscription-button" /></form></div></div><h1 id="releases-section">Пресс-релизы <a href="#home" class="top"><img src="../m/top-arrow.gif" height="10" /> Наверх</a></h1><table id="releases-years"><tr><td class="din-medium">2005</td><td class="wide"></td><td class="din-medium">2006</td><td class="wide"></td><td class="din-medium">2007</td><td class="wide"></td><td class="din-medium">2008</td><td class="wide"></td><td class="din-medium">2009</td><td class="wide"></td><td class="din-medium">2010</td><td class="wide"></td><td class="din-medium">2011</td></tr><tr class="years-lines"><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td></tr></table><div class="slider-wrap"><div id="releases-slider" class="slider"></div></div><div id="releases-content"><div id="releases-2005-content" class="releases-container"><div class="release-item"><a href="release-1/index.html" class="all-caps din-medium">9 февраля</a> «Интеррос» представил общественности проект развития горнолыжного курорта «Роза Хутор»
+					</div><div class="release-item"><a href="release-4/index.html" class="all-caps din-medium">11 февраля</a> В работе круглого стола «Сочи и горноклиматический курорт «Красная Поляна»: вчера, сегодня, завтра» приняли участие сотрудники компании «Интеррос»
+					</div><div class="release-item"><a href="release-5/index.html" class="all-caps din-medium">31 марта</a> Определен генеральный проектировщик горнолыжного курорта «Роза Хутор»
+					</div><hr /><div class="release-item"><a href="release-6/index.html" class="all-caps din-medium">27 апреля</a> Генеральный директор компании «Роза Хутор» принял участие в публичных слушаниях по проекту горно-климатического комплекса «Красная Поляна»
+					</div><div class="release-item"><a href="release-35/index.html" class="all-caps din-medium">25 июня</a> В Сочи создается офис по туризму курорта Красная Поляна
+					</div><div class="release-item"><a href="release-36/index.html" class="all-caps din-medium">3 октября</a> В рамках четвертого экономического форума «Кубань–2005» прошла презентация проекта «Роза Хутор».
+					</div><hr /><div class="release-item"><a href="release-34/index.html" class="all-caps din-medium">20 декабря</a> Российские экологи одобрили планы строительства нового горнолыжного курорта «Роза Хутор».
+					</div></div><div id="releases-2006-content" class="releases-container"><div class="release-item"><a href="release-7/index.html" class="all-caps din-medium">21 февраля</a> Компания "Роза Хутор" стала победителем конкурса на право аренды земельного участка площадью 125 га в Сочинском национальном парке
+					</div><div class="release-item"><a href="release-8/index.html" class="all-caps din-medium">24 апреля</a> Генеральный директор «Розы Хутор» Нина Загорулько приняла участие в работе Международного конгресса горнолыжной индустрии
+					</div><div class="release-item"><a href="release-9/index.html" class="all-caps din-medium">1 сентября</a> Проект первой фазы строительства горнолыжного курорта «Роза Хутор» получил положительное заключение государственной экологической экспертизы Росприроднадзора
+					</div></div><div id="releases-2007-content" class="releases-container"><div class="release-item"><a href="release-10/index.html" class="all-caps din-medium">19 февраля</a> Компания «Роза Хутор» и Всемирный фонд дикой природы объединят усилия для развития экологического строительства
+					</div><div class="release-item"><a href="release-11/index.html" class="all-caps din-medium">21 февраля</a> В рамках программы мероприятий по приему Оценочной комиссии МОК в г. Сочи состоялась презентация ГЛК «Роза Хутор» на территории строящегося объекта в Красной Поляне
+					</div><div class="release-item"><a href="release-12/index.html" class="all-caps din-medium">5 апреля</a> Roger McCarthy назначен Директором по стратегии и производству в компанию «Роза Хутор»
+					</div><hr /><div class="release-item"><a href="release-13/index.html" class="all-caps din-medium">21 мая</a> Компания «Роза Хутор» поддержала проект Всемирного фонда дикой природы по возвращению на Кавказ переднеазиатского леопарда
+					</div><div class="release-item"><a href="release-14/index.html" class="all-caps din-medium">5 июля</a> «Роза Хутор» примет Зимнюю Олимпиаду Сочи 2014
+					</div><div class="release-item"><a href="release-44/index.html" class="all-caps din-medium">13 июля</a> Компания «Роза Хутор» не получала инвестиционных предложений от группы «Онэксим»
+					</div><hr /><div class="release-item"><a href="release-43/index.html" class="all-caps din-medium">7 августа</a> Президент России Владимир Путин наградил Заявочный комитет «Сочи-2014»
+					</div><div class="release-item"><a href="release-42/index.html" class="all-caps din-medium">26 сентября</a> Эксперты МОК посетили горнолыжный курорт «Роза Хутор»
+					</div><div class="release-item"><a href="release-41/index.html" class="all-caps din-medium">1 октября</a> Сергей Трубин назначен Генеральным директором компании «Роза Хутор»
+					</div><hr /><div class="release-item"><a href="release-40/index.html" class="all-caps din-medium">2 октября</a> Создан Оргкомитет «Сочи-2014» (с официального сайта «Сочи-2014»)
+					</div><div class="release-item"><a href="release-39/index.html" class="all-caps din-medium">16 октября</a> ОАО «ОПИН» стало управляющей компанией по развитию курорта «Роза Хутор»
+					</div><div class="release-item"><a href="release-38/index.html" class="all-caps din-medium">22 ноября</a> ОАО «ОПИН» объявляет о подписании договора на оказание услуг по управлению горнолыжным курортом «Роза Хутор»
+					</div><hr /><div class="release-item"><a href="release-37/index.html" class="all-caps din-medium">25 декабря</a> Кавказский заповедник готовится к приёму леопарда
+					</div></div><div id="releases-2008-content" class="releases-container"><div class="release-item"><a href="release-15/index.html" class="all-caps din-medium">5 февраля</a> Специалисты Сочинского национального парка представили «Экологический мониторинг горнолыжного комплекса «Роза Хутор»
+					</div><div class="release-item"><a href="release-51/index.html" class="all-caps din-medium">24 апреля</a> Первый визит Координационной комиссии МОК в Сочи, 21-23 апреля 2008 г
+					</div><div class="release-item"><a href="release-17/index.html" class="all-caps din-medium">31 мая</a> На горнолыжном курорте «Роза Хутор» открыта самая высокогорная в мире «Аллея спортивных звезд»
+					</div><hr /><div class="release-item"><a href="release-49/index.html" class="all-caps din-medium">4 июля</a> «Аллея спортивных звезд» расширилась
+					</div><div class="release-item"><a href="release-48/index.html" class="all-caps din-medium">10 июля</a> В Сочи построен первый «дом» для леопарда
+					</div><div class="release-item"><a href="release-47/index.html" class="all-caps din-medium">4 сентября</a> Международный Олимпийский Комитет одобрил размещение фристайл-трассы и горной олимпийской деревни на территории курорта «Роза Хутор»
+					</div><hr /><div class="release-item"><a href="release-46/index.html" class="all-caps din-medium">19 сентября</a> «Внешэкономбанк» и «Компания по девелопменту горнолыжного курорта «Роза Хутор» объявляют о подписании Соглашения об общих принципах организации финансирования проекта «Строительство и эксплуатация горнолыжного курорта «Роза Хутор»
+					</div><div class="release-item"><a href="release-45/index.html" class="all-caps din-medium">10 декабря</a> Общество с ограниченной ответственностью «Компания по девелопменту горнолыжного курорта «Роза Хутор» останавливает строительство горнолыжного курорта «Роза Хутор»
+					</div></div><div id="releases-2009-content" class="releases-container"><div class="release-item"><a href="release-18/index.html" class="all-caps din-medium">4 февраля</a> ООО «Компания по девелопменту горнолыжного курорта «Роза Хутор», Государственное Учреждение «Сочинский национальный парк» и Территориальное Управление Федерального агентства по управлению государственным имуществом подписали мировое соглашение
+					</div><div class="release-item"><a href="release-19/index.html" class="all-caps din-medium">12 марта</a> Пятнадцатый арбитражный апелляционный суд утвердил последнее мировое соглашение по вопросам аренды земель, на которых ведется строительство горнолыжного курорта «Роза Хутор»
+					</div><div class="release-item"><a href="release-59/index.html" class="all-caps din-medium">20 апреля</a> О ПОДПИСАНИИ КРЕДИТНОГО СОГЛАШЕНИЯ МЕЖДУ ВНЕШЭКОНОМБАНКОМ И ООО «РОЗА ХУТОР»
+					</div><hr /><div class="release-item"><a href="release-20/index.html" class="all-caps din-medium">14 мая</a> Второй визит Координационной комиссии МОК Сочи, Россия, 12-14 мая 2009 г
+					</div><div class="release-item"><a href="release-52/index.html" class="all-caps din-medium">5 июня</a> ООО «Компания по девелопменту горнолыжного курорта «Роза Хутор», ГУ «Сочинский национальный парк» и Минприроды России отметили экологические праздники: Всемирный день окружающей среды и День эколога
+					</div><div class="release-item"><a href="release-53/index.html" class="all-caps din-medium">19 июня</a> 19 июня 2009 года состоялось внеочередное Общее собрание участников ООО «Роза Хутор»
+					</div><hr /><div class="release-item"><a href="release-54/index.html" class="all-caps din-medium">19 сентября</a> В Сочинском национальном парке встретили первых леопардов
+					</div><div class="release-item"><a href="release-55/index.html" class="all-caps din-medium">3 ноября</a> Визит руководства FIS на горнолыжный курорт "Роза Хутор"
+					</div><div class="release-item"><a href="release-56/index.html" class="all-caps din-medium">23 декабря</a> Открытие ретроспективной фотовыставки «Заповедная Россия»
+					</div></div><div id="releases-2010-content" class="releases-container"><div class="release-item"><a href="release-33/index.html" class="all-caps din-medium">12 февраля</a> «Роза Хутор» и ИД «Комсомольская правда» на Олимпиаде в Ванкувере
+					</div><div class="release-item"><a href="release-32/index.html" class="all-caps din-medium">23 февраля</a> Презентация ГЛК «Роза Хутор» на территории Главного пресс-центра Олимпийских игр в Ванкувере.
+					</div><div class="release-item"><a href="release-31/index.html" class="all-caps din-medium">26 марта</a> Третий Визит руководства FIS на горнолыжный курорт «Роза Хутор»
+					</div><hr /><div class="release-item"><a href="release-30/index.html" class="all-caps din-medium">15 апреля</a> Третий визит Координационной комиссии МОК в Сочи, 13-15 апреля 2010 г.
+					</div><div class="release-item"><a href="release-29/index.html" class="all-caps din-medium">3 мая</a> Леопарды из Ирана осваиваются в Сочи
+					</div><div class="release-item"><a href="release-28/index.html" class="all-caps din-medium">6 мая</a> Компания по девелопменту горнолыжного курорта «Роза Хутор» и The Rezidor Hotel Group заключили соглашение об управлении двумя гостиницами на территории горнолыжного курорта «Роза Хутор».
+					</div><hr /><div class="release-item"><a href="release-27/index.html" class="all-caps din-medium">7 июня</a> Президент Международного олимпийского комитета Жак Рогге побывал на горнолыжном курорте «Роза Хутор»
+					</div><div class="release-item"><a href="release-26/index.html" class="all-caps din-medium">11 июня</a> На курорте «Роза Хутор» начато строительство отеля сети HELIOPARK
+					</div><div class="release-item"><a href="release-25/index.html" class="all-caps din-medium">4 июля</a> Аллея «Звезды спорта» на курорте «Роза Хутор» расширилась
+					</div><hr /><div class="release-item"><a href="release-24/index.html" class="all-caps din-medium">3 августа</a> Президент Российской Федерации Дмитрий Медведев получил первый ски-пасс во время его визита на горнолыжный курорт «Роза Хутор»
+					</div><div class="release-item"><a href="release-57/index.html" class="all-caps din-medium">27 октября</a> АЗИМУТ Отель появится на горнолыжном курорте «Розе Хутор»
+					</div><div class="release-item"><a href="release-58/index.html" class="all-caps din-medium">25 ноября</a> Розыгрыш Кубка Европы по горнолыжному спорту пройдет в феврале 2011 года
+					</div><hr /><div class="release-item"><a href="release-60/index.html" class="all-caps din-medium">14 декабря</a> ООО «Роза Хутор» и французская Compagnie des Alpes договорились о стратегическом партнерстве по управлению горнолыжным курортом «Роза Хутор»
+					</div><div class="release-item"><a href="release-61/index.html" class="all-caps din-medium">15 декабря</a> Открыты олимпийские трассы горнолыжного центра «Роза Хутор» 
+					</div></div><div id="releases-2011-content" class="releases-container"><div class="release-item"><a href="release-62/index.html" class="all-caps din-medium">4 января</a> На территории горнолыжного курорта «Роза Хутор» Президент РФ Дмитрий Медведев провел рабочее совещание, посвященное подготовке к Олимпиаде 2014 года
+					</div><div class="release-item"><a href="release-63/index.html" class="all-caps din-medium">29 января</a> С 29 января горнолыжный курорт «Роза Хутор» начинает работать в режиме тестовой эксплуатации
+					</div><div class="release-item"><a href="release-64/index.html" class="all-caps din-medium">11 февраля</a> 12 февраля 2011 г. на ГЛК «Роза Хутор» стартует этап Кубка России по горнолыжному спорту
+					</div><hr /><div class="release-item"><a href="release-65/index.html" class="all-caps din-medium">11 февраля</a> Открыто <a href="../resort/index.html#book"> on-line бронирование</a> билетов в финишную зону на этапы Кубка России и Кубка Европы
+					</div><div class="release-item"><a href="release-66/index.html" class="all-caps din-medium">13 февраля</a> 12 февраля 2011 года на трассах горнолыжного курорта «Роза Хутор» прошел этап Кубка России по горнолыжному спорту
+					</div><div class="release-item"><a href="release-67/index.html" class="all-caps din-medium">17 февраля</a> 18 февраля 2011 г. на ГЛК «Роза Хутор» стартует этап Кубка Европы по горнолыжному спорту 
+					</div><hr /><div class="release-item"><a href="release-68/index.html" class="all-caps din-medium">19 февраля</a> 18 февраля 2011 года на горнолыжном курорте «Роза Хутор» состоялся этап Кубка Европы по горнолыжному спорту среди мужчин — первые международные тестовые  соревнования в рамках подготовки к Зимним Олимпийским Играм 2014 года в Сочи
+					</div><div class="release-item"><a href="release-71/index.html" class="all-caps din-medium">23 февраля</a> 23 февраля 2011 года на горнолыжном курорте «Роза Хутор» стартовал женский этап Кубка Европы по горнолыжному спорту
+					</div><div class="release-item"><a href="release-70/index.html" class="all-caps din-medium">24 февраля</a> По решению судейской коллегии соревнования по супергиганту женского этапа Кубка Европы переносятся на 25 февраля
+					</div><hr /><div class="release-item"><a href="release-72/index.html" class="all-caps din-medium">24 февраля</a> Сегодня на горнолыжном курорте «Роза Хутор» прошел второй день соревнований по скоростному спуску женского этапа Кубка Европы
+					</div><div class="release-item"><a href="release-74/index.html" class="all-caps din-medium">25 февраля</a> С 26 февраля 2011 года наш курорт открыт для посетителей в режиме тестовой эксплуатации
+					</div><div class="release-item"><a href="release-73/index.html" class="all-caps din-medium">25 февраля</a> Сегодня состоялся заключительный день женского этапа Кубка Европы по горнолыжному спорту
+					</div><hr /><div class="release-item"><a href="release-75/index.html" class="all-caps din-medium">3 марта</a> Для вас, милые дамы, <a href="../resort/index.html#march8">бесплатный ски-пасс</a> в подарок
+					</div><div class="release-item"><a href="release-76/index.html" class="all-caps din-medium">4 марта</a> ООО «Роза Хутор» и группа Accor подписали договор на управление отелем «Mercure Роза Хутор» в Сочи
+					</div><div class="release-item"><a href="release-77/index.html" class="all-caps din-medium">15 марта</a> Команда инструкторов горнолыжного курорта «Роза Хутор» заняла все первые места в Открытом первенстве среди инструкторов Красной Поляны
+					</div><hr /><div class="release-item"><a href="release-79/index.html" class="all-caps din-medium">17 марта</a> Первым отелем, который откроется на горнолыжном курорте «Роза Хутор»,  будет управлять IFK Hotel Management
+					</div><div class="release-item"><a href="release-78/index.html" class="all-caps din-medium">21 марта</a> На горнолыжном курорте «Роза Хутор» завершился фестиваль спорта и музыки Carlsberg Jibbing Fest
+					</div><div class="release-item"><a href="release-80/index.html" class="all-caps din-medium">22 марта</a> МОК и Международная федерация лыжного спорта (FIS) оценили готовность горнолыжного курорта "Роза Хутор"к  проведению этапа Кубка Мира в 2012 году
+					</div><hr /><div class="release-item"><a href="release-81/index.html" class="all-caps din-medium">23 марта</a> Компания по девелопменту горнолыжного курорта «Роза Хутор» примет участие в программе восстановления экосистемы бассейна реки Мзымта
+					</div><div class="release-item"><a href="release-82/index.html" class="all-caps din-medium">31 марта</a> Горнолыжный курорт «Роза Хутор» открыт для посетителей до 9 мая 2011 года
+					</div><div class="release-item"><a href="release-83/index.html" class="all-caps din-medium">20 апреля</a> C 30 апреля на горнолыжном курорте «Роза Хутор» стартует фристайл-лагерь Freestyle Camp 2011
+					</div><hr /><div class="release-item"><a href="release-84/index.html" class="all-caps din-medium">28 апреля</a> Аккредитация СМИ на Freestyle Camp 2011
+					</div><div class="release-item"><a href="release-86/index.html" class="all-caps din-medium">29 апреля</a> 27-28 апреля состоялся очередной инспекционный визит руководства FIS на горнолыжный курорт «Роза Хутор»
+					</div><div class="release-item"><a href="release-85/index.html" class="all-caps din-medium">10 мая</a> 9 мая на горнолыжном курорте "Роза Хутор" в Красной Поляне закрылся горнолыжный сезон 2010-2011 
+					</div><hr /><div class="release-item"><a href="release-87/index.html" class="all-caps din-medium">14 мая</a> Операторы ратраков (снегоуплотнительных машин) горнолыжного курорта «Роза Хутор»   приняли участие в 10-м Международном лагере профессионалов PistenBully 2011
+					</div><div class="release-item"><a href="release-89/index.html" class="all-caps din-medium">6 июня</a> С 6 по 27 июня на курорте «Роза Хутор» работают бойцы стройотряда «Авторадио» - совместной акции ведущей российской радиостанции и горнолыжного курорта
+					</div><div class="release-item"><a href="release-88/index.html" class="all-caps din-medium">20 июня</a> Горнолыжный курорт «Роза Хутор» победил в номинации «Открытие года»
+					</div><hr /><div class="release-item"><a href="release-91/index.html" class="all-caps din-medium">3 июля</a> На аллее «Звезд спорта» на ГЛК «Роза Хутор» появились новые саженцы
+					</div><div class="release-item"><a href="release-90/index.html" class="all-caps din-medium">6 июля</a> На ГЛК «Роза Хутор» в 2014 году будет разыграно 30 комплектов олимпийских медалей
+					</div><div class="release-item"><a href="release-92/index.html" class="all-caps din-medium">25 июля</a> Представители FIS проинспектировали олимпийские объекты горнолыжного курорта «Роза Хутор» - сноуборд-парк и фристайл-центр
+					</div><hr /><div class="release-item"><a href="release-93/index.html" class="all-caps din-medium">30 сентября</a> Представители FIS проинспектировали олимпийские объекты курорта «Роза Хутор» 
+					</div><div class="release-item"><a href="release-94/index.html" class="all-caps din-medium">26 октября</a> Завершается строительство двух гостиниц на курорте «Роза Хутор»
+					</div><div class="release-item"><a href="release-96/index.html" class="all-caps din-medium">21 ноября</a> На курорте «Роза Хутор» появится первый в России отель под брендом «Extreme» 
+					</div><hr /><div class="release-item"><a href="release-97/index.html" class="all-caps din-medium">1 декабря</a> В Экстрим-парке «Роза Хутор» начался монтаж канатных дорог 
+					</div><div class="release-item"><a href="release-98/index.html" class="all-caps din-medium">13 декабря</a> Курорт «Роза Хутор» выпустил уникальный фотоальбом «Горнолыжный спорт  в России. История и современность»
+					</div><div class="release-item"><a href="release-99/index.html" class="all-caps din-medium">19 декабря</a> Сотрудник курорта "Роза Хутор" Алексей Букинич стал первым в России обладателем почетного звания "Снежный барс России"
+					</div><hr /><div class="release-item"><a href="release-95/index.html" class="all-caps din-medium">20 декабря</a> Открытие горнолыжного сезона 2011/2012 на курорте «Роза Хутор» состоится 24 декабря
+					</div><div class="release-item"><a href="release-100/index.html" class="all-caps din-medium">21 декабря</a> Аккредитация СМИ на открытие горнолыжного сезона 2011/2012 на курорте «Роза Хутор»
+					</div><div class="release-item"><a href="release-101/index.html" class="all-caps din-medium">26 декабря</a> Владислав Третьяк – Бургомистр курорта «Роза Хутор»
+					</div><hr /><div class="release-item"><a href="release-103/index.html" class="all-caps din-medium">27 декабря</a> Курорт «Роза Хутор» открыл горнолыжный сезон 2011/2012
+					</div></div></div><h1 id="publications-section">Публикации <a href="#home" class="top"><img src="../m/top-arrow.gif" height="10" /> Наверх</a></h1><table id="publications-years"><tr><td class="din-medium">2008</td><td class="wide"></td><td class="din-medium">2009</td><td class="wide"></td><td class="din-medium">2010</td><td class="wide"></td><td class="din-medium">2011</td></tr><tr class="years-lines"><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td></tr></table><div class="slider-wrap"><div id="publications-slider" class="slider"></div></div><div id="publications-content"><div id="publications-2008-content" class="publications-container"><div class="publications-item"><a href="publication-28/index.html" class="all-caps din-medium">Комсомольская Правда</a> Сочи выдержал первый экзамен
+					</div></div><div id="publications-2009-content" class="publications-container"><div class="publications-item"><a href="publication-25/index.html" class="all-caps din-medium">Спорт-Экспресс</a> «Роза Хутор» опережает график
+					</div><div class="publications-item"><a href="publication-26/index.html" class="all-caps din-medium">Советский спорт</a> «Роза» расцветает. Специальный репортаж: Наш корреспондент проинспектировал олимпийские объекты за пять лет до начала игр
+					</div><hr /><div class="publications-item"><a href="publication-27/index.html" class="all-caps din-medium">Комсомольская Правда</a> Красная Поляна: пять лет до Олимпиады
+					</div><div class="publications-item"><a href="publication-24/index.html" class="all-caps din-medium">Московская правда</a> Горы — не город
+					</div><hr /><div class="publications-item"><a href="publication-21/index.html" class="all-caps din-medium">Интерфакс</a> МОК искал, МОК не нашел
+					</div><div class="publications-item"><a href="publication-20/index.html" class="all-caps din-medium">Советский спорт</a> Добрая дюжина. 12 олимпийских комиссаров вновь похвалили работу по подготовке к Играм-2014
+					</div><hr /><div class="publications-item"><a href="publication-19/index.html" class="all-caps din-medium">Спорт Экспресс</a> Килли и Ко полностью удовлетворены ходом работ
+					</div><div class="publications-item"><a href="publication-22/index.html" class="all-caps din-medium">Московский Комсомолец</a> Олимпийские дела пошли в горы
+					</div></div><div id="publications-2010-content" class="publications-container"><div class="publications-item"><a href="publication-12/index.html" class="all-caps din-medium">Комсомольская правда</a> Владимир Потанин: «Мы построим в Красной Поляне свой Куршевель»
+					</div><div class="publications-item"><a href="publication-13/index.html" class="all-caps din-medium">Спорт-экспресс</a> До первых соревнований — меньше года
+					</div><hr /><div class="publications-item"><a href="publication-14/index.html" class="all-caps din-medium">Спорт-экспресс</a> FIS подтвердила: «Роза Хутор» готов к Играм
+					</div><div class="publications-item"><a href="publication-16/index.html" class="all-caps din-medium">Ведомости, 103 (2621)</a> В гости к «Интерросу»
+					</div><hr /><div class="publications-item"><a href="publication-15/index.html" class="all-caps din-medium">Советский спорт, №98-В(18156)</a> Попов посадил пихту
+					</div><div class="publications-item"><a href="publication-17/index.html" class="all-caps din-medium">www.kremlin.ru Сайт Президента России</a> Дмитрий Медведев осмотрел спортивные объекты, строящиеся на горнолыжном курорте «Роза Хутор»
+					</div><hr /><div class="publications-item"><a href="publication-18/index.html" class="all-caps din-medium">Комсомольская правда</a> Медведев проверил олимпийские объекты
+					</div></div><div id="publications-2011-content" class="publications-container"><div class="publications-item"><a href="publication-29/index.html" class="all-caps din-medium">деловая газета Маркер</a> «Заработать до Олимпиады не удастся»
+					</div></div></div><h1 id="media-section">Медиа <a href="#home" class="top"><img src="../m/top-arrow.gif" height="10" /> Наверх</a></h1><div id="albums-wrap"><div id="albums"><div class="album-info selected" title="9"><div class="album-icons"><img src="../m/albums/9/9_10_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/9/9_5_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/9/9_9_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/9/9_4_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/9/9_8_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/9/9_2_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/9/9_15_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/9/9_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/9/9_3_jpg_40x40_crop-smart_q60.jpg" alt="" /></div><div class="album-title">Горнолыжный курорт &quot;Роза Хутор&quot;</div></div><div class="album-info last" title="10"><div class="album-icons"><img src="../m/albums/10/10_19_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/10/10_13_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/10/10_32_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/10/10_10_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/10/10_9_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/10/10_18_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/10/10_15_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/10/10_26_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../m/albums/10/10_11_jpg_40x40_crop-smart_q60.jpg" alt="" /></div><div class="album-title">Этап Кубка Европы 2011. Мужчины. Скоростной спуск</div></div></div></div><div class="slider-wrap" style="background: url(../m/press/slider-bg3.png) 0 0 no-repeat transparent;"><div id="albums-slider" class="slider"></div></div><div id="albums-images"><div class="albums-images-wrap" id="albums-images-9"><h3>Горнолыжный курорт "Роза Хутор"</h3><a href="../m/albums/9/9_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_1_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_1_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_2_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_2_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_3_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_3_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_4_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_4_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_5_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_5_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_6_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_6_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_7_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_7_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_8_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_8_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_9_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_9_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_10_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_10_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_11_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_11_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_12_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_12_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_13_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_13_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_14_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_14_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/9/9_15_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../m/albums/9/9_15_jpg_150x150_crop-smart_q60.jpg" /></a></div><div class="albums-images-wrap" id="albums-images-10" style="display: none;"><h3>Этап Кубка Европы 2011. Мужчины. Скоростной спуск</h3><a href="../m/albums/10/10_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_1_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_1_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_2_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_2_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_3_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_3_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_4_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_4_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_5_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_5_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_6_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_6_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_7_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_7_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_8_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_8_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_9_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_9_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_10_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_10_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_11_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_11_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_12_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_12_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_13_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_13_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_14_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_14_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_15_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_15_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_16_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_16_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_17_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_17_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_18_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_18_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_19_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_19_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_20_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_20_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_21_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_21_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_22_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_22_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_23_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_23_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_24_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_24_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_25_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_25_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_26_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_26_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_27_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_27_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_28_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_28_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_29_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_29_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_30_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_30_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_31_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_31_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../m/albums/10/10_32_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../m/albums/10/10_32_jpg_150x150_crop-smart_q60.jpg" /></a></div></div><h1 id="contacts-section">Контакты для прессы<a href="#home" class="top"><img src="../m/top-arrow.gif" height="10" /> Наверх</a></h1><div class="columns_3" style="font-size: 1.5em; line-height: 1.5em; background-color: #4d4d4d;"><div class="first"><p class="din-light" style="margin-left: 20px;">Вергельская Виктория<br /><small>Начальник Управления по связям с&nbsp;общественностью и&nbsp;рекламе</small><br /><a href="mailto:press@rosaski.com">press@rosaski.com</a></p></div><div class="second"><p class="din-light" style="margin-left: 20px;">Кудрявцева Наталья<br /><small>Начальник Oтдела по связям с&nbsp;общественностью и&nbsp;рекламе</small><br /><a href="mailto:pr@rosaski.com">pr@rosaski.com</a></p></div><div class="third"><p class="din-light">Телефон: +7 (495) 232-18-13<br />Факс: +7 (495) 666-14-27</p></div></div><table id="sharer"><tr><td id="sharer-text">Поделиться:</td><td id="sharer-buttons"><table><tr><td><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="../../platform.twitter.com/widgets.js"></script></td><td style="padding: 1px 20px 0px 0px;"><a name="fb_share" href="http://www.facebook.com/sharer.php">Поделиться</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></td><td style="padding: 0px 20px 0px 0px;"><script type="text/javascript">document.write(VK.Share.button(false,{type: "round", text: "Поделиться"}));</script></td><td style="padding: 1px 20px 0px 0px;"><a title="Google Buzz" class="google-buzz-button" href="http://www.google.com/buzz/post" data-button-style="small-count"></a><script type="text/javascript" src="../../www.google.com/buzz/api/button.js"></script></td></tr></table></td></tr></table></div></div><div id="banners-container"><div id="banners-wrapper"><table id="banners"><tr class="images"><td><a href="../realty/index.html#salespots"><img src="../m/banners/resort_banner_1.png" alt="Аренда торговой недвижимости" width="290" height="159" /></a></td><td class="spacer"></td><td><a href="release-103/index.html"><img src="../m/banners/2011-2012.png" alt="Горнолыжный сезон 2011/2012 открыт" width="290" height="162" /></a></td><td class="spacer"></td><td><a href="../project/index.html#about"><img src="../m/banners/vacancy.png" alt="Крупнейший олимпийский объект приглашает на работу специалистов" width="290" height="170" /></a></td></tr><tr class="texts"><td><p><a href="../realty/index.html#salespots">Аренда торговой недвижимости</a></p></td><td class="spacer"></td><td><p><a href="release-103/index.html">Горнолыжный сезон 2011/2012 открыт</a></p></td><td class="spacer"></td><td><p><a href="../project/index.html#about">Крупнейший олимпийский объект приглашает на работу специалистов</a></p></td></tr></table></div></div><div id="bottom-container"><div id="bottom"><div id="bottom-addons"><p id="copyright" class="din-medium">&copy; 2005&mdash;2012 ООО «Роза Хутор»</p><div id="search"><form action="http://www.rosakhutor.webfactional.com/search/" method="get" id="id_search_form"><input type="text" name="search" id="search-input" /><!--input type="submit" value="" /--></form></div><p id="sitemap" class="din-medium"><a href="../sitemap/index.html">Карта сайта</a></p></div><div id="bottom-legal"><ins class="vcard" id="bottom-contacts"><a class="url fn org" href="http://www.rosaski.com/" style="display: none;">Компания по&nbsp;девелопменту горнолыжного курорта &laquo;Роза Хутор&raquo;</a><p>Компания по&nbsp;девелопменту горнолыжного курорта &laquo;Роза Хутор&raquo;<br /><span class="adr"><span class="country-name" style="display: none;">Россия</span><span class="postal-code">143581</span>, <span class="region">Московская область, Истринский район</span>, <span class="locality">д. Новинки</span>, <span class="street-address">Бизнес-центр «Павлово»</span></span><br />
+					Телефон: <span class="tel">+7 (495) 232-18-13</span>, Факс: +7 (495) 666-14-27, <a class="email" href="mailto:info@rosaski.com">info@rosaski.com</a></p></ins><p><a class="email" href='../m/%d0%9f%d1%80%d0%b0%d0%b2%d0%b8%d0%bb%d0%b0%20%d0%9f%d0%be%d0%bb%d1%8c%d0%b7%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d1%8f%20%d0%a3%d1%81%d0%bb%d1%83%d0%b3%d0%b0%d0%bc%d0%b8%20%d0%93%d0%be%d1%80%d0%bd%d0%be%d0%bb%d1%8b%d0%b6%d0%bd%d0%be%d0%b3%d0%be%20%d0%9a%d0%be%d0%bc%d0%bf%d0%bb%d0%b5%d0%ba%d1%81%d0%b0%20%c2%ab%d0%a0%d0%be%d0%b7%d0%b0%20%d0%a5%d1%83%d1%82%d0%be%d1%80%c2%bb.pdf'>Правила пользования услугами горнолыжного комплекса &laquo;Роза Хутор&raquo;</a></p><p id="creators">Дизайн сайта: <span class="vcard" id="zenkov-contacts"><a href="http://anatolyzenkov.com/" class="url fn">Анатолий Зенков</a></span>. Разработка сайта: <span class="vcard" id="shipilov-contacts"><a href="http://andreyshipilov.ru/" class="url fn">Андрей Шипилов</a></span>.</p></div></div></div></body>
+<!-- Mirrored from www.rosakhutor.webfactional.com/press/ by HTTrack Website Copier/3.x [XR&CO'2010], Thu, 12 Jan 2012 01:45:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

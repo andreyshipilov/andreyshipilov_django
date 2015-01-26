@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN""http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Легатта</title>
+<link rel="shortcut icon" href="./favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<link rel="stylesheet" type="text/css" href="./css.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+<script src="./i/jquery.easing.js" type="text/javascript"></script>
+<script src="./i/jquery.color.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var oElements = {
+		realty: {'color': "#1b2b5a", 'text': "<h1>Оценка недвижимости&nbsp;&mdash; наш конек. Выгодно, удобно,&nbsp;быстро!</h1><p>А&nbsp;наша компания оказывает широкий спектр услуг для физических и&nbsp;юридических лиц в&nbsp;таких областях как независимая оценка всех видов имущества и&nbsp;собственности, в&nbsp;том числе оценка недвижимости, бизнеса и&nbsp;предприятий, интеллектуальной собственности, ценных бумаг, машин и&nbsp;оборудования, ущерба и&nbsp;транспортных средств.</p>"},
+		business: {'color': "#285a1b", 'text': "<h1>И&nbsp;тут мы&nbsp;на&nbsp;коне. Оцени фирму, предприятие или даже птицефабрику!</h1><p>В&nbsp;настоящее время профессиональная лицензированная оценка стоимости недвижимости остается одним из&nbsp;самых востребованных видов оценочной деятельности, включая в&nbsp;себя рыночную оценку стоимости недвижимости, расчет стоимости объекта или отдельных прав в&nbsp;отношени<nobr>и т.&thinsp;д.</nobr></p>"},
+		stocks: {'color': "#561b5a", 'text': "<h1>Маленькие по&nbsp;три или большие по&nbsp;пять? Мы&nbsp;подскажем что выгоднее!</h1><p>Оценка стоимости интеллектуальной собственности и&nbsp;формирования стратегии управления предприятием на&nbsp;базе его нематериальных активов&nbsp;&mdash; та&nbsp;проблема, необходимость решения которой ни&nbsp;у&nbsp;кого не&nbsp;вызывает сомнений.</p>"},
+		nma: {'color': "#5a4c1b", 'text': "<h1>Сложно оценить то, что нельзя потрогать. Но&nbsp;можно!</h1><p>Оценка стоимости интеллектуальной собственности и&nbsp;формирования стратегии управления предприятием на&nbsp;базе его нематериальных активов&nbsp;&mdash; та&nbsp;проблема, необходимость решения которой ни&nbsp;у&nbsp;кого не&nbsp;вызывает сомнений.</p>"},
+		equipment: {'color': "#5a1b1b", 'text': "<h1>Nunc elementum dapibus nunc fringilla auctor.</h1><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In&nbsp;ipsum ligula, porttitor eget mollis sit amet, fringilla sit amet ipsum. Curabitur vehicula sagittis lectus sed eleifend. Nulla ut&nbsp;eros in&nbsp;felis facilisis cursus sit amet sit amet metus. Vivamus sed dignissim lectus. Pellentesque eu&nbsp;est nec metus suscipit dapibus. Quisque in&nbsp;erat tortor, vitae sollicitudin justo. Duis vel lectus leo. Fusce et&nbsp;massa ac&nbsp;sapien pharetra laoreet. Nunc eget justo metus. Suspendisse potenti. Fusce a&nbsp;nisl erat, non varius tortor.</p><p>Nunc elementum dapibus nunc fringilla auctor. Nullam nec mi&nbsp;at&nbsp;massa scelerisque ornare ut&nbsp;ac&nbsp;erat. Curabitur interdum neque eu&nbsp;nibh facilisis blandit. Nullam id&nbsp;mauris vel turpis sagittis venenatis sit amet in&nbsp;ligula. Class aptent taciti sociosqu ad&nbsp;litora torquent per conubia nostra, per inceptos himenaeos. Donec leo lacus, condimentum vitae lobortis ac, iaculis non quam. Proin vestibulum quam ut&nbsp;sapien pretium dapibus. Nam massa est, egestas a&nbsp;tincidunt ut, euismod eget augue. Aenean quis massa justo, laoreet bibendum nisi. Sed mollis luctus massa non fermentum. In&nbsp;eu&nbsp;erat in&nbsp;tellus dictum porttitor.</p>"},
+		debitproblems: {'color': "#1b5a59", 'text': "<h1>Nam iaculis condimentum mauris ut&nbsp;suscipit.</h1><p>Nunc elementum dapibus nunc fringilla auctor. Nullam nec mi&nbsp;at&nbsp;massa scelerisque ornare ut&nbsp;ac&nbsp;erat. Curabitur interdum neque eu&nbsp;nibh facilisis blandit. Nullam id&nbsp;mauris vel turpis sagittis venenatis sit amet in&nbsp;ligula. Class aptent taciti sociosqu ad&nbsp;litora torquent per conubia nostra, per inceptos himenaeos. Donec leo lacus, condimentum vitae lobortis ac, iaculis non quam. Proin vestibulum quam ut&nbsp;sapien pretium dapibus. Nam massa est, egestas a&nbsp;tincidunt ut, euismod eget augue. Aenean quis massa justo, laoreet bibendum nisi. Sed mollis luctus massa non fermentum. In&nbsp;eu&nbsp;erat in&nbsp;tellus dictum porttitor.</p><p>Cum sociis natoque penatibus et&nbsp;magnis dis parturient montes, nascetur ridiculus mus. Pellentesque rutrum orci vitae lacus sollicitudin euismod. Sed vitae libero nunc. Suspendisse quis mauris velit. Duis ultricies commodo ipsum, a&nbsp;tempus lectus molestie quis. Phasellus at&nbsp;nibh eros, eget adipiscing erat. Nulla libero mi, aliquam feugiat convallis at, blandit et&nbsp;tellus. Donec sagittis, libero nec malesuada pretium, velit lacus egestas tortor, vel fermentum risus tellus ac&nbsp;eros. Fusce dapibus, nulla a&nbsp;consectetur tincidunt, nisi tortor luctus purus, quis suscipit ante mauris vel felis. Nunc accumsan nunc erat, vel molestie sapien. Aenean justo diam, varius nec mollis nec, fermentum imperdiet augue. Duis porta lacus a&nbsp;neque bibendum a&nbsp;elementum mi&nbsp;posuere.</p>"},
+		mind: {'color': "#525a1b", 'text': "<h1>Nullam tempor adipiscing viverra. Quisque a&nbsp;congue justo.</h1><p>Nam iaculis condimentum mauris ut&nbsp;suscipit. Vestibulum ante ipsum primis in&nbsp;faucibus orci luctus et&nbsp;ultrices posuere cubilia Curae; Sed rhoncus urna eget dolor volutpat vitae tincidunt diam blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu&nbsp;enim nec eros pellentesque sed mattis sapien. Phasellus ornare condimentum tortor ut&nbsp;imperdiet. Praesent ullamcorper est erat, ac&nbsp;porttitor ante. Morbi neque lorem, facilisis nec facilisis et, convallis eleifend nulla. Proin velit diam, eleifend vitae eleifend eget, facilisis vel leo. Maecenas vitae justo eu&nbsp;enim consequat lacinia.</p>"}
+	};
+</script>
+<!--[if lt IE 7]><![if gte IE 5.5]><script type="text/javascript" src="./i/fixpng.js"></script><style type="text/css"> .iePNG, IMG {filter:expression(fixPNG(this));border:0;margin:0;padding:0;} </style><![endif]><![endif]-->
+</head>
+<body>
+<table width="100%">
+	<tr>
+		<td><div class="spacer">
+			</div></td>
+		<td><div class="spacer2">
+			</div></td>
+		<td><div class="spacer">
+			</div></td>
+		<td width="100%"></td>
+		<td><div class="spacer">
+			</div></td>
+	</tr>
+	<tr>
+		<td colspan="3" class="menu"><img title="" alt="" class="logo" border="0" height="49" src="./i/logo.gif" width="171" />
+			<div class="phone">
+				<b>Наш телефон:</b> +7 495 347-39-13
+			</div>
+			<table class="menu">
+				<tr>
+					<td rowspan="5" class="selector"></td>
+					<td><a href="#">Оценка</a></td>
+				</tr>
+				<tr>
+					<td><a href="#">О компании</a></td>
+				</tr>
+				<tr>
+					<td><a href="#">Клиенты</a></td>
+				</tr>
+				<tr>
+					<td><a href="#">Карьера</a></td>
+				</tr>
+				<tr>
+					<td><a href="#">Контакты</a></td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td><div class="spacer">
+						</div></td>
+					<td class="valign-bottom"><img title="" alt="" align="left" border="0" height="13" src="./i/home.gif" width="11" /><img title="" alt="" hspace="25" align="left" border="0" height="13" src="./i/sitemap.gif" width="11" /></td>
+				</tr>
+			</table>
+			<div class="cite">
+				<h2>Seaun Greiwengoldtst о&nbsp;компании Легатта</h2>
+				<div class="img">
+					<img alt="" border="0" height="281" src="./i/photos/1.jpg" width="200" />
+				</div>
+				<p>&laquo;Наша миссия&nbsp;&mdash; максимальное удовлетворение потребностей наших заказчиков в&nbsp;качественных услугах по&nbsp;составлению бизнес планов, маркетинговых исследованиях, консалтингу, а&nbsp;также предоставление им&nbsp;обслуживания высочайшего уровня.&raquo;</p>
+				<p class="author">&mdash; S. P. Greiwengoldtst</p>
+			</div>
+			<div class="spacer">
+			</div>
+			<div class="spacer">
+			</div>
+			<div class="spacer">
+			</div></td>
+		<td class="left-padded top-outpadded"><div style="height:48px">
+				&nbsp;
+			</div>
+			<table class="addon-menu">
+				<tr>
+					<td><a href="#" id="addonlink-realty" class="chosen">Недвижимость</a></td>
+					<td><a href="#" id="addonlink-business">Бизнес</a></td>
+					<td><a href="#" id="addonlink-stocks">Ценные бумаги</a></td>
+					<td><a href="#" id="addonlink-nma">НМА</a></td>
+					<td><a href="#" id="addonlink-equipment">Оборудование</a></td>
+					<td><a href="#" id="addonlink-debitproblems">Дебиторские задолжности</a></td>
+					<td><a href="#" id="addonlink-mind">Интелектуальная собственность</a></td>
+				</tr>
+			</table>
+			<div class="iePNG addons" style="background-color:#1b2b5a" id="addons">
+				<div id="addon-text">
+				</div>
+			</div>
+			<h1>Компания &laquo;<a href="#">Легатта</a>&raquo;</h1>
+			<p>Наша миссия&nbsp;&mdash; максимальное удовлетворение потребностей наших заказчиков в&nbsp;качественных услугах по&nbsp;составлению бизнес планов, маркетинговых исследованиях, консалтингу, а&nbsp;также предоставление им&nbsp;обслуживания высочайшего уровня.</p>
+			<p>Наша миссия&nbsp;&mdash; максимальное удовлетворение потребностей наших заказчиков в&nbsp;качественных услугах по&nbsp;составлению бизнес планов, маркетинговых исследованиях, консалтингу, а&nbsp;также предоставление им&nbsp;обслуживания высочайшего уровня.</p>
+			<h1>Наши <a href="#">клиенты</a></h1>
+			<p>Среди наших клиентов банки, госучереждения и&nbsp;другие В&nbsp;этом разделе указаны только некоторые наши клиенты, сотрудничеством с&nbsp;которыми мы&nbsp;особенно гордимся.</p>
+			<h2>Lorem ipsum dolor sit amet</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean dictum fermentum massa, quis rhoncus lectus blandit id. Vestibulum risus nunc, ornare vitae feugiat vel, adipiscing at&nbsp;sapien. Quisque dapibus leo elit. Vestibulum congue rutrum magna commodo auctor. Cum sociis natoque penatibus et&nbsp;magnis dis parturient montes, nascetur ridiculus mus. Etiam consectetur venenatis leo a&nbsp;feugiat. Nulla facilisi. Suspendisse ultrices facilisis metus, a&nbsp;auctor elit pulvinar vitae. Proin sollicitudin egestas vestibulum. Morbi nibh lacus, semper eget bibendum in, rhoncus vitae est. Nulla sed magna nec orci suscipit ut&nbsp;ac&nbsp;libero. Praesent auctor ultricies erat, eu&nbsp;adipiscing augue consequat nec. Sed tincidunt ornare tellus et&nbsp;molestie. Sed semper, orci ac&nbsp;viverra sollicitudin, arcu nulla eleifend dui, vel luctus risus libero non nisi. Quisque id&nbsp;erat odio, at&nbsp;convallis tortor. Proin id&nbsp;est arcu, nec convallis tortor. Nullam eget tellus dui. Fusce laoreet venenatis augue, fringilla imperdiet tortor laoreet nec. Curabitur facilisis pulvinar ultricies. Nulla at&nbsp;augue et&nbsp;mi&nbsp;porttitor blandit.</p>
+			<p>Nam at&nbsp;est sed augue suscipit consequat. Nulla vestibulum lacus vitae est bibendum feugiat. Pellentesque bibendum pellentesque neque vel mattis. In&nbsp;tempor dolor vitae augue consequat gravida. Suspendisse ac&nbsp;luctus dui. Aliquam ut&nbsp;nulla at&nbsp;risus elementum viverra. Aenean diam lectus, feugiat vitae fermentum sed, eleifend sed eros. Sed massa mi, molestie non rutrum in, interdum et&nbsp;lacus. Duis imperdiet lacus a&nbsp;velit sodales id&nbsp;facilisis arcu commodo. Donec id&nbsp;augue suscipit turpis commodo placerat vitae id&nbsp;tortor. Etiam ut&nbsp;lacus in&nbsp;elit ultricies suscipit.</p>
+			<h2>Proin hendrerit eros non odio mattis sit amet convallis ipsum sagittis</h2>
+			<p>Donec vel nisl risus, at&nbsp;hendrerit libero. Nunc dui leo, hendrerit et&nbsp;pretium id, euismod sed erat. Proin hendrerit eros non odio mattis sit amet convallis ipsum sagittis. Nam et&nbsp;erat lacus. Quisque venenatis vestibulum felis, eu&nbsp;posuere mauris luctus vel. Proin commodo massa non lorem aliquam eleifend. Phasellus porta diam eget est vulputate ac&nbsp;pharetra lectus porttitor. Sed vehicula, augue fermentum facilisis semper, magna arcu fringilla turpis, aliquam semper augue arcu a&nbsp;felis. Aliquam nec orci elit. Aenean tincidunt lectus at&nbsp;nisl auctor sodales. Morbi pulvinar, ligula quis tincidunt varius, dui lectus ullamcorper sem, ac&nbsp;consectetur magna massa at&nbsp;leo. Aliquam ultrices interdum velit eu&nbsp;tristique. Vestibulum dignissim eros ac&nbsp;mauris facilisis at&nbsp;tristique eros vestibulum. Nam ac&nbsp;turpis ipsum. Cras ut&nbsp;lectus risus. Fusce molestie pretium diam, id&nbsp;tincidunt nisl interdum et. Sed id&nbsp;nulla eros, vel sodales ligula. Vestibulum cursus hendrerit mattis. Suspendisse vitae interdum tortor. Maecenas ut&nbsp;aliquam felis.</p></td>
+		<td></td>
+	</tr>
+	<tr>
+		<td><div class="spacer">
+			</div>
+			<div class="spacer">
+			</div></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><p>&copy; 2008&mdash;2009, Легатта</p></td>
+		<td></td>
+		<td class="left-padded"><table width="100%">
+				<tr>
+					<td><p><a href="#">Контактная информация</a>: 123827, Москва<br />
+							<nobr>2-й</nobr> Спасоналивковский пер., д. 10/9, офис 309</p>
+						<p>Телефон: <nobr>+7 495 347-39-13</nobr><br />
+							<nobr>+7 495 139-29-00</nobr>&nbsp;&mdash; факс</p></td>
+					<td align="center"><p><img title="" alt="" hspace="5" align="absmiddle" border="0" height="16" src="./i/whitespace.gif" width="16" /><a href="http://www.whitespace.ru/">Студия White Space</a></p></td>
+				</tr>
+			</table></td>
+		<td></td>
+	</tr>
+</table>
+</body>
+</html>

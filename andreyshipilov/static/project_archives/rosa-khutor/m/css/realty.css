@@ -1,0 +1,146 @@
+body,
+html {
+	background-color: #cfccb5;
+}
+#content-container {
+	background: none;
+}
+#sharer-text {
+	background-image: url(../realty/sharer-arrow.gif) !important;
+}
+#sharer-buttons {
+	border-color: #f8f7ee;
+}
+hr {
+	background-image: none;
+	background-color: #9d9b8b;
+}
+.zoomable-photos .photo {
+	border-width: 10px;
+}
+.zoomable-photos table {
+		background: none;
+	}
+		.zoomable-photos table td {
+			background: none;
+		}
+
+div.columns_5 {
+	width: 100%;
+}
+	div.columns_5 div {
+		width: 155px;
+		float: left;
+		margin-right: 20px;
+	}
+
+
+#hotels-columns-2 {
+	 float: left; margin-bottom: 30px
+}
+#hotels-columns-2 div.first,
+#hotels-columns-2 div.second {
+	background-color: #f8f7ee;
+	width: 405px !important;
+	padding: 0 20px;
+}
+.columns_2 .zoomable-photos .photo {
+	width: 425px;
+	text-align: center;
+	background-color: #f8f7ee;
+}
+
+
+
+
+#hotels-columns-3 {
+	 float: left; margin-bottom: 30px
+}
+#hotels-columns-3 div.first,
+#hotels-columns-3 div.second,
+#hotels-columns-3 div.third,
+#apartments-chars div.first,
+#apartments-chars div.second,
+#apartments-chars div.third {
+	background-color: #f8f7ee;
+	width: 250px !important;
+	padding: 0 20px;
+}
+#salespots-chars {
+	background-color: #f8f7ee; float: left; padding: 0 0 20px 20px; width: 870px;
+}
+
+
+#salespots-switch {
+	float: left;
+	width: 100%;
+	clear: both;
+	font-family: DINProMedium;
+	margin: 0;
+}
+	#salespots-switch li {
+		float: left;
+		background-color: #cccccc;
+		margin: 10px 10px 0 0;
+		text-transform: uppercase;
+		padding: 0 0.5em;
+		cursor: pointer;
+		cursor: hand;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	#salespots-switch li.in {
+		background-color: #0096ff !important;
+		color: #ffffff;
+		cursor: default;
+	}
+
+
+#rent-1 {
+	display: block;
+	width: 277px;
+	height: 172px;
+	background: url(../realty/rent-1.gif) 0 0 no-repeat transparent;
+}
+	#rent-1:hover {
+		background-position: 100% 0;
+	}
+#rent-2 {
+	display: block;
+	width: 278px;
+	height: 172px;
+	background: url(../realty/rent-2.gif) 0 0 no-repeat transparent;
+}
+	#rent-2:hover {
+		background-position: 100% 0;
+	}
+
+#rent-3 {
+	display: block;
+	width: 277px;
+	height: 172px;
+	background: url(../realty/rent-3.gif) 0 0 no-repeat transparent;
+}
+	#rent-3:hover {
+		background-position: 100% 0;
+	}
+#rent-4 {
+	display: block;
+	width: 277px;
+	height: 172px;
+	background: url(../realty/rent-4.gif) 0 0 no-repeat transparent;
+}
+	#rent-4:hover {
+		background-position: 100% 0;
+	}
+
+#rent-5 {
+	display: block;
+	width: 278px;
+	height: 172px;
+	background: url(../realty/rent-5.gif) 0 0 no-repeat transparent;
+}
+	#rent-5:hover {
+		background-position: 100% 0;
+	}

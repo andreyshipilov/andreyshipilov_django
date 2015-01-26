@@ -1,0 +1,37 @@
+#sharer {
+	display: none;
+}
+#content-container,
+#bottom-container,
+#bottom,
+#banners-container,
+#banners-wrapper {
+	background: none;
+}
+#bottom {
+	color: #333333;
+}
+	#bottom a:hover {
+		color: #009cff;
+	}
+	#bottom-addons {
+		border-top: 1px solid #000;
+	}
+#copyright {
+	color: #000000;
+}
+#creators a:hover {
+	color: #666666 !important;
+}
+
+h3 a,
+div ul a {
+	text-decoration: none;
+}
+div ul a {
+	color: #333333;
+}
+h3 a:hover,
+div ul a:hover {
+	text-decoration: underline;
+}

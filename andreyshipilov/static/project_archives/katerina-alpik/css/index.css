@@ -1,0 +1,18 @@
+body	{margin: 0px; padding: 0px;font-size: 100%; font-family: Veranda, sans-serif;}
+img	{border: 0px;}
+a	{color: #529AC0; text-decoration: underline;}
+h1	{font-size: 130%; font-weight: normal; color: #60A32F; margin-top:0; margin-bottom:10;}
+
+
+table.head div.logo	{position: absolute; left: 15%; top: 30px;}
+
+table.menu		{background-color: #F9F8F0; background-repeat: repeat-x; background-position: bottom;}
+table.menu div.info	{font-size: 200%; font-family: Times, serif; margin: 10px 0px 20px 5%; color: #0F4462;}
+table.menu table.navi	{margin-top: 10px; color: #1F506B; font-size: 80%; font-family: Georgia;}
+
+table.content			{padding-top: 15px; padding-bottom: 60px;}
+table.content td.left .banner	{color: #529AC0; font-size: 60%; width: 155px;}
+table.content td.right		{font-size: 80%;}
+
+table.foot		{font-size: 70%; background-repeat: repeat-x; background-position: top; padding: 50px 0px 10px 0px;}
+table.foot #logo	{margin-right: 5%;}

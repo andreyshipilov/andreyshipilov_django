@@ -1,0 +1,136 @@
+body {
+	padding:0;
+	margin:0;
+	font:normal 80% Arial;
+	color:#333;
+	background:url('./i/bg.jpg') no-repeat 100% 100% white;
+/*	width: expression((document.body.clientWidth < 1000)? "1000px" : (document.body.clientWidth > 1900)? "1900px" : "auto"); */
+	max-width:1900px;
+	min-width:1000px;
+}
+table, td, tr {
+	padding:0;
+	margin:0;
+	vertical-align:top;
+	border:0;
+	border-collapse:collapse;
+	font-size:100%;
+}
+img {
+	border:0;
+}
+a {
+	color:#0567b4;
+}
+a:hover {
+	color:#ba1b26;
+}
+p {
+	padding:0;
+}
+h1, h2, h3, h4 {
+	font-weight:normal;
+	font-family:Arial,Times;
+	padding:0;
+	margin:1.5em 0 0.2em;
+}
+h1, h2 {
+	margin-top:50px;
+}
+h2 {
+	font-style:italic;
+}
+
+
+.valign-bottom {
+	vertical-align:bottom;
+}
+.valign-middle {
+	vertical-align:middle;
+}
+
+.left-padded {
+	padding-left:13px;
+}
+.top-outpadded h1:first-child,
+.top-outpadded h2:first-child  {
+	margin-top:9px;
+}
+
+
+div.spacer {
+	width:63px;
+	height:50px;
+}
+div.spacer2 {
+	width:195px;
+}
+div.addons {
+	padding:13px;
+	margin-left:-13px;
+	background:url('./i/addon-bg.png') repeat-x 0 100%;
+}
+div.addons * {
+	margin:0 0 13px 0;
+	color:white;
+}
+div.cite {
+	padding:63px 63px 0 63px;
+}
+div.cite div.img {
+	background-color:#c3e6fb;
+	padding:5px;
+	margin-left:-5px;
+}
+div.cite p.author {
+	text-align:right;
+	font-style:italic;
+}
+div.cite h2 {
+	margin-top:0;
+	font-style:normal;
+}
+div.phone {
+	position:absolute;
+	right:0;
+	top:0;
+	margin:50px 63px 0 0;
+}
+img.logo {
+	margin:0 0 50px 63px;
+}
+td.menu {
+	background:url(./i/bottom-left.gif) no-repeat 0 100%;
+}
+
+table.menu td {
+	font-size:150%;
+	padding-bottom:12px;
+}
+table.menu td.selector {
+	width:63px;
+}
+table.menu a b {
+	font-weight:normal;
+	color:#ba1b26;
+}
+table.addon-menu {
+	width:1px;
+	height:50px;
+	font-size:92%;
+	font-family:Arial;
+}
+table.addon-menu td {
+	padding:0;
+/*	white-space:nowrap;*/
+	padding:0 13px 0 0;
+}
+table.addon-menu a {
+	text-decoration:none;
+	border-bottom:1px dashed;
+}
+table.addon-menu a.chosen {
+	font-weight:bold;
+	text-decoration:none;
+	border:0;
+}

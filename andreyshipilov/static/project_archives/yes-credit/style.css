@@ -1,0 +1,183 @@
+/* Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0px;padding:0px;}
+table{border-collapse:collapse;border-spacing:0px;}
+td,tr{vertical-align:top;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:400;}
+ol,ul{list-style:none;}
+caption,th{text-align:left;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:400;}
+q:before,q:after{content:'';}
+fieldset,img,abbr,acronym{border:0px;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {display: block;}
+
+
+/* Clear Floated Elements */
+.clear	{clear: both; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0;}
+.clearfix:before,
+.clearfix:after {content: '\0020'; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0;}
+.clearfix:after {clear: both;}
+.clearfix {zoom: 1;}
+
+
+/* Base */
+html	{font-size: 85%;}
+body	{font: normal 1.1em "PT Sans", Helvetica, Arial, sans-serif; color: #333; background: none 0 0 repeat #f2f2f2; position: relative; min-width: 1024px;}
+h1	{font: normal 2em/1.2em "Lobster", cursive; color: #ebebeb; margin: 0;}
+/*
+ h2	{font: bold 1.5em/1.2em "Kelly Slab", cursive; color: #b51a10; margin: 1em 0 0.5em;}
+ h3	{font: normal 1.2em "Kelly Slab", cursive; color: #4c4c4c; margin: 1em 0 0.5em;}
+*/
+h2	{font: bold 1.5em/1.2em "PT Sans", Helvetica, Arial, sans-serif; color: #b51a10; margin: 30px 0 0.5em;}
+h3	{font: normal 1.2em "PT Sans", Helvetica, Arial, sans-serif; color: #4c4c4c; margin: 30px 0 0.5em;}
+hr	{line-height: 0; margin: 30px 0; padding: 0; border-top: 1px solid #9a9d8f; border-left: none; border-right: none; border-bottom: none;}
+p	{margin: 1em 0;}
+a	{outline: none; color: #fff;}
+table, tr, td	{font-size: 1em; line-height: inherit;}
+
+.hover-underline	{text-decoration: none;}
+.hover-underline:hover	{text-decoration: underline;}
+.round-corners	{border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; box-shadow: 0 3px 3px #777;}
+.clear-top	{margin-top: 0;}
+.clear-bottom	{margin-bottom: 0;}
+
+.trailer-text	{font-size: 1.35em; font-family: "PT Sans", sans-serif; color: #4c4c4c; line-height: 1.2em}
+.trailer-text .LobsterFont	{font-size: 1.2em; color: #4d4d4d;}
+.LobsterFont	{font-family: "Lobster", cursive;}
+.KellyFont	{font-family: "PT Sans", Helvetica, Arial, sans-serif;}
+
+.red	{color: #b41b11 !important;}
+.grey	{color: #8c8c8c;}
+
+.nobr	{white-space: nowrap;}
+
+/* Yes CSS */
+#counters	{position: absolute; top: -999px;}
+#bg	{background: url('m/noise-bg.gif') #a3a597;}
+#top	{background: url('m/top-bg.png') 0 0 repeat-x transparent; position: absolute; top: 0; left: 0; width: 100%; z-index: 9;}
+	#top-content	{width: 1004px; margin: 0 auto;}
+		#top-content h1	{line-height: 65px; background: url('m/top-logo-bg.png') 50% 0 no-repeat transparent; float: left; padding-bottom: 25px;}
+			#top-content h1 a	{color: #ebebeb; margin: 0 22px; border-bottom: 1px solid #ebebeb; text-decoration: none;}
+		#menu	{float: left; margin: 0; padding: 0;}
+			#menu li	{float: left; margin: 0 0 0 25px;}
+				#menu li.in a	{color: #333;}
+				#menu a	{color: #717171; text-shadow: 0 1px #fff; text-decoration: none; font: bold 1.5em/70px "PT Sans Narrow", Arial, sans-serif;}
+				#menu a:hover	{text-decoration: underline;}
+		#login	{display: block; float: right; color: #a1180f; font: normal 1.5em/70px "PT Sans Narrow", Arial, sans-serif; background: url('m/top-login.png') 0 50% no-repeat transparent; padding-left: 30px; margin-right: 10px;}
+
+footer	{background: url('m/bottom-bg.png') 0 0 repeat-x transparent; margin-top: 20px;}
+	#copyright	{width: 984px; margin: 0 auto; padding: 0 20px; color: #fff; line-height: 60px; position: relative;}
+		#copyright-left	{float: left; width: 340px;}
+	#legal	{width: 982px; margin: 0 auto; padding: 30px 0 50px;}
+		#legal table	{width: 100%;}
+			#legal table td.spacer	{width: 20%;}
+		#creators	{color: #a6a89a; margin: 2em 0 0; font-size: 0.95em;}
+			#creators a	{color: #73766d;}
+
+
+/* Index */
+#home #top-content a	{border-bottom: none !important;}
+#index-wrap	{overflow: hidden; height: 740px; margin-bottom: -180px;}
+#index	{height: 460px; background: url('m/index-bg.jpg') 50% 100% no-repeat #89c1c8; border-bottom: 30px solid #eeebe6; /*overflow: hidden;*/}
+	#index-content	{position: relative; height: 460px; width: 1024px; margin: 0 auto;}
+		#index-mac	{position: absolute; bottom: -30px; right: 20px; display: none;}
+		#index-left-boy	{position: absolute; bottom: -30px; left: -40px; display: none;}
+		#index-right-boy	{position: absolute; bottom: -30px; right: 0; display: none;}
+		#index-billboard	{position: absolute; bottom: -70px; left: 50%; margin-left: -346px; display: none;}
+		#index-cloud	{position: absolute; top: 85px; left: 35%; display: none;}
+		#index-car	{position: absolute; bottom: -105px; left: 25%; display: none;}
+		#index-girl	{position: absolute; bottom: -270px; left: 12%; display: none;}
+		#index-button	{position: absolute; bottom: 40px; left: 50%; display: none;}
+	#index-border	{border-top: 7px solid #c51505; border-bottom: 1px solid #939689; height: 55px; background-color: #f2f2f2;}
+	#curtain-left	{height: 490px; width: 0; background: url('m/index-curtain.png') repeat-x 100% 0 #eeebe6; position: absolute; top: 0; right: left: 0;}
+	#curtain-right	{height: 490px; width: 0; background: url('m/index-curtain.png') repeat-x 0 0 #eeebe6; position: absolute; top: 0; right: 0;}
+#video	{height: 100%; width: 100%; background: url('m/video-bg.png') 0 0 transparent; position: absolute; top: 0; left: 0; display: none;}
+	#video-content	{width: 640px; height: 470px; padding-top: 127px; margin: 0 auto;}
+	#flash-content	{height: 470px;}
+#index-text	{width: 1004px; margin: 20px auto;}
+	#index-left	{background-color: #f2f2f2; width: 330px; padding: 1px 0; position: relative; float: left;}
+		#index-left div	{margin: 0 30px 30px 140px;}
+		#index-left p	{font: normal 1em "PT Sans", sans-serif; margin: 0;}
+		#index-left img	{position: absolute; top: -10px; left: -15px;}
+	#index-right	{background: url('m/index-right-bg.gif') 100% 10px no-repeat #f2f2f2; width: 665px; padding: 1px 0; float: left; margin-left: 9px;}
+		#index-right div	{margin: 0 0 30px 30px;}
+		#index-right b	{font-family: "Kelly Slab", cursive;}
+		#index-right table	{width: 100%;}
+			#index-right table td	{width: 25%; padding-right: 30px;}
+		#index-right img.check-mark {vertical-align: top;}
+
+/* Main */
+.center-block	{width: 944px; margin: 0 auto; padding: 1px 30px; background-color: #f2f2f2;}
+#content	{padding-top: 100px; color: #080808;}
+	#content a	{color: #b41b11;}
+	#content h1	{font: normal 2.5em/1em "PT Sans", Helvetica, Arial, sans-serif; color: #b41b11; margin: 30px 0 0.6em;}
+	#content h2	{font: normal 1.6em/31px "PT Sans", Helvetica, Arial, sans-serif, cursive; color: #080808; margin: 30px 0 0.6em;}
+		#content h2 .arrow	{background: url('m/header-arrow.png') no-repeat 100% 50% transparent; display: block; float: left; padding: 0 20px 0 10px; margin-right: 10px;}
+#before-footer	{width: 984px; margin: 20px auto 0; position: relative;}
+	#before-footer-left	{width: 300px; padding: 1px 0; float: left; color: #f2f2f2; margin-right: 40px; width: 300px;}
+		#before-footer-left p	{margin-top: 0;}
+	#before-footer-right	{width: 300px; padding: 1px 0; float: left; color: #f2f2f2; text-shadow: 0 1px #666;}
+	#before-footer-balloon	{width: 335px; height: 131px; background: url('m/index-balloon.png') 0 0 no-repeat transparent; position: absolute; bottom: -30px; right: -25px; margin-bottom: -10px;}
+		#before-footer-balloon h2	{color: #fff; margin: 25px 50px 15px 30px; text-shadow: 0 -1px #cc9f00; font-size: 1.4em;}
+
+/* Integration */
+#integration	{position: relative;}
+	#integration-content	{width: 620px; margin: 15px 0 30px 0;}
+		#integration-pic	{position: absolute; top: 30px; right: 0;}
+
+/* Customers */
+#customers	{position: relative;}
+	#customers-pic1	{text-align: center;}
+	#customers-pic2	{position: absolute; bottom: 0; right: -1px; border-bottom-right-radius: 5px;}
+	#customers-left	{width: 620px; margin: 0 0 30px 0; float: left;}
+	#customers-right	{float: left; width: 200px; padding-top: 10px;}
+		#customers-passport	{padding: 10px 0 10px 65px; background: url('m/customers-passport.png') no-repeat 0 15px transparent;}
+		#customers-slippers	{padding: 10px 0 10px 65px; background: url('m/customers-slippers.png') no-repeat 0 15px transparent;}
+
+/* How it works*/
+#how	{}
+	#how-top	{width: 100%;}
+		#how-top td	{width: 33%; text-align: center; padding: 0 30px;}
+			#how-top td p	{margin-top: 0;}
+#how2	{margin-top: 10px;}
+	#how-wallet	{text-align: center; margin-bottom: 20px; position: relative;}
+		#how-wallet p	{position: absolute; bottom: 75px; right: 25px; width: 275px; text-align: left; font-size: 1.4em;}
+#how-it-works	{height: 951px; background: url('m/how-bg.gif') no-repeat 50% 0 transparent; position: relative; margin-bottom: -20px;}
+	#how-step1	{position: absolute; top: 150px; left: ; width: 275px;}
+	#how-step2	{position: absolute; top: 150px; left: 325px; width: 275px;}
+	#how-step3	{position: absolute; top: 150px; left: 645px; width: 275px;}
+	#how-step4	{position: absolute; top: 415px; left: ; width: 275px;}
+	#how-step5	{position: absolute; top: 415px; left: 325px; width: 275px;}
+	#how-step6	{position: absolute; top: 415px; left: 645px; width: 275px;}
+	#how-step7	{position: absolute; top: 725px; left: ; width: 275px;}
+	#how-step8	{position: absolute; top: 725px; left: 325px; width: 275px;}
+	#how-step9	{position: absolute; top: 725px; left: 645px; width: 275px;}
+
+/* About */
+#about	{position: relative;}
+	#about .trailer-text	{width: 80%;}
+		#about-trailer-pic	{position: absolute; bottom: 0; right: -1px; border-bottom-right-radius: 5px;}
+#about2	{width: 1004px; margin: 10px auto; padding: 1px 0;}
+	#about2	.trailer-text	{margin-top: 30px;}
+	#about2-left	{float: left; width: 605px; background-color: #f2f2f2; padding: 1px 30px 10px; margin-right: 10px;}
+	#about2-right	{float: left; width: 269px; background-color: #f2f2f2; padding: 1px 30px;}
+#about3	{position: relative; padding-bottom: 30px;}
+	#about3-trailer1	{width: 600px; margin-top: 30px;}
+	#about3-trailer2	{width: 260px;}
+	#about3 img	{position: absolute; bottom: 30px; right: 20px;}
+	#about2-facts img	{margin-right: 30px;}
+	#about2-facts td	{padding-bottom: 20px;}
+	#about2-facts tr.last td	{padding-bottom: 0;}
+	#about2-facts p	{margin: 0;}
+	#about2-dynamics p	{margin-top: 15px;}
+	#about2-dynamics tr.last p	{margin-bottom: 0;}
+	#about2-count tr.last p	{margin-bottom: 0;}
+	#about2-count p	{margin-top: 15px;}
+	#about2 .orange	{width: 30px; height: 15px; margin: 1.2em 10px 0 0; background-color: #ffa000;}
+	#about2 .yellow	{width: 30px; height: 15px; margin: 1.2em 10px 0 0; background-color: #efdb00;}
+	#about2 .green	{width: 30px; height: 15px; margin: 1.2em 10px 0 0; background-color: #b1c813;}
+
+.penciled	{position: relative; height: 340px;}
+	.penciled .images	{overflow: hidden; position: relative; width: 605px; height: 340px;}
+		.penciled .overlay	{position: absolute; top: 0; right: 0;}
+		.penciled .underlay	{position: absolute; top: 0; left: 0;}
+	.penciled .pencil	{background: url('m/pencil.png') 0 0 transparent; height: 556px; width: 105px; position: absolute; left: 0%; top: -115px; margin-left: -20px; opacity: 0; display: none;}

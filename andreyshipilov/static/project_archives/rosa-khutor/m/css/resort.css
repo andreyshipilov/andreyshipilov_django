@@ -1,0 +1,370 @@
+#content {
+	/*background: url(/m/resort/map.jpg) no-repeat 50% -1000px #fff;*/
+}
+#map-dummy {
+	height: 621px;
+	width: 910px;
+	margin: 20px 0 30px;
+}
+hr {
+	background-image: none;
+	background-color: #d8d8d8;
+}
+.asterisk {
+	vertical-align: super;
+}
+
+#tracks-chars {
+	color: #00395e;
+	width: 100%;
+	background: url(../resort/bg-blue.gif) repeat-x 100% 38px #1082c8;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-bottom: 10px solid #1082c8;
+	margin: 25px 0;
+}
+
+div.track-length {
+	height: 11px;
+	display: inline-block;
+	background: url(../resort/length-blue.gif);
+	margin-right: 6px;
+	margin-bottom: -1px;
+}
+div.track-complexity {
+	height: 14px;
+	width: 14px;
+	display: inline-block;
+	margin-right: 6px;
+	margin-bottom: -2px;
+}
+div.lift-length {
+	height: 11px;
+	display: inline-block;
+	background: url(../resort/length-red.gif);
+	margin-right: 6px;
+	margin-bottom: -1px;
+}
+div.lift-capacity {
+	height: 16px;
+	display: inline-block;
+	background: url(../resort/human.gif);
+	margin-right: 6px;
+	margin-bottom: -3px;
+}
+div.black {
+	background: url(../resort/track-black.gif);
+}
+div.red {
+	background: url(../resort/track-red.gif);
+}
+div.blue {
+	background: url(../resort/track-blue.gif);
+}
+div.green {
+	background: url(../resort/track-green.gif);
+}
+
+	#demo tr, #demo th, #demo td,
+	#regular tr, #regular th, #regular td,
+	#card tr, #card th, #card td, #inventory td, #lockers td, #parking td,
+	#lift-chars tr, #lift-chars th, #lift-chars td, #school td, #kidsclub td,
+	#tracks-chars tr, #tracks-chars th, #tracks-chars td {
+		vertical-align: middle;
+	}
+	#demo td,
+	#regular td,
+	#card td, #inventory td, #lockers td, #parking td, #school td, #kidsclub td,
+	#lift-chars td,
+	#tracks-chars td {
+		padding: 5px 10px;
+		white-space: nowrap;
+	}
+	#demo th,
+	#regular th,
+	#card th, #inventory th, #lockers th, #parking th, #school th,
+	#lift-chars th,
+	#tracks-chars th {
+		font-family: 'DINProMedium';
+		padding: 10px;
+		color: #fff;
+		font-size: 1.25em;
+		text-transform: uppercase;
+	}
+	#demo img,
+	#regular img,
+	#card img, #inventory img, #lockers img, #parking img, #school img, #kidsclub img,
+	#lift-chars img,
+	#tracks-chars img {
+		margin-bottom: -1px;
+	}
+	#demo .titles,
+	#regular .titles,
+	#card .titles, #inventory .titles, #lockers .titles, #parking .titles, #school .titles,
+	#lift-chars .titles,
+	#tracks-chars .titles {
+		color: #fff;
+	}
+	#tracks-chars .odd {
+		background-color: #89c8f1;
+	}
+	#tracks-chars .even {
+		background-color: #88e1fe;
+	}
+upper {
+	color: #f61b52;
+}
+small.thin-line {
+	line-height: 0.7em;
+}
+td.align-top {
+	vertical-align: top !important;
+}
+#lift-chars {
+	color: #333;
+	width: 100%;
+	background: url(../resort/bg-red.gif) repeat-x 100% 38px #eb4756;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-bottom: 10px solid #eb4756;
+	margin: 25px 0;
+}
+	#lift-chars .odd {
+		background-color: #ffe1cd;
+	}
+	#lift-chars .even {
+		background-color: #f6ffdd;
+	}
+#regular {
+	color: #333;
+	width: 100%;
+	background: url(../resort/bg-orange.gif) repeat-x 100% 38px #f9a139;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-bottom: 10px solid #f9a139;
+	margin: 25px 0;
+}
+	#regular .odd {
+		background-color: #fffacd;
+	}
+	#regular .even {
+		background-color: #ffdd91;
+	}
+	
+#card {
+	color: #333;
+	width: 100%;
+	background: url(../resort/bg-orange.gif) repeat-x 100% 38px #f9a139;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-bottom: 10px solid #f9a139;
+	margin: 0 0 25px;
+}
+	#card .odd {
+		background-color: #fffacd;
+	}
+	#card .even {
+		background-color: #ffdd91;
+	}
+	
+#inventory {
+	color: #333;
+	width: 100%;
+	background: url(../resort/bg-deep-orange.gif) repeat-x 100% 38px #fa7737;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-bottom: 10px solid #fa7737;
+	margin: 0 0 25px;
+}
+	#inventory .odd {
+		background-color: #ffedc0;
+	}
+	#inventory .even {
+		background-color: #ffc591;
+	}
+	
+#lockers {
+	color: #333;
+	width: 100%;
+	background: url(../resort/bg-cyan-2.gif) repeat-x 100% 38px #32b8ff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-bottom: 10px solid #32b8ff;
+	margin: 0 0 25px;
+}
+	#lockers .odd {
+		background-color: #cdf3ff;
+	}
+	#lockers .even {
+		background-color: #91d9ff;
+	}
+	
+#parking {
+	color: #333;
+	width: 100%;
+	background: url(../resort/bg-purple.gif) repeat-x 100% 38px #ee424e;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-bottom: 10px solid #ee424e;
+	margin: 0 0 25px;
+}
+	#parking .odd {
+		background-color: #fcdccf;
+	}
+	#parking .even {
+		background-color: #ffdd91;
+	}
+	
+#school {
+	color: #333;
+	width: 100%;
+	background: url(../resort/bg-green.gif) repeat-x 100% 38px #a5ce68;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-bottom: 10px solid #a5ce68;
+	margin: 0 0 25px;
+}
+	#school .odd {
+		background-color: #f2ffcd;
+	}
+	#school .even {
+		background-color: #cde9bc;
+	}
+
+#kidsclub-logo {
+	width: 444px;
+	height: 239px;
+}
+
+#topclub-img {
+	width: 280px;
+	height: 335px;
+	float: right;
+}
+	
+#kidsclub {
+	color: #333;
+	width: 100%;
+	background: url(../resort/bg-grey.gif) repeat-x 100% 38px #d3e6e7;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-bottom: 10px solid #d3e6e7;
+	margin: 25px 0;
+}
+	#kidsclub .odd {
+		background-color: #f5f9f9;
+	}
+	#kidsclub .even {
+		background-color: #e9f2f3;
+	}
+	#kidsclub th {
+		font-family: 'DINProMedium';
+		padding: 10px;
+		font-size: 1.25em;
+		text-transform: uppercase;
+	}
+	#kidsclub .bordered {
+		border-left-color: #FFF;
+		border-left-width: 1px;
+		border-left-style: solid;
+	}
+	
+#demo {
+	color: #333;
+	width: 100%;
+	background: url(../resort/bg-cyan.gif) repeat-x 100% 38px #67cdc3;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-bottom: 10px solid #67cdc3;
+	margin: 25px 0;
+}
+	#demo .odd {
+		background-color: #cdffe9;
+	}
+	#demo .even {
+		background-color: #bce9e5;
+	}
+#time {
+	color: #333;
+	width: 100%;
+	margin: 25px 0 0;
+}
+	#time td,
+	#time th {
+		vertical-align: middle;
+		white-space: nowrap;
+	}
+	#time th {
+		font-size: 0.8em;
+		text-align: left;
+	}
+	#time .title {
+		text-align: left;
+		font-family: 'DINProMedium';
+		padding: 3px 19px 3px 10px;
+		background-color: #e6e6e6;
+	}
+	#time .c1,
+	#time .c2,
+	#time .c3,
+	#time .c4,
+	#time .c5 {
+		text-align: center;
+		padding: 3px 10px;
+		color: #fff;
+	}
+	#time .t1 {
+		width: 92px;
+	}
+	#time .t2 {
+		width: 92px;
+	}
+	#time .t3 {
+		width: 244px;
+	}
+	#time .t4 {
+		width: 169px;
+	}
+	#time .t5 {
+		width: 169px;
+	}
+	#time .c1 {
+		background: url(../resort/timetable-wintertime-full-bg.gif) repeat-y 0 0;
+	}
+	#time .c2 {
+		background: url(../resort/timetable-wintertime-half-bg.gif) repeat-y -172px 0;
+	}
+	#time .c3 {
+		background: url(../resort/timetable-wintertime-full-bg.gif) repeat-y -416px 0;
+	}
+	/*
+	#time .c1 {
+		background: url(/m/resort/timetable-bg1.gif) repeat-y 0 0;
+	}
+	#time .c2 {
+		background: url(/m/resort/timetable-bg2.gif) repeat-y 0 0;
+		color: #333 !important;
+	}
+	#time .c3 {
+		background: url(/m/resort/timetable-bg3.gif) repeat-y 0 0;
+	}
+	#time .c4 {
+		background: url(/m/resort/timetable-bg4.gif) repeat-y 0 0;
+	}
+	#time .c5 {
+		background: url(/m/resort/timetable-bg5.gif) repeat-y 0 0;
+	}
+	#time .c6-temp {
+		background: url(/m/resort/timetable-temp-bg6.jpg) repeat-y 0 0;
+	}
+	*/

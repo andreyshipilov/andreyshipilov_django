@@ -1,0 +1,253 @@
+.ui-slider-handle {
+	position: absolute;
+	cursor: col-resize;
+	height: 22px;
+	width: 46px;
+	background: url(../slider-handle.png) no-repeat;
+	z-index: 100;
+	outline: none;
+	border: none;
+	margin-left: -23px;
+}
+.slider {
+	position: relative;
+	margin: 0 23px;
+	height: 22px;
+	cursor: pointer;
+	cursor: hand;
+}
+.slider-wrap {
+	width: 910px;
+	height: 22px;
+	position: relative;
+        background: url(../press/slider-bg2.png) no-repeat 0 100%;
+}
+.zoomable-photos .photo {
+	border-width: 10px;
+}
+#about-vacancies-content {
+
+}
+	#about-vacancies-content .vacancy-city {
+		-moz-border-radius: 3px 3px 0 0;
+		border-radius: 3px 3px 0 0;
+		-webkit-border-radius: 3px 3px 0 0;
+		display: block;
+		float: left;
+		padding: 3px 10px 0;
+		text-transform: uppercase;
+		font-size: 0.85em;
+		line-height: 1.2em;
+		font-family: DINProMedium;
+	}
+	#about-vacancies-content .vacancy-title {
+		font-size: 1.3em;
+		font-family: DINProMedium;
+		line-height: 1.3em;
+	}
+	#about-vacancies-content .vacancy-text {
+		padding: 5px 10px 15px 10px;
+		font-size: 0.85em;
+		line-height: 1.2em;
+		margin-bottom: 20px;
+		clear: both;
+	}
+#partners-table {
+	width: 100%;
+	margin-bottom: 20px;
+}
+	#partners-table td {
+		padding: 10px;
+		font-size: 0.85em;
+		line-height: 1.2em;
+	}
+	#partners-table td.unpad {
+		padding: 0;
+	}
+	#partners-table td.color-white * {
+		color: #ffffff;
+	}
+	#partners-table h3 {
+		text-transform: none;
+		font-size: 1.2em;
+		font-family: DINProMedium;
+		font-weight: normal;
+		line-height: 1.4em;
+		margin-top: 0;
+	}
+#tracks {
+	color: #ffffff;
+	margin-bottom: 2em;
+	float: left;
+	width: 100%;
+	clear: both;
+}
+	#tracks div {
+		float: left;
+		width: 910px;
+	}
+	#tracks div.text {
+		padding: 5px 10px;
+		font-size: 1.1em;
+		line-height: 1.5em;
+		width: 890px;
+	}
+	#tracks img {
+		line-height: 0;
+		font-size: 0;
+		float: left;
+		clear: both;
+	}
+#chars-icons {
+	width: 100%;
+	margin-bottom: 1em;
+}
+	#chars-icons td {
+		text-align: center;
+		font-family: DINProNormal;
+		line-height: 1.4em;
+	}
+	#chars-icons td.char-space {
+		width: 20px;
+		height: 40px;
+	}
+	#chars-icons ins {
+		display: block;
+		width: 135px;
+		height: 72px;
+		margin: 10px 0;
+	}
+	#chars-icons ins:hover {
+		background-position: 100% 0;
+	}
+	#chars-icons span.char-number {
+		font-family: DINProLight;
+		font-size: 1.9em;
+		line-height: 0.9;
+		color: #b3b3b3;
+	}
+		#chars-icons span.char-number b {
+			color: #333333;
+			font-weight: normal;
+		}
+	#chars-icon1 {
+		background: url(../chars-icons/01.html) 0 0 no-repeat #ffffff;
+	}
+	#chars-icon2 {
+		background: url(../chars-icons/02.html) 0 0 no-repeat #ffffff;
+	}
+	#chars-icon3 {
+		background: url(../chars-icons/03.html) 0 0 no-repeat #ffffff;
+	}
+	#chars-icon4 {
+		background: url(../chars-icons/04.html) 0 0 no-repeat #ffffff;
+	}
+	#chars-icon5 {
+		background: url(../chars-icons/05.html) 0 0 no-repeat #ffffff;
+	}
+	#chars-icon6 {
+		background: url(../chars-icons/06.html) 0 0 no-repeat #ffffff;
+	}
+	#chars-icon7 {
+		background: url(../chars-icons/07.html) 0 0 no-repeat #ffffff;
+	}
+	#chars-icon8 {
+		background: url(../chars-icons/08.html) 0 0 no-repeat #ffffff;
+	}
+	#chars-icon9 {
+		background: url(../chars-icons/09.html) 0 0 no-repeat #ffffff;
+	}
+	#chars-icon10 {
+		background: url(../chars-icons/10.html) 0 0 no-repeat #ffffff;
+	}
+	#chars-icon11 {
+		background: url(../chars-icons/11.html) 0 0 no-repeat #ffffff;
+	}
+	#chars-icon12 {
+		background: url(../chars-icons/12.html) 0 0 no-repeat #ffffff;
+	}
+#about-switch {
+	float: left;
+	width: 100%;
+	clear: both;
+	font-family: DINProMedium;
+	margin: 20px 0 0 0;
+}
+	#about-switch li {
+		float: left;
+		background-color: #cccccc;
+		margin-right: 10px;
+		text-transform: uppercase;
+		padding: 0 0.5em;
+		cursor: pointer;
+		cursor: hand;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	#about-switch li.about-management-in {
+		background-color: #ff1d4e !important;
+		color: #ffffff;
+		cursor: default;
+	}
+	#about-switch li.about-partners-in {
+		background-color: #f09a1b !important;
+		color: #ffffff;
+		cursor: default;
+	}
+	#about-switch li.about-vacancies-in {
+		background-color: #c1eb36 !important;
+		color: #ffffff;
+		cursor: default;
+	}
+	#about-partners-content {
+		overflow: auto;
+	}
+#about-stuff {
+	float: left;
+}
+#history-stuff {
+	margin-top: 45px;
+}
+	#history-stuff .history-year {
+		margin-right: 1em;
+		font-family: DINProMedium;
+		color: #555555;
+		cursor: pointer;
+		cursor: hand;
+		font-size: 0.9em;
+		text-decoration: none;
+		outline: none;
+	}
+	#history-stuff .year-in {
+		font-size: 1.3em;
+		margin-right: 0 !important;
+		color: #000000 !important;
+		cursor: default !important;
+		border: none !important;
+	}
+	#history-stuff .history-elements {
+		background: url(../press/slider-bg2.png) no-repeat 0 50%;
+		line-height: 0;
+	}
+	.history-element {
+		display: block;
+		width: 38px;
+		height: 52px;
+		outline: none;
+	}
+	.history-element:hover,
+	.history-element-chosen {
+		background: url(../project/history-icons/o.png) 0 0 no-repeat transparent;
+	}
+	.history-icon {
+		position: absolute;
+		display: none;
+		float: left;
+	}
+	.history-container .history-columns {
+		-moz-column-width: 445px;
+		-moz-column-gap: 20px;
+		-webkit-column-width: 445px;
+		-webkit-column-gap: 20px;
+	}

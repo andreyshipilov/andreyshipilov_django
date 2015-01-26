@@ -1,0 +1,21 @@
+html,
+body {
+	background-color: #000000;
+	color: #ffffff;
+}
+h1, h2, h3, h4 {
+	color: #e5e5e5;
+}
+#content-container,
+#banners-container,
+#banners-wrapper,
+#sharer-text {
+	background-color: #000000;
+}
+#sharer-text {
+	background-image: url('../sharer-arrow-black.gif');
+}
+#sharer-buttons {
+	border: 1px solid #333333;
+	border-left: 0;
+}

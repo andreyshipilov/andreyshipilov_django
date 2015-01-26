@@ -1,0 +1,255 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml">
+<!-- Mirrored from www.rosakhutor.webfactional.com/en/press/ by HTTrack Website Copier/3.x [XR&CO'2010], Thu, 12 Jan 2012 01:47:34 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Press | Rosa Khutor</title><link rel="stylesheet" type="text/css" media="screen,projection" href="../../m/css/fonts.css" /><link rel="stylesheet" type="text/css" media="screen,projection" href="../../m/css/base.css" /><link rel="stylesheet" type="text/css" media="screen,projection" href="../../m/nyromodal/nyromodal.css" /><link href="releases/feed/index.html" rel="alternate" type="application/rss+xml" title="Press releases" /><link href="publications/feed/index.html" rel="alternate" type="application/rss+xml" title="Publications" /><!--script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script><script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script--><script type="text/javascript" src="../../m/js/jquery.m.js"></script><script type="text/javascript" src="../../m/js/jquery.ui.m.js"></script><script type="text/javascript" src="../../m/js/rosa.js"></script><script type="text/javascript" src="../../../vkontakte.ru/js/api/shared3d9.js?10"></script><link rel="shortcut icon" href="../../m/favicon.ico" /><link rel="stylesheet" type="text/css" media="screen,projection" href="../../m/css/black.css" /><link rel="stylesheet" type="text/css" media="screen,projection" href="../../m/css/press.css" /><style type="text/css">
+		#releases-years td.wide {
+			width: 16%;
+		}
+		
+			#publications-years td.wide {
+				width: 33%;
+			}
+		
+	</style><script type="text/javascript">
+		$(function(){
+			$('#releases-slider').data({
+				'min': 2005,
+				'max': 2011,
+				'range': 7 - 1
+			});
+
+			$('#publications-slider').data({
+				'min': 2008,
+				'max': 2011,
+				'range': 4 - 1
+			});
+
+			$('#releases-slider').slider({
+				min: 0,
+				max: 1000,
+				animate: 250,
+				slide: function(event, ui){
+					var max = $(this).slider("option", "max"), data = $(this).data();
+					var S = max / data.range;
+					var year = Math.round(ui.value / S) + data.min;
+
+					$('#releases-content > .releases-container').not('#releases-' + year + '-content').slideUp(250);
+					$('#releases-' + year + '-content').slideDown(250);
+				},
+				change: function(event, ui){
+					var max = $(this).slider("option", "max"), data = $(this).data();
+					var S = max / data.range;
+					var year = Math.round(ui.value / S) + data.min;
+					var newValue = Math.round(Math.round(ui.value / S) * S);
+					if(ui.value != newValue){
+						location.hash = '#releases-' + year;
+						_ = this;
+						setTimeout(function(){
+							$(_).slider('value', newValue);
+						}, 250);
+					}
+					$('#releases-content > .releases-container').not('#releases-' + year + '-content').slideUp(250);
+					$('#releases-' + year + '-content').slideDown(250);
+				}
+			});
+			$('#releases-slider').slider('value', $('#releases-slider').slider('option', 'max'));
+
+		
+			$('#publications-slider').slider({
+				min: 0,
+				max: 1000,
+				animate: 250,
+				slide: function(event, ui){
+					var max = $(this).slider("option", "max"), data = $(this).data();
+					var S = max / data.range;
+					var year = Math.round(ui.value / S) + data.min;
+
+					$('#publications-content > .publications-container').not('#publications-' + year + '-content').slideUp(250);
+					$('#publications-' + year + '-content').slideDown(250);
+				},
+				change: function(event, ui){
+					var max = $(this).slider("option", "max"), data = $(this).data();
+					var S = max / data.range;
+					var year = Math.round(ui.value / S) + data.min;
+					var newValue = Math.round(Math.round(ui.value / S) * S);
+					if(ui.value != newValue){
+						location.hash = '#publications-' + year;
+						_ = this;
+						setTimeout(function(){
+							$(_).slider('value', newValue);
+						}, 250);
+					}
+					$('#publications-content > .publications-container').not('#publications-' + year + '-content').slideUp(250);
+					$('#publications-' + year + '-content').slideDown(250);
+				}
+			});
+			$('#publications-slider').slider('value', $('#publications-slider').slider('option', 'max'));
+		
+
+			var width = 0, height = 0;
+			$('#albums .album-info').each(function(){
+				$(this).attr('rel', $(this).attr('title')).attr('title', null);
+				width += $(this).outerWidth(true);
+				height = $(this).outerHeight(true) > height ? $(this).outerHeight(true) : height;
+			}).click(function(e){
+                            e.preventDefault();
+				$('#albums .album-info').removeClass('selected');
+				$(this).addClass('selected');
+				$('#albums-images .albums-images-wrap').not('#albums-images-' + $(this).attr('rel')).slideUp(200);
+				$('#albums-images-' + $(this).attr('rel')).slideDown(200);
+				return false;
+			});
+
+			$('#albums').width(width).height(height);
+			$('#albums-wrap').height(height);
+
+			$('#albums-slider').slider({
+				min: 0,
+				max: 1000,
+				animate: 200,
+				slide: function(event, ui){
+					var wrap = $('#albums');
+					wrap.css({
+						left: (910 - wrap.width()) * ui.value / 1000
+					});
+				}
+			});
+
+			var sliderName = location.hash.slice(0, location.hash.indexOf('-'));
+			var sliderObj = $(sliderName + '-slider');
+			if(sliderObj.length){
+				var year = location.hash.slice(location.hash.indexOf('-') + 1);
+				var pos = (1 - (sliderObj.data('max') - year) / sliderObj.data('range')) * sliderObj.slider('option', 'max')
+				sliderObj.slider('value', pos);
+				setTimeout(function(){
+					$.scrollTo($(sliderName + '-section'), 500, {
+						offset: -78
+					});
+				}, 500);
+			}
+		});
+	</script><script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-791865-19']);
+		_gaq.push(['_trackPageview']);
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script></head><body><div id="top"><div id="top-nav-root"><div id="top-nav"><ul id="top-menu"><li><a href="../index.html"><img src="../../m/home.png" /></a></li><li><a href="../project/index.html">Project</a></li><li><a href="../resort/index.html">Resort</a></li><li><a href="../olympics/index.html">Olympics</a></li><li><a href="../realty/index.html">Realty</a></li><li><a href="../ecology/index.html">Ecology</a></li><li class="selected">Press</li><li><a href="../contacts/index.html">Contacts</a></li></ul><ul id="lang"><li><a href="../../press/index.html"><img src="../../m/flag-ru.gif" alt="Русский" /></a></li></ul></div></div><div id="top-child-root"><ul id="top-child-menu"><li><a href="#releases">Press releases</a></li><li><a href="#publications">Publications</a></li><li><a href="#media">Media</a></li><li><a href="#contacts">Press contacts</a></li></ul></div><div id="top-shadow">&nbsp;</div></div><div id="home"></div><div id="content-container"><div id="content"><br /><a href="../index.html"><img src="../../m/small-logo-en.png" height="46" alt="" /></a><div class="columns_2"><div class="first"><p><img src="../../m/press/illustration.jpg" height="265" alt="" /></p></div><div class="second"><p class="color-white leading-text">If you wish to receive all the Rosa Khutor news, subscribe to our news feed instantly using your e-mail.</p><form method="post" action="http://www.rosakhutor.webfactional.com/en/press/subscribe/"><div style='display:none'><input type='hidden' name='csrfmiddlewaretoken' value='4c25a3a87ce9f223e620fd5230fc3128' /></div><input type="text" name="email" id="subscription-email" /><input type="submit" value="Subscribe" id="subscription-button" /></form></div></div><h1 id="releases-section">Press releases <a href="#home" class="top"><img src="../../m/top-arrow.gif" height="10" /> Top</a></h1><table id="releases-years"><tr><td class="din-medium">2005</td><td class="wide"></td><td class="din-medium">2006</td><td class="wide"></td><td class="din-medium">2007</td><td class="wide"></td><td class="din-medium">2008</td><td class="wide"></td><td class="din-medium">2009</td><td class="wide"></td><td class="din-medium">2010</td><td class="wide"></td><td class="din-medium">2011</td></tr><tr class="years-lines"><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td></tr></table><div class="slider-wrap"><div id="releases-slider" class="slider"></div></div><div id="releases-content"><div id="releases-2005-content" class="releases-container"><div class="release-item"><a href="release-1/index.html" class="all-caps din-medium">February 9</a> «Интеррос» представил общественности проект развития горнолыжного курорта «Роза Хутор»
+					</div><div class="release-item"><a href="release-4/index.html" class="all-caps din-medium">February 11</a> Interros Staff Took Part in the Round Table “Sochi and the Krasnaya Polyana Mountain Climatic Resort: Yeaterday, Today, Tomorrow”
+					</div><div class="release-item"><a href="release-5/index.html" class="all-caps din-medium">March 31</a> Определен генеральный проектировщик горнолыжного курорта «Роза Хутор»
+					</div><hr /><div class="release-item"><a href="release-6/index.html" class="all-caps din-medium">April 27</a> Director General of Rosa Khutor Company Took Part in the Public Hearings on the Project of the Krasnaya Polyana Mountain Climatic Complex
+					</div><div class="release-item"><a href="release-35/index.html" class="all-caps din-medium">June 25</a> Sochi Office for Tourism in the Krasnaya Polyana Resort
+					</div><div class="release-item"><a href="release-36/index.html" class="all-caps din-medium">October 3</a> The “Rosa Khutor” Project  Presented in the Fourth Economic Forum Kuban-2005
+					</div><hr /><div class="release-item"><a href="release-34/index.html" class="all-caps din-medium">December 20</a> Russian Ecologists to Approve the Building of the Alpine Ski Resort Roza Khutor
+					</div></div><div id="releases-2006-content" class="releases-container"><div class="release-item"><a href="release-7/index.html" class="all-caps din-medium">February 21</a> Компания "Роза Хутор" стала победителем конкурса на право аренды земельного участка площадью 125 га в Сочинском национальном парке
+					</div><div class="release-item"><a href="release-8/index.html" class="all-caps din-medium">April 24</a> Генеральный директор «Розы Хутор» Нина Загорулько приняла участие в работе Международного конгресса горнолыжной индустрии
+					</div><div class="release-item"><a href="release-9/index.html" class="all-caps din-medium">September 1</a> Project
+					</div></div><div id="releases-2007-content" class="releases-container"><div class="release-item"><a href="release-10/index.html" class="all-caps din-medium">February 19</a> Компания «Роза Хутор» и Всемирный фонд дикой природы объединят усилия для развития экологического строительства
+					</div><div class="release-item"><a href="release-11/index.html" class="all-caps din-medium">February 21</a> The Roza Khutor Alpine Ski Resort  to be Presented while Reception the IOC Evaluation Commission in Krasnaya Polyana, Sochi
+					</div><div class="release-item"><a href="release-12/index.html" class="all-caps din-medium">April 5</a> Rosa Khutor Company Appoints Roger McCarthy Strategy and Production Director
+					</div><hr /><div class="release-item"><a href="release-13/index.html" class="all-caps din-medium">May 21</a> Rosa Khutor to Support WWF Project, Aimed at Reintroducing the Persian Leopard in the Northern Caucasus.
+					</div><div class="release-item"><a href="release-14/index.html" class="all-caps din-medium">July 5</a> «Роза Хутор» примет Зимнюю Олимпиаду Сочи 2014
+					</div><div class="release-item"><a href="release-44/index.html" class="all-caps din-medium">July 13</a> Компания «Роза Хутор» не получала инвестиционных предложений от группы «Онэксим»
+					</div><hr /><div class="release-item"><a href="release-43/index.html" class="all-caps din-medium">August 7</a> Президент России Владимир Путин наградил Заявочный комитет «Сочи-2014»
+					</div><div class="release-item"><a href="release-42/index.html" class="all-caps din-medium">September 26</a> Эксперты МОК посетили горнолыжный курорт «Роза Хутор»
+					</div><div class="release-item"><a href="release-41/index.html" class="all-caps din-medium">October 1</a> Сергей Трубин назначен Генеральным директором компании «Роза Хутор»
+					</div><hr /><div class="release-item"><a href="release-40/index.html" class="all-caps din-medium">October 2</a> Создан Оргкомитет «Сочи-2014» (с официального сайта «Сочи-2014»)
+					</div><div class="release-item"><a href="release-39/index.html" class="all-caps din-medium">October 16</a> ОАО «ОПИН» стало управляющей компанией по развитию курорта «Роза Хутор»
+					</div><div class="release-item"><a href="release-38/index.html" class="all-caps din-medium">November 22</a> ОАО «ОПИН» объявляет о подписании договора на оказание услуг по управлению горнолыжным курортом «Роза Хутор»
+					</div><hr /><div class="release-item"><a href="release-37/index.html" class="all-caps din-medium">December 25</a> Кавказский заповедник готовится к приёму леопарда
+					</div></div><div id="releases-2008-content" class="releases-container"><div class="release-item"><a href="release-15/index.html" class="all-caps din-medium">February 5</a> Специалисты Сочинского национального парка представили «Экологический мониторинг горнолыжного комплекса «Роза Хутор»
+					</div><div class="release-item"><a href="release-51/index.html" class="all-caps din-medium">April 24</a> The first visit of the IOC Coordination Commission in Sochi, April 21-23, 2008
+					</div><div class="release-item"><a href="release-17/index.html" class="all-caps din-medium">May 31</a> The Most High-Altitude in the World Sport Stars Alley in the Rosa Khutor Alpine Ski Resort
+					</div><hr /><div class="release-item"><a href="release-49/index.html" class="all-caps din-medium">July 4</a> Sport Stars Alley Become Wider
+					</div><div class="release-item"><a href="release-48/index.html" class="all-caps din-medium">July 10</a> The first leopard’s "house" built in Sochi
+					</div><div class="release-item"><a href="release-47/index.html" class="all-caps din-medium">September 4</a> IOC to Approve Places for Freestyle Piste and Mountain Olympic Village on the Rosa Khutor Territory
+					</div><hr /><div class="release-item"><a href="release-46/index.html" class="all-caps din-medium">September 19</a> Vnesheconombank and the Ski Resort Development Company Rosa Khutor to Announce Signing of the Agreement on General Principles of Financing the Project “Construction and Operation of the Alpine Ski Resort Rosa Khutor”
+					</div><div class="release-item"><a href="release-45/index.html" class="all-caps din-medium">December 10</a> The Ski Resort Development Limited Liability Company Rosa Khutor Stops Construction of the Alpine Ski Resort Rosa Khutor
+					</div></div><div id="releases-2009-content" class="releases-container"><div class="release-item"><a href="release-18/index.html" class="all-caps din-medium">February 4</a> Public Institution Sochi National Park, the Ski Resort Development Company Rosa Khutor and Krasnodar Department of the Federal Property Management Agency Have Signed an Amicable Settlement
+					</div><div class="release-item"><a href="release-19/index.html" class="all-caps din-medium">March 12</a> The Fifteenth Arbitration Court of Appeal adopted the last amicable agreement on lease of lands on which the Ski Resort Rosa Khutor is now being built
+					</div><div class="release-item"><a href="release-59/index.html" class="all-caps din-medium">April 20</a> ON SIGNING CREDIT AGREEMENT BETWEEN VNESHECONOMBANK AND ROSA KHUTOR LTD.
+					</div><hr /><div class="release-item"><a href="release-20/index.html" class="all-caps din-medium">May 14</a> The second visit of the IOC Coordination Commission in Sochi, Russia, May 12-14, 2009
+					</div><div class="release-item"><a href="release-52/index.html" class="all-caps din-medium">June 5</a> The Ski Resort Development Limited Liability Company Rosa Khutor, Public Institute Sochi National Park and the Russian Ministry of Natural Resources Celebrated Ecological Holidays: World Environment Day and Ecologist’s Day
+					</div><div class="release-item"><a href="release-53/index.html" class="all-caps din-medium">June 19</a> EGM of Rosa Khutor participants on June 19, 2009
+					</div><hr /><div class="release-item"><a href="release-54/index.html" class="all-caps din-medium">September 19</a> Sochi National Park Welcomed the First Leopards
+					</div><div class="release-item"><a href="release-55/index.html" class="all-caps din-medium">November 3</a> FIS Management Visited the Alpine Ski Resort Rosa Khutor
+					</div><div class="release-item"><a href="release-56/index.html" class="all-caps din-medium">December 23</a> Retrospective Photo-Exhibition “Reserved Russia” is Open
+					</div></div><div id="releases-2010-content" class="releases-container"><div class="release-item"><a href="release-33/index.html" class="all-caps din-medium">February 12</a> Rosa Khutor and Publishing House “Komsomolskaya Pravda” on the Olympiad in Vancouver
+					</div><div class="release-item"><a href="release-32/index.html" class="all-caps din-medium">February 23</a> Presentation of Ski Resort Rosa Khutor on the Territory of the Main Press Center of the Olympic Games in Vancouver
+					</div><div class="release-item"><a href="release-31/index.html" class="all-caps din-medium">March 26</a> Third Visit of FIS to Ski Resort Rosa Khutor
+					</div><hr /><div class="release-item"><a href="release-30/index.html" class="all-caps din-medium">April 15</a> Third Visit of the IOC Coordination Committee to Sochi, 13-15 April, 2010
+					</div><div class="release-item"><a href="release-29/index.html" class="all-caps din-medium">May 3</a> Leopards from Iran Getting Used to Sochi
+					</div><div class="release-item"><a href="release-28/index.html" class="all-caps din-medium">May 6</a> Company for Development of Ski Resort Rosa Khutor and The Rezidor Hotel Group have entered into Agreement on Management of two hotels on the territory of Ski Resort Rosa Khutor.
+					</div><hr /><div class="release-item"><a href="release-27/index.html" class="all-caps din-medium">June 7</a> President of International Olympic Committee Jacque Rogge visited Ski Resort Rosa Khutor
+					</div><div class="release-item"><a href="release-26/index.html" class="all-caps din-medium">June 11</a> Construction of a Hotel of HELIOPARK Chain Launched in the Rosa Khutor Resort
+					</div><div class="release-item"><a href="release-25/index.html" class="all-caps din-medium">July 4</a> Alley “Stars of Sport” in Rosa Khutor Resort Grew Bigger
+					</div><hr /><div class="release-item"><a href="release-24/index.html" class="all-caps din-medium">August 3</a> President of the Russian Federation Dmitry Medvedev got the first ski pass during his visit top to the Ski Resort Rosa Khutor
+					</div><div class="release-item"><a href="release-57/index.html" class="all-caps din-medium">October 27</a> AZIMUT Hotel is to appear in Ski Resort Rosa Khutor
+					</div><div class="release-item"><a href="release-58/index.html" class="all-caps din-medium">November 25</a> Alpine Ski European Cup in February 2011
+					</div><hr /><div class="release-item"><a href="release-60/index.html" class="all-caps din-medium">December 14</a> Rosa Khutor LLC and Compagnie des Alpes (France) reached a strategic partnership agreement on management of the Rosa Khutor Ski Resort
+					</div><div class="release-item"><a href="release-61/index.html" class="all-caps din-medium">December 15</a> Olympic courses are open at the Alpine centre Rosa Khutor 
+					</div></div><div id="releases-2011-content" class="releases-container"><div class="release-item"><a href="release-62/index.html" class="all-caps din-medium">January 4</a> President of the Russian Federation Dmitry Medvedev held a working session devoted to preparations to the Olympics 2014 in the territory of ski resort “Rosa Khutor”
+					</div><div class="release-item"><a href="release-63/index.html" class="all-caps din-medium">January 29</a> From January 29 ski resort “Rosa Khutor” begins its work in a test operation mode
+					</div><div class="release-item"><a href="release-64/index.html" class="all-caps din-medium">February 11</a> The Russian national alpine ski championship starts at ski resort “Rosa Khutor” on February 12, 2011
+					</div><hr /><div class="release-item"><a href="release-65/index.html" class="all-caps din-medium">February 11</a> On-line booking for tickets to the finish area in the Russian national and European alpine ski championship competitions is opened
+					</div><div class="release-item"><a href="release-66/index.html" class="all-caps din-medium">February 13</a> The Russian national ski championship competition was held at ski resort “Rosa Khutor” on February 12, 2011
+					</div><div class="release-item"><a href="release-67/index.html" class="all-caps din-medium">February 17</a> On February 18, 2011 the European ski championship starts at ski resort “Rosa Khutor” 
+					</div><hr /><div class="release-item"><a href="release-68/index.html" class="all-caps din-medium">February 19</a> On February 18, 2011 the Alpine Ski European Cup for men was held at ski resort “Rosa Khutor”— the first test event within the framework of preparations to the Winter Olympics 2014 in Sochi
+					</div><div class="release-item"><a href="release-71/index.html" class="all-caps din-medium">February 23</a> On February 23, 2011 the Alpine Ski European Cup for women was held at ski resort “Rosa Khutor”
+					</div><div class="release-item"><a href="release-70/index.html" class="all-caps din-medium">February 24</a> By resolution of the panel of judges the European Cup Super Giant competitions for women were moved to February 25th 
+					</div><hr /><div class="release-item"><a href="release-72/index.html" class="all-caps din-medium">February 24</a> Today was the second day of the European Cup downhill competitions for women held on the “Rosa Khutor” ski resort
+					</div><div class="release-item"><a href="release-74/index.html" class="all-caps din-medium">February 25</a> From February 26 our ski resort is opened for visitors in a test operation mode
+					</div><div class="release-item"><a href="release-73/index.html" class="all-caps din-medium">February 25</a> Today was the last day of the European Alpine Ski Championship competitions for women 
+					</div><hr /><div class="release-item"><a href="release-75/index.html" class="all-caps din-medium">March 3</a> Free ski-passes for ladies as a Women’s Day present
+					</div><div class="release-item"><a href="release-76/index.html" class="all-caps din-medium">March 4</a> “Rosa Khutor” LLC and Accor Group have signed an agreement for operating “Mercure Rosa Khutor” hotel in Sochi
+					</div><div class="release-item"><a href="release-77/index.html" class="all-caps din-medium">March 15</a> The “Rosa Khutor” team of ski instructors took out all of the first places in the Open Competition for Ski Instructors of Krasnaya Polyana 
+					</div><hr /><div class="release-item"><a href="release-79/index.html" class="all-caps din-medium">March 17</a> “IFK Hotel Management” will operate the first hotel opened at “Rosa Khutor” ski resort
+					</div><div class="release-item"><a href="release-78/index.html" class="all-caps din-medium">March 21</a> Carlsberg Jibbing Fest, sports and music festival, has just ended in “Rosa Khutor” resort 
+					</div><div class="release-item"><a href="release-80/index.html" class="all-caps din-medium">March 22</a> IOC and FIS assessed readiness of ski resort “Rosa Khutor” for holding the World Ski Championship in 2012
+					</div><hr /><div class="release-item"><a href="release-81/index.html" class="all-caps din-medium">March 23</a> “Rosa Khutor” Ski Resort Development Company” will take part in the program for restoration of the ecosystem of the Mzmyta river basin 
+					</div><div class="release-item"><a href="release-82/index.html" class="all-caps din-medium">March 31</a> Ski resort “Rosa Khutor” will be opened for visitors until May 9, 2011
+					</div><div class="release-item"><a href="release-83/index.html" class="all-caps din-medium">April 20</a> From April 30 the Freestyle Camp will start its work at “Rosa Khutor” ski resort
+					</div><hr /><div class="release-item"><a href="release-84/index.html" class="all-caps din-medium">April 28</a> Mass media accreditation at Freestyle Camp 2011
+					</div><div class="release-item"><a href="release-86/index.html" class="all-caps din-medium">April 29</a> On April 27-28 the FIS management paid a scheduled inspection visit to ski resort “Rosa Khutor”
+					</div><div class="release-item"><a href="release-85/index.html" class="all-caps din-medium">May 10</a> The alpine ski season 2010-2011 at “Rosa Khutor” ski resort in Krasnaya Polyana closed on May 9
+					</div><hr /><div class="release-item"><a href="release-87/index.html" class="all-caps din-medium">May 14</a> Ratrack operators of “Rosa Khutor” ski resort took part in the 10th international PistenBully Professionals' Camp 2011
+					</div><div class="release-item"><a href="release-89/index.html" class="all-caps din-medium">June 6</a> From June 6 to June 27 volunteers of construction gang “Avtoradio” will work at “Rosa Khutor” ski resort – joint promo-action of the leading Russian radio station and the ski resort  
+					</div><div class="release-item"><a href="release-88/index.html" class="all-caps din-medium">June 20</a> Ski resort “Rosa Khutor” won in nomination “Discovery of the Year”
+					</div><hr /><div class="release-item"><a href="release-91/index.html" class="all-caps din-medium">July 3</a> New nursery plants were planted on the Sports Stars’ Alley at  “Rosa Khutor” ski resort 
+					</div><div class="release-item"><a href="release-90/index.html" class="all-caps din-medium">July 6</a> 30 sets of medals will be awarded at “Rosa Khutor” ski resort in 2014
+					</div><div class="release-item"><a href="release-92/index.html" class="all-caps din-medium">July 25</a> FIS representatives inspected Olympic venues of Rosa Khutor Alpine ski resort – snowboard-park and freestyle center
+					</div><hr /><div class="release-item"><a href="release-93/index.html" class="all-caps din-medium">September 30</a> FIS representatives inspected Olympic venues of Rosa Khutor resort 
+					</div><div class="release-item"><a href="release-94/index.html" class="all-caps din-medium">October 26</a> Construction of two hotels at Rosa Khutor resort are near completion
+					</div><div class="release-item"><a href="release-96/index.html" class="all-caps din-medium">November 21</a> На курорте «Роза Хутор» появится первый в России отель под брендом «Extreme» 
+					</div><hr /><div class="release-item"><a href="release-97/index.html" class="all-caps din-medium">December 1</a> В Экстрим-парке «Роза Хутор» начался монтаж канатных дорог 
+					</div><div class="release-item"><a href="release-98/index.html" class="all-caps din-medium">December 13</a> Курорт «Роза Хутор» выпустил уникальный фотоальбом «Горнолыжный спорт  в России. История и современность»
+					</div><div class="release-item"><a href="release-99/index.html" class="all-caps din-medium">December 19</a> Сотрудник курорта "Роза Хутор" Алексей Букинич стал первым в России обладателем почетного звания "Снежный барс России"
+					</div><hr /><div class="release-item"><a href="release-95/index.html" class="all-caps din-medium">December 20</a> Opening of Alpine skiing season 2011/2012 at Rosa Khutor resort will take place in December, 24
+					</div><div class="release-item"><a href="release-100/index.html" class="all-caps din-medium">December 21</a> Аккредитация СМИ на открытие горнолыжного сезона 2011/2012 на курорте «Роза Хутор»
+					</div><div class="release-item"><a href="release-101/index.html" class="all-caps din-medium">December 26</a> Владислав Третьяк – Бургомистр курорта «Роза Хутор»
+					</div><hr /><div class="release-item"><a href="release-103/index.html" class="all-caps din-medium">December 27</a> Курорт «Роза Хутор» открыл горнолыжный сезон 2011/2012
+					</div></div></div><h1 id="publications-section">Publications <a href="#home" class="top"><img src="../../m/top-arrow.gif" height="10" /> Top</a></h1><table id="publications-years"><tr><td class="din-medium">2008</td><td class="wide"></td><td class="din-medium">2009</td><td class="wide"></td><td class="din-medium">2010</td><td class="wide"></td><td class="din-medium">2011</td></tr><tr class="years-lines"><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td><td class="wide"></td><td><div></div></td></tr></table><div class="slider-wrap"><div id="publications-slider" class="slider"></div></div><div id="publications-content"><div id="publications-2008-content" class="publications-container"><div class="publications-item"><a href="publication-28/index.html" class="all-caps din-medium">Komsomolskaya Pravda</a> Sochi has passed the first exam
+					</div></div><div id="publications-2009-content" class="publications-container"><div class="publications-item"><a href="publication-25/index.html" class="all-caps din-medium">Sport Express</a> Rosa Khutor is ahead of the schedule
+					</div><div class="publications-item"><a href="publication-26/index.html" class="all-caps din-medium">Sovetskiy Sport</a> “Rose is blooming. Special report: Our correspondent has inspected the Olympic projects within five years before the beginning of the games.
+					</div><hr /><div class="publications-item"><a href="publication-27/index.html" class="all-caps din-medium">Komsomolskaya Pravda</a> Krasnaya Polyana: five years to the Olympics
+					</div><div class="publications-item"><a href="publication-24/index.html" class="all-caps din-medium">Moskovskaya Pravda</a> Mountains are not a city
+					</div><hr /><div class="publications-item"><a href="publication-21/index.html" class="all-caps din-medium">Interfax</a> IOC looked for it, but failed to find anything
+					</div><div class="publications-item"><a href="publication-20/index.html" class="all-caps din-medium">Sovetskiy Sport</a> The great dozen. 12 Olympic commissioners have again praised the work on the preparation of the Games-2014
+					</div><hr /><div class="publications-item"><a href="publication-19/index.html" class="all-caps din-medium">Sport Express</a> Killy&Co are fully satisfied with the progress of works
+					</div><div class="publications-item"><a href="publication-22/index.html" class="all-caps din-medium">Moskovsky Komsomolets</a> Olympic projects have gone up in the world
+					</div></div><div id="publications-2010-content" class="publications-container"><div class="publications-item"><a href="publication-12/index.html" class="all-caps din-medium">Komsomolskaya Pravda </a> Vladimir Potanin: “We will build our own Courchevel in Krasnaya Polyana”
+					</div><div class="publications-item"><a href="publication-13/index.html" class="all-caps din-medium">Sport Express</a> Less than one year left before first competitions
+					</div><hr /><div class="publications-item"><a href="publication-14/index.html" class="all-caps din-medium">Sport Express</a> FIS confirmed: "Rosa Khutor" is ready for the Games
+					</div><div class="publications-item"><a href="publication-16/index.html" class="all-caps din-medium">Vedomosti, 103 (2621)</a> Visiting «Interros»
+					</div><hr /><div class="publications-item"><a href="publication-15/index.html" class="all-caps din-medium">Sovietsky Sport, №98-В(18156)</a> Popov planted a fir tree
+					</div><div class="publications-item"><a href="publication-17/index.html" class="all-caps din-medium">www.kremlin.ru Web site of the President of Russia</a> Dmitry Medvedev inspected sports facilities which are being built in the ski resort “Rosa Khutor”
+					</div><hr /><div class="publications-item"><a href="publication-18/index.html" class="all-caps din-medium">Komsomolskaya Pravda</a> Pistes in Sochi will have artificial snow
+					</div></div><div id="publications-2011-content" class="publications-container"><div class="publications-item"><a href="publication-29/index.html" class="all-caps din-medium">деловая газета Маркер</a> «Заработать до Олимпиады не удастся»
+					</div></div></div><h1 id="media-section">Media <a href="#home" class="top"><img src="../../m/top-arrow.gif" height="10" /> Top</a></h1><div id="albums-wrap"><div id="albums"><div class="album-info selected" title="9"><div class="album-icons"><img src="../../m/albums/9/9_8_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/9/9_11_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/9/9_5_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/9/9_4_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/9/9_9_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/9/9_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/9/9_3_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/9/9_13_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/9/9_6_jpg_40x40_crop-smart_q60.jpg" alt="" /></div><div class="album-title">Alpine ski resort Rosa Khutor</div></div><div class="album-info last" title="10"><div class="album-icons"><img src="../../m/albums/10/10_31_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/10/10_18_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/10/10_2_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/10/10_9_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/10/10_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/10/10_21_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/10/10_20_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/10/10_23_jpg_40x40_crop-smart_q60.jpg" alt="" /><img src="../../m/albums/10/10_8_jpg_40x40_crop-smart_q60.jpg" alt="" /></div><div class="album-title">Этап Кубка Европы 2011. Мужчины. Скоростной спуск</div></div></div></div><div class="slider-wrap" style="background: url(../../m/press/slider-bg3.png) 0 0 no-repeat transparent;"><div id="albums-slider" class="slider"></div></div><div id="albums-images"><div class="albums-images-wrap" id="albums-images-9"><h3>Alpine ski resort Rosa Khutor</h3><a href="../../m/albums/9/9_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_1_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_1_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_2_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_2_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_3_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_3_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_4_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_4_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_5_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_5_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_6_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_6_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_7_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_7_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_8_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_8_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_9_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_9_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_10_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_10_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_11_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_11_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_12_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_12_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_13_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_13_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_14_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_14_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/9/9_15_jpg_900x750_q75.jpg" class="nyroModal" rel="gal9"><img src="../../m/albums/9/9_15_jpg_150x150_crop-smart_q60.jpg" /></a></div><div class="albums-images-wrap" id="albums-images-10" style="display: none;"><h3>Этап Кубка Европы 2011. Мужчины. Скоростной спуск</h3><a href="../../m/albums/10/10_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_1_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_1_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_2_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_2_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_3_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_3_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_4_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_4_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_5_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_5_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_6_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_6_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_7_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_7_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_8_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_8_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_9_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_9_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_10_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_10_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_11_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_11_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_12_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_12_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_13_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_13_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_14_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_14_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_15_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_15_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_16_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_16_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_17_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_17_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_18_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_18_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_19_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_19_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_20_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_20_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_21_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_21_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_22_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_22_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_23_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_23_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_24_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_24_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_25_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_25_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_26_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_26_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_27_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_27_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_28_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_28_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_29_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_29_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_30_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_30_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_31_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_31_jpg_150x150_crop-smart_q60.jpg" /></a><a href="../../m/albums/10/10_32_jpg_900x750_q75.jpg" class="nyroModal" rel="gal10"><img src="../../m/albums/10/10_32_jpg_150x150_crop-smart_q60.jpg" /></a></div></div><h1 id="contacts-section">Press contacts<a href="#home" class="top"><img src="../../m/top-arrow.gif" height="10" /> Top</a></h1><div class="columns_3" style="font-size: 1.5em; line-height: 1.5em; background-color: #4d4d4d;"><div class="first"><p class="din-light" style="margin-left: 20px;">Vergelskaya Viktoriya<br /><small>Head of public relations and advertising</small><br /><a href="mailto:press@rosaski.com">press@rosaski.com</a></p></div><div class="second"><p class="din-light" style="margin-left: 20px;">Kudryavtseva Natalya<br /><small>Head of public relations and advertising branch</small><br /><a href="mailto:pr@rosaski.com">pr@rosaski.com</a></p></div><div class="third"><p class="din-light">Phone: +7 (495) 232-18-13<br />Fax: +7 (495) 666-14-27</p></div></div><table id="sharer"><tr><td id="sharer-text">Share:</td><td id="sharer-buttons"><table><tr><td><a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="../../../platform.twitter.com/widgets.js"></script></td><td style="padding: 1px 20px 0px 0px;"><a name="fb_share" href="http://www.facebook.com/sharer.php">Share</a><script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script></td><td style="padding: 0px 20px 0px 0px;"><script type="text/javascript">document.write(VK.Share.button(false,{type: "round", text: "Share"}));</script></td><td style="padding: 1px 20px 0px 0px;"><a title="Google Buzz" class="google-buzz-button" href="http://www.google.com/buzz/post" data-button-style="small-count"></a><script type="text/javascript" src="../../../www.google.com/buzz/api/button.js"></script></td></tr></table></td></tr></table></div></div><div id="banners-container"><div id="banners-wrapper"><table id="banners"><tr class="images"><td><a href="release-103/index.html"><img src="../../m/banners/2011-2012.png" alt="Оpening of a new season in Rosa Khutor!" width="290" height="162" /></a></td><td class="spacer"></td><td><a href="../realty/index.html#salespots"><img src="../../m/banners/resort_banner_1.png" alt="Rental of Сommercial Real Estate" width="290" height="159" /></a></td><td class="spacer"></td><td><a href="../project/index.html#about"><img src="../../m/banners/vacancy.png" alt="Jobs" width="290" height="170" /></a></td></tr><tr class="texts"><td><p><a href="release-103/index.html">Оpening of a new season in Rosa Khutor!</a></p></td><td class="spacer"></td><td><p><a href="../realty/index.html#salespots">Rental of Сommercial Real Estate</a></p></td><td class="spacer"></td><td><p><a href="../project/index.html#about">Jobs</a></p></td></tr></table></div></div><div id="bottom-container"><div id="bottom"><div id="bottom-addons"><p id="copyright" class="din-medium">&copy; 2005&mdash;2012 LLC Rosa Khutor</p><div id="search"><form action="http://www.rosakhutor.webfactional.com/en/search/" method="get" id="id_search_form"><input type="text" name="search" id="search-input" /><!--input type="submit" value="" /--></form></div><p id="sitemap" class="din-medium"><a href="../sitemap/index.html">Sitemap</a></p></div><div id="bottom-legal"><ins class="vcard" id="bottom-contacts"><a class="url fn org" href="http://www.rosaski.com/" style="display: none;">The Rosa Khutor Ski Resort Development Company</a><p>The Rosa Khutor Ski Resort Development Company<br /><span class="adr"><span class="country-name" style="display: none;">Russia</span><span class="street-address">Business-centre "Pavlovo"</span>, <span class="locality">Village Novinki</span>, <span class="region">Istrinskiy Rayon, Moscow reg.</span>, <span class="postal-code">143581</span></span><br />
+					Phone: <span class="tel">+7 (495) 232-18-13</span>, Fax: +7 (495) 666-14-27, <a class="email" href="mailto:info@rosaski.com">info@rosaski.com</a></p></ins><p><a class="email" href='../../m/%d0%9f%d1%80%d0%b0%d0%b2%d0%b8%d0%bb%d0%b0%20%d0%9f%d0%be%d0%bb%d1%8c%d0%b7%d0%be%d0%b2%d0%b0%d0%bd%d0%b8%d1%8f%20%d0%a3%d1%81%d0%bb%d1%83%d0%b3%d0%b0%d0%bc%d0%b8%20%d0%93%d0%be%d1%80%d0%bd%d0%be%d0%bb%d1%8b%d0%b6%d0%bd%d0%be%d0%b3%d0%be%20%d0%9a%d0%be%d0%bc%d0%bf%d0%bb%d0%b5%d0%ba%d1%81%d0%b0%20%c2%ab%d0%a0%d0%be%d0%b7%d0%b0%20%d0%a5%d1%83%d1%82%d0%be%d1%80%c2%bb-2.pdf'>Rules of Use</a></p><p id="creators">Web design: <span class="vcard" id="zenkov-contacts"><a href="http://anatolyzenkov.com/" class="url fn">Anatoly Zenkov</a></span>. Web development: <span class="vcard" id="shipilov-contacts"><a href="http://andreyshipilov.ru/en/" class="url fn">Andrey Shipilov</a></span>.</p></div></div></div></body>
+<!-- Mirrored from www.rosakhutor.webfactional.com/en/press/ by HTTrack Website Copier/3.x [XR&CO'2010], Thu, 12 Jan 2012 01:47:37 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8"><!-- /Added by HTTrack -->
+</html>

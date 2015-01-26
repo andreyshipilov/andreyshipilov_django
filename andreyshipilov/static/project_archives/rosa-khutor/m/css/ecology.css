@@ -1,0 +1,45 @@
+body,
+html {
+	background: url(../ecology/bg.gif) -30% -30% repeat #84c346;
+	color: #1c440a;
+}
+h1 {
+	color: #cef87d;
+}
+h1 a.top {
+	color: #ffffff;
+}
+hr {
+	background-image: none;
+	background-color: #a9de62;
+}
+
+.columns_3_float {
+	background-color: #cef87d;
+}
+	.columns_3_float div.first {
+		margin: 0 0 0 20px;
+	}
+	.columns_3_float .img {
+		text-align: center;
+		margin-bottom: -20px;
+	}
+.quote-left {
+	background-image: url(../quote-arrow-green.png) !important;
+	background-color: transparent !important;
+}
+.quote-right {
+	border-color: #cef87d !important;
+}
+#content-container {
+	background: none;
+}
+#sharer-text {
+	background-image: url(../ecology/sharer-arrow.gif) !important;
+}
+#sharer-buttons {
+	border-color: #a9de62;
+}
+#banners tr.texts td {
+	background-image: url(../ecology/banners-bg.jpg);
+}

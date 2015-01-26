@@ -1,0 +1,74 @@
+body,
+html {
+	background: url(../contacts/bg.gif) 27px 50% #00ccf5;
+}
+#content-container {
+	background: none;
+}
+#sharer-text {
+	background-image: url(../contacts/sharer-arrow.gif) !important;
+	color: #fff;
+}
+#sharer-buttons {
+	border-color: #006ca6;
+}
+#content {
+	position: relative;
+}
+#contacts-wrap {
+	height: 750px;
+	position: relative;
+}
+	#sochi {
+		position: absolute;
+		left: 15px;
+		top: 30px;
+		font-size: 2em;
+	}
+	#moscow {
+		position: absolute;
+		left: 705px;
+		top: 260px;
+		font-size: 2em;
+	}
+	#moscow-info {
+		position: absolute;
+		left: 0;
+		top: 100px;
+		width: 453px;
+	}
+	#sochi-info {
+		position: absolute;
+		left: 462px;
+		top: 300px;
+		width: 453px;
+	}
+		#moscow-info .img,
+		#sochi-info .img {
+			position: absolute;
+			top: 0;
+			left: 0
+		}
+		#moscow-info .info {
+			margin: 65px 20px 20px;
+			position: absolute;
+		}
+		#sochi-info .info {
+			margin: 55px 20px 20px;
+			position: absolute;
+		}
+			#contacts-wrap .info a {
+				color: #8bfeff;
+			}
+			#contacts-wrap .info iframe {
+				border: 0 none;
+				margin: 10px 0 0 0;
+			}
+	#info-wrap {
+		position: relative;
+	}
+#contacts-bg {
+	position: absolute;
+	top: 80px;
+	left: 75px;
+}

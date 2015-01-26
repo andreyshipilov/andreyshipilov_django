@@ -1,0 +1,35 @@
+html, body {background-color: #fff;}
+h1, h2 {color: #333;}
+hr {color: #cfcfcf; background-color: #cfcfcf;}
+a {color: #0f87db;}
+
+
+#logo header {color: #333;}
+
+#menu {position: absolute; top: 20px; left: 195px; width: 705px; font-size: 1.2em;}
+	#menu ul {}
+	#menu ul li {display: inline; margin: 0 20px 0 0;}
+
+#content {margin: 20px 0; padding: 20px 0; border-top: 3px solid #7a7a7a; float: left;width: 100%;}
+	#side-menu {position: absolute; width: 290px; line-height: 1.3em;}
+		#side-menu ul {	margin: 20px 0 50px;}
+			#side-menu ul li {margin: 0 0 1em;}
+			#side-menu ul a {text-decoration: none; border-bottom: 1px dashed #00c0ff; outline: none;}
+
+	#main-content {float: left; margin-left: 310px;}
+	#content .personel {width: 290px; margin-right: 20px; float: left;}
+	#contacts-map {width: 600px; height: 350px; border: 1px solid #cfcfcf; margin-right: 20px; float: left;}
+
+footer {color: #333; float: left;}
+
+
+
+table.chars {
+	width: 100%; line-height: 1.2em; font-size: 0.85em;
+}
+	.chars td,
+	.chars th {border-top: 1px solid #cfcfcf; padding: 0.5em 0.5em 0.5em 0;}
+	.chars th {font-weight: bold; font-size: 0.95em;}
+	.chars th {vertical-align: bottom;}
+	.chars .first td,
+	.chars .first th {border: none;}
