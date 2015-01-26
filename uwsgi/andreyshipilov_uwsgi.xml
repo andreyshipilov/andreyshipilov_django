@@ -1,0 +1,17 @@
+<uwsgi>
+	<vacuum/>
+	<master/>
+	<disable-logging/>
+	<module>andreyshipilov_uwsgi</module>
+	<processes>1</processes>
+	<harakiri>5</harakiri>
+	<max-requests>3000</max-requests>
+	<reload-on-rss>30</reload-on-rss>
+	<pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/</pythonpath>
+	<pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/uwsgi/</pythonpath>
+	<pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/andreyshipilov/</pythonpath>
+	<pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/andreyshipilov/apps/</pythonpath>
+	<daemonize>/home/tezro/logs_my/andreyshipilov_uwsgi.log</daemonize>
+	   <socket>/home/tezro/sockets/andreyshipilov_uwsgi.sock</socket>
+	  <pidfile>/home/tezro/pids/andreyshipilov_uwsgi.pid</pidfile>
+</uwsgi>
