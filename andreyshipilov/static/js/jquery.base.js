@@ -1,3 +1,20 @@
+// Fonts.
+WebFontConfig = {
+    google: {
+        families: ['PT+Sans::cyrillic-ext,latin']
+    }
+};
+(function () {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+        '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+})();
+
+// DOM Ready.
 $(function () {
     // Projects list resize.
     var maxCellSize = 220,
@@ -40,48 +57,48 @@ $(function () {
 
     // Flickr restyling.
     /*
-    var flickrHeight = 100;
+     var flickrHeight = 100;
 
-    $('.flickr_badge_image').find('img').each(function (index) {
-        if ($(this).height() < 90) {
-            $(this).parents('.flickr_badge_image').remove();
-        } else {
-            flickrHeight = $(this).height() < flickrHeight ? $(this).height() : flickrHeight;
-        }
-    });
+     $('.flickr_badge_image').find('img').each(function (index) {
+     if ($(this).height() < 90) {
+     $(this).parents('.flickr_badge_image').remove();
+     } else {
+     flickrHeight = $(this).height() < flickrHeight ? $(this).height() : flickrHeight;
+     }
+     });
 
-    $('.flickr_badge_image').find('a').each(function (index) {
-        $(this).css({
-            'margin-top': -($(this).height() - flickrHeight) * .5
-        });
-    }).hover(function () {
-        var that = this;
+     $('.flickr_badge_image').find('a').each(function (index) {
+     $(this).css({
+     'margin-top': -($(this).height() - flickrHeight) * .5
+     });
+     }).hover(function () {
+     var that = this;
 
-        $('img', that).stop().animate({opacity: 0.2}, 100, function () {
-            $('div', that).fadeIn(100);
-        });
-    }, function () {
-        var that = this;
+     $('img', that).stop().animate({opacity: 0.2}, 100, function () {
+     $('div', that).fadeIn(100);
+     });
+     }, function () {
+     var that = this;
 
-        $('img', that).stop().animate({opacity: 1}, 100, function () {
-            $('div', that).fadeOut(100);
-        });
-    });
+     $('img', that).stop().animate({opacity: 1}, 100, function () {
+     $('div', that).fadeOut(100);
+     });
+     });
 
-    // add hover div with title
-    $('.flickr_badge_image').find('a').each(function () {
-        var that = $(this);
-        var marginTop = parseInt(that.css('marginTop').replace('px', ''));
-        var titleHover = $('<div class="flickr_badge_title_hover"></div>').css('margin-top', -marginTop).append($('img', that).attr('title'));
+     // add hover div with title
+     $('.flickr_badge_image').find('a').each(function () {
+     var that = $(this);
+     var marginTop = parseInt(that.css('marginTop').replace('px', ''));
+     var titleHover = $('<div class="flickr_badge_title_hover"></div>').css('margin-top', -marginTop).append($('img', that).attr('title'));
 
-        that.append(titleHover);
-    });
+     that.append(titleHover);
+     });
 
-    // set whole wrapper height
-    $('#flickr_badge_uber_wrapper').css({
-        'height': flickrHeight
-    });
-    */
+     // set whole wrapper height
+     $('#flickr_badge_uber_wrapper').css({
+     'height': flickrHeight
+     });
+     */
 
     // Twitter table resize.
     var $twitterTable = $('#twitter').find('.table'),
