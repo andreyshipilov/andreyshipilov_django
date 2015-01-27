@@ -128,16 +128,6 @@
                 </ul>
 
                 <aside class="nav-right">
-                    <div class="share-line">
-                        <div>
-                            <a href="https://twitter.com/share" class="twitter-share-button" data-via="andreyshipilov" data-count="none" data-lang="en">Tweet</a>
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-                        </div>
-                        <div>
-                            <iframe src="//www.facebook.com/plugins/like.php?href=http%3A%2F%2F{{ request.META.HTTP_HOST|urlencode }}{{ request.path|urlencode }}&amp;width&amp;layout=button&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35&amp;appId=331958003555865" style="border: none; overflow: hidden; width: 50px; height: 35px;"></iframe>
-                        </div>
-                    </div>
-
                     <nav class="language-switch">
                         {% for lang in LANGUAGES %}
                             {% ifnotequal lang.0 LANGUAGE_CODE %}

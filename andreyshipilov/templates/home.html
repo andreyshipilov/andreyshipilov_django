@@ -33,7 +33,7 @@
             <table class="table">
                 <tr>
                     {% for tweet in tweets %}
-                        <td class="h bg-300-{% cycle "0" "1" "2" "3" "4" %}">
+                        <td class="h horizontal-bg-{% cycle "0" "1" "2" "3" "4" "5" "6" "7" "8" "9" %}">
                             <p>{{ tweet.text|urlize|typogrify }}</p>
                             <p class="tweet-info">
                                 <a href="https://www.twitter.com/{{ tweet.user.screen_name }}/status/{{ tweet.id }}" rel="nofollow">{{ tweet.created_at }}</a>
@@ -61,4 +61,3 @@
         </section>
     {% endif %}
 {% endblock %}
-

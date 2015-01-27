@@ -16,7 +16,7 @@
         }
 
         .project {
-            @include transition(background-size 0.1s $ease-out-quint);
+            @include transition(all 0.1s $ease-out-quint);
             display: block;
             width: 15%;
             float: left;
@@ -25,6 +25,7 @@
             background-position: 50% 50%;
             background-repeat: no-repeat;
             background-size: 100% auto;
+            -ms-behavior: url('../css/backgroundsize.min.htc');
             color: #fff;
             text-decoration: none;
 
@@ -62,7 +63,9 @@
             }
             .overlay {
                 @include transition(all 0.2s $ease-in-out-quart);
-                background: url('../img/overlay-bg.png') repeat;
+                background-color: rgba(31, 22, 34, 0.85);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#D91f1622, endColorstr=#D9550000);
+                -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#D9550000, endColorstr=#D91f1622)";
                 position: absolute;
                 width: 100%;
                 height: 0;
@@ -127,11 +130,11 @@
     .left-column {
         background-position: 50% 50%;
         background-size: cover;
+        -ms-behavior: url('../css/backgroundsize.min.htc');
     }
     .right-column {
         color: #fff;
         text-shadow: 0 1px 0 #222;
-        background: url('../img/long-dark-bg.png') repeat-y 50% 0 transparent;
 
         .wrap {
             margin: 20px;

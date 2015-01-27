@@ -111,6 +111,7 @@
             &.info {
                 background: url('../img/jfk/jesus-1.jpg') no-repeat 50% 10%;
                 background-size: cover;
+                -ms-behavior: url('../css/backgroundsize.min.htc');
                 color: #fff;
                 text-shadow: 0 0 2px #222;
                 cursor: pointer;

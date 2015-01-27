@@ -156,72 +156,45 @@ section {
 }
 
 // Backgrounds.
-.dark-bg {
-    background: url('../img/dark-bg.png') repeat-y 50% 0;
-    background-size: contain;
+@mixin horizontal-bg($left, $right) {
+    background: $left;
+    background: -moz-linear-gradient(left, $left 0%, $right 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, $left), color-stop(100%, $right));
+    background: -webkit-linear-gradient(left, $left 0%, $right 100%);
+    background: -o-linear-gradient(left, $left 0%, $right 100%);
+    background: -ms-linear-gradient(left, $left 0%, $right 100%);
+    background: linear-gradient(to right, $left 0%, $right 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$left}', endColorstr='#{$right}', GradientType=1);
 }
 
-.long-dark-bg {
-    background: url('../img/long-dark-bg.png') repeat-y 50% 0;
-    background-size: contain;
+.horizontal-bg-0 {
+    @include horizontal-bg(#293149, #304a4f);
+}
+.horizontal-bg-1 {
+    @include horizontal-bg(#798d7a, #ad9b8e);
+}
+.horizontal-bg-2 {
+    @include horizontal-bg(#425b48, #32423e);
+}
+.horizontal-bg-3 {
+    @include horizontal-bg(#a78e60, #666d4e);
+}
+.horizontal-bg-4 {
+    @include horizontal-bg(#4e6b56, #354641);
+}
+.horizontal-bg-5 {
+    @include horizontal-bg(#ad9b8e, #798d7a);
+}
+.horizontal-bg-6 {
+    @include horizontal-bg(#304a4f, #293149);
+}
+.horizontal-bg-7 {
+    @include horizontal-bg(#666d4e, #a78e60);
+}
+.horizontal-bg-8 {
+    @include horizontal-bg(#32423e, #425b48);
+}
+.horizontal-bg-9 {
+    @include horizontal-bg(#354641, #4e6b56);
 }
 
-.medium-bg {
-    background: url('../img/medium-bg.png') repeat-y 50% 0;
-    background-size: contain;
-}
-
-.light-bg {
-    background: url('../img/light-bg.png') repeat-y 50% 0;
-    background-size: contain;
-}
-
-.bg-300-0 {
-    background: url('../img/bg/b_300_0.gif') repeat-y 50% 0;
-    background-size: contain;
-}
-
-.bg-300-1 {
-    background: url('../img/bg/b_300_1.gif') repeat-y 50% 0;
-    background-size: contain;
-}
-
-.bg-300-2 {
-    background: url('../img/bg/b_300_2.gif') repeat-y 50% 0;
-    background-size: contain;
-}
-
-.bg-300-3 {
-    background: url('../img/bg/b_300_3.gif') repeat-y 50% 0;
-    background-size: contain;
-}
-
-.bg-300-4 {
-    background: url('../img/bg/b_300_4.gif') repeat-y 50% 0;
-    background-size: contain;
-}
-
-.bg-600-0 {
-    background: url('../img/bg/b_600_0.gif') repeat-y 50% 0;
-    background-size: contain;
-}
-
-.bg-600-1 {
-    background: url('../img/bg/b_600_1.gif') repeat-y 50% 0;
-    background-size: contain;
-}
-
-.bg-600-2 {
-    background: url('../img/bg/b_600_2.gif') repeat-y 50% 0;
-    background-size: contain;
-}
-
-.bg-600-3 {
-    background: url('../img/bg/b_600_3.gif') repeat-y 50% 0;
-    background-size: contain;
-}
-
-.bg-600-4 {
-    background: url('../img/bg/b_600_4.gif') repeat-y 50% 0;
-    background-size: contain;
-}
