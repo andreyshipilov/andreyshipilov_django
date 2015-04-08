@@ -123,14 +123,15 @@ def type_or_project(request, slug):
         return render(request, 'projects_type.html', context)
     else:
         project = get_object_or_404(Project.get_published(), slug=slug)
-
         next = False
+
         try:
             next = project.get_next_by_date(is_published=True)
         except:
             pass
 
         previous = False
+
         try:
             previous = project.get_previous_by_date(is_published=True)
         except:
@@ -138,7 +139,7 @@ def type_or_project(request, slug):
 
         meta = Meta(
             title=project.title,
-            description=project.explict_title + '. ' + project.text,
+            description=project.explict_title + '. ' + strip_tags(project.text),
             keywords=project.project_type.language().values_list('title',
                 flat=True),
             image=project.image.url,

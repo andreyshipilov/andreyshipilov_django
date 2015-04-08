@@ -29,8 +29,6 @@ DJANGO_APPS = (
 )
 
 THIRD_PARTY_APPS = (
-    'compressor',
-    'south',
     'django_reset',
     'robots',
     'clear_cache',
