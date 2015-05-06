@@ -41,6 +41,7 @@ THIRD_PARTY_APPS = (
     'compressor',
     'hvad',
     'meta',
+    'any_imagefield',
 )
 
 LOCAL_APPS = (
