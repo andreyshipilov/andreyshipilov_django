@@ -1,0 +1,45 @@
+/* Fonts */
+@font-face {
+    font-family: 'MadrasExtraBold';
+    src: url('/static/css/fonts/madrasextrabold-webfont.eot');
+    src: url('/static/css/fonts/madrasextrabold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/css/fonts/madrasextrabold-webfont.woff2') format('woff2'),
+         url('/static/css/fonts/madrasextrabold-webfont.woff') format('woff'),
+         url('/static/css/fonts/madrasextrabold-webfont.ttf') format('truetype'),
+         url('/static/css/fonts/madrasextrabold-webfont.svg#madrasextra_bold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MadrasBold';
+    src: url('/static/css/fonts/madrasbold-webfont.eot');
+    src: url('/static/css/fonts/madrasbold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/css/fonts/madrasbold-webfont.woff2') format('woff2'),
+         url('/static/css/fonts/madrasbold-webfont.woff') format('woff'),
+         url('/static/css/fonts/madrasbold-webfont.ttf') format('truetype'),
+         url('/static/css/fonts/madrasbold-webfont.svg#madrasbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'MadrasRegular';
+    src: url('/static/css/fonts/madraslight-webfont.eot');
+    src: url('/static/css/fonts/madraslight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/css/fonts/madraslight-webfont.woff2') format('woff2'),
+         url('/static/css/fonts/madraslight-webfont.woff') format('woff'),
+         url('/static/css/fonts/madraslight-webfont.ttf') format('truetype'),
+         url('/static/css/fonts/madraslight-webfont.svg#madras_regularregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BebasRegular';
+    src: url('/static/css/fonts/bebasneue_regular-webfont.eot');
+    src: url('/static/css/fonts/bebasneue_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/static/css/fonts/bebasneue_regular-webfont.woff2') format('woff2'),
+         url('/static/css/fonts/bebasneue_regular-webfont.woff') format('woff'),
+         url('/static/css/fonts/bebasneue_regular-webfont.ttf') format('truetype'),
+         url('/static/css/fonts/bebasneue_regular-webfont.svg#bebas_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
