@@ -124,4 +124,9 @@ $(function () {
     $('.info', $twitterTable).click(function () {
         window.location.href = 'https://twitter.com/andreyshipilov';
     });
+
+    // Twitter Jesus background.
+    $('.info', $twitterTable).css({
+        'background-image': ['url("/s/img/jfk/jesus-', Math.floor(Math.random() * 6) + 1, '.jpg")'].join('')
+    });
 });

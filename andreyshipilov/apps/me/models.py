@@ -7,6 +7,7 @@ from sorl.thumbnail import ImageField
 from pytils.translit import slugify
 from os.path import splitext
 from hvad.models import TranslatableModel, TranslatedFields
+from any_imagefield.models import AnyImageField as ImageField
 
 
 class Social(models.Model):

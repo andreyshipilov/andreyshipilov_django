@@ -81,8 +81,8 @@
         {% endif %}
 
         <div id="top-bg">
-            <!-- I could do that gradient stripe using webkit and moz background properties, but IE filter accepts only two colors to be drawn vertically. And forget about Opera. I could do that using Canvas element and some JavaScript, but even without minified ExplorerCanvas.js, the JavaScript code would be the equal size as an image and css. -->
-            <img src="{% static "img/top-bg.png" %}" alt="" />
+            <!--img src="{% static "img/top-bg.png" %}" alt="" /-->
+            <hr />
         </div>
 
         <div id="page">
@@ -141,6 +141,7 @@
             {% endblock %}
 
             <div id="socialism">
+                <hr />
                 <table>
                     <tr>
                         {% for item in SOCIALS %}

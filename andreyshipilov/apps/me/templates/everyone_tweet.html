@@ -7,9 +7,10 @@
         <meta property="og:title" content="Everyone tweet now!" />
         <meta property="og:url" content="http://{{ request.META.HTTP_HOST }}{{ request.path|urlencode }}" />
         <meta property="og:type" content="non_profit" />
-        <meta property="og:image" content="http://{{ request.META.HTTP_HOST }}{{ STATIC_URL }}everyone-tweet-logo.png" />
+        <meta property="og:image" content="http://{{ request.META.HTTP_HOST }}{{ STATIC_URL }}img/everyone-tweet-logo.png" />
         <meta property="og:description" content="Tweet to a Twtitter account with no registration. Just tweet it. Just tweet it." />
         <title>Everyone tweet now!</title>
+        <meta name="description" content="Tweet to a Twtitter account with no registration. Just tweet it. Just tweet it.">
 
         {% compress css %}
             <link rel="stylesheet" type="text/css" media="all" href="{% static "css/everyone-tweet.css" %}" />
@@ -39,7 +40,7 @@
                         var map = new google.maps.Map(document.getElementById('map'), myOptions);
                         var bounds = new google.maps.LatLngBounds();
                         var markers = [];
-                        {% for t in tweets %}myLatLng = new google.maps.LatLng({{ t.longitude }}, {{ t.latitude }}); var marker = new google.maps.Marker({position: myLatLng, map: map, title:'{{ t.text|escapejs }}'}); markers.push(marker);{% endfor %}
+                        {% for t in tweets %}myLatLng = new google.maps.LatLng({{ t.latitude }}, {{ t.longitude }}); var marker = new google.maps.Marker({position: myLatLng, map: map, title:'{{ t.country|escapejs }}: {{ t.text|escapejs }}'}); markers.push(marker);{% endfor %}
                         var iw = new google.maps.InfoWindow();
                         var oms = new OverlappingMarkerSpiderfier(map, {markersWontMove: true, markersWontHide: true});
 

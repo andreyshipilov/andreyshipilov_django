@@ -45,5 +45,5 @@ ADMINS = (
 
 EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_PORT = '25'
-DEFAULT_FROM_EMAIL = 'info@andreyshipilov.com'
-SERVER_EMAIL = 'info@andreyshipilov.com'
+DEFAULT_FROM_EMAIL = 'a@andreyshipilov.com'
+SERVER_EMAIL = 'a@andreyshipilov.com'
