@@ -4,7 +4,7 @@ import json
 from datetime import datetime
 
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
 # from django.core.cache import cache
@@ -156,7 +156,7 @@ def type_or_project(request, slug):
         })
 
 
-@cache_page(CACHE['minute'] * 10)
+@cache_page(CACHE['hour'])
 @csrf_exempt
 def everyone_tweet(request):
     if request.method == 'POST':
@@ -192,7 +192,7 @@ def everyone_tweet(request):
                     'text': error['message'],
                 }
 
-            return HttpResponse(json.dumps(r), mimetype="text/plain")
+            return JsonResponse(r)
         else:
             if len(text) == 0:
                 text = 'Write at least something.'
@@ -208,7 +208,7 @@ def everyone_tweet(request):
                 'text': text,
             }
 
-            return HttpResponse(json.dumps(r), mimetype="text/plain")
+            return JsonResponse(r)
     else:
         return render(request, 'everyone_tweet.html', {
             'tweets': Tweet.objects.all(),
