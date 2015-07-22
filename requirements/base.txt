@@ -16,7 +16,5 @@ pillow==2.9.0
 pytils==0.3
 requests==2.7.0
 sorl-thumbnail==12.3
-South
 typogrify==2.0.7
-tweepy
-
+tweepy==3.3.0
