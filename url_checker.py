@@ -4,12 +4,12 @@
 import os
 import sys
 from urllib2 import urlopen
+import django
 from django.core.mail import send_mail
 
 
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'andreyshipilov/apps')))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "andreyshipilov.settings.prod")
-
+django.setup()
 
 # Is verbose output needed?
 IS_VERBOSE = True if '-v' in sys.argv else False

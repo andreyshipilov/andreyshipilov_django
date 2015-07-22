@@ -6,7 +6,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="google-site-verification" content="RBS4_d_XjKiL6X9y4NO7joVLKucVxfPXfjmcJ3E43_A" />
-        <meta name="yandex-verification" content='5246c0027cc097dd' />
+        <meta name="yandex-verification" content="4fdc36451ff1cd86" />
 
         {% include "meta.html" %}
 
@@ -75,8 +75,11 @@
 
                 // Liveinternet
                 $(function(){
-                    $('#counters').html("<a href='http://www.liveinternet.ru/click' target=_blank><img src='//counter.yadro.ru/hit?t41.6;r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u" + escape(document.URL) +";h"+escape(document.title.substring(0,80)) +  ";" + Math.random() + "' border=0 width=31 height=31 alt='' title='LiveInternet'><\/a>");
+                    $('#counters').append("<img src='//counter.yadro.ru/hit?t41.6;r" + escape(document.referrer) + ((typeof(screen)=="undefined")?"":";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?screen.colorDepth:screen.pixelDepth)) + ";u" + escape(document.URL) +";h"+escape(document.title.substring(0,80)) +  ";" + Math.random() + "' border=0 width=31 height=31 alt='' title='LiveInternet'>");
                 });
+
+                // Yandex
+                (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter31556573 = new Ya.Metrika({ id:31556573, clickmap:true, trackLinks:true, accurateTrackBounce:true }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");
             </script>
         {% endif %}
 
@@ -164,7 +167,12 @@
             <p lang="{{ LANGUAGE_CODE }}">&copy; {% trans "Andrey Shipilov" %}, 1984&mdash;{% now "Y" %}.<br /><a href="mailto:a@andreyshipilov.com">a@andreyshipilov.com</a></p>
             <p lang="en">I do really appologize for the leaders of Russia &mdash; balless, soulless, spiritless corporate little bitches, suckers of Satan's cock, each and every one of them.</p>
         </div>
-        <div id="counters"></div>
+
+        <div id="counters">
+            <noscript>
+                <img src="https://mc.yandex.ru/watch/31556573" alt="" />
+            </noscript>
+        </div>
     </body>
 </html>
 {% endspaceless %}
