@@ -18,6 +18,7 @@ SITE_ID = 1
 
 DJANGO_APPS = (
     'localeurl',
+    'flat',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
