@@ -47,3 +47,7 @@ EMAIL_HOST = 'smtp.webfaction.com'
 EMAIL_PORT = '25'
 DEFAULT_FROM_EMAIL = 'a@andreyshipilov.com'
 SERVER_EMAIL = 'a@andreyshipilov.com'
+
+COMPRESS_PRECOMPILERS = (
+    ('text/x-scss', '/home/tezro/django_projects/andreyshipilov/gems/bin/sass --scss {infile} {outfile}'),
+)
