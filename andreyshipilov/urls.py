@@ -14,6 +14,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^le_admin/', include(admin.site.urls)),
+    url(r'^le_admin/rosetta/', include('rosetta.urls')),
     (r'^i18n/', include('django.conf.urls.i18n')),
 
     url(r'^$', 'me.views.home', name='home'),

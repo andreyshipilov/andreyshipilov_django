@@ -9,13 +9,14 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-26 08:47+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2016-04-15 05:39+0000\n"
+"Last-Translator: Andrey Shipilov <a@andreyshipilov.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: \n"
+"X-Translated-Using: django-rosetta 0.7.11\n"
 
 #: andreyshipilov/apps/cv/views.py:13
 msgid "Curriculum Vitae, Resumé"
@@ -39,7 +40,10 @@ msgstr[1] ""
 #: andreyshipilov/apps/me/views.py:65 andreyshipilov/templates/home.html:6
 msgid "Some text about me"
 msgstr ""
-"Web developer from Adelaide, Australia. Civil engineer and musician too."
+"Hi. I'm a web developer from Adelaide, Australia. I work for Jamshop, Svelte"
+" Studios and <a href=\"https://bearonunicycle.com\" title=\"Bear On Unicycle"
+" — web design, web development, graphic design and branding.\">Bear On "
+"Unicycle</a>. My contact e-mail is at the bottom of every page."
 
 #: andreyshipilov/apps/me/views.py:86 andreyshipilov/apps/me/views.py:98
 #: andreyshipilov/templates/base.html:104
