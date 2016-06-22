@@ -5,7 +5,7 @@
 	<processes>1</processes>
 	<harakiri>5</harakiri>
 	<max-requests>3000</max-requests>
-	<reload-on-rss>30</reload-on-rss>
+	<reload-on-rss>100</reload-on-rss>
         <pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_venv/lib/python2.7/site-packages/</pythonpath>
 	<pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/</pythonpath>
 	<pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/uwsgi/</pythonpath>
