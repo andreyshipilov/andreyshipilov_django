@@ -112,6 +112,9 @@ class Screenshot(models.Model):
                            splitext(filename)[1].lower()),
     )
 
+    class Meta:
+        ordering = ('pk',)
+
 
 class Participant(TranslatableModel):
     translations = TranslatedFields(

@@ -34,8 +34,10 @@ COMPRESS_JS_FILTERS = [
 
 CACHES = {
     'default': {
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': '/home/tezro/temp/django_cache/andreyshipilov',
+        # 'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        # 'LOCATION': '/home/tezro/temp/django_cache/andreyshipilov',
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': 'unix:/home/tezro/pids/memcached.sock',
     }
 }
 

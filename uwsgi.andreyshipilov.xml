@@ -3,9 +3,9 @@
 	<master/>
 	<module>andreyshipilov.wsgi.prod</module>
 	<processes>1</processes>
-	<harakiri>5</harakiri>
+	<harakiri>10</harakiri>
 	<max-requests>3000</max-requests>
-	<reload-on-rss>200</reload-on-rss>
+	<reload-on-rss>300</reload-on-rss>
         <pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_venv/lib/python2.7/site-packages/</pythonpath>
 	<pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/</pythonpath>
 	<pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/uwsgi/</pythonpath>
