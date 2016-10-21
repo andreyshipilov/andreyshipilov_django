@@ -1,17 +1,17 @@
 <uwsgi>
-	<vacuum/>
-	<master/>
-	<module>andreyshipilov.wsgi.prod</module>
-	<processes>1</processes>
-	<harakiri>5</harakiri>
-	<max-requests>3000</max-requests>
-	<reload-on-rss>200</reload-on-rss>
-        <pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_venv/lib/python2.7/site-packages/</pythonpath>
-	<pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/</pythonpath>
-	<pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/uwsgi/</pythonpath>
-	<pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/andreyshipilov/</pythonpath>
-	<pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/andreyshipilov/apps/</pythonpath>
-	<daemonize>/home/tezro/logs_my/andreyshipilov_uwsgi.log</daemonize>
-	   <socket>/home/tezro/sockets/andreyshipilov_uwsgi.sock</socket>
-	  <pidfile>/home/tezro/pids/andreyshipilov_uwsgi.pid</pidfile>
+    <vacuum/>
+    <master/>
+    <module>andreyshipilov.wsgi.prod</module>
+    <processes>1</processes>
+    <harakiri>5</harakiri>
+    <max-requests>3000</max-requests>
+    <reload-on-rss>200</reload-on-rss>
+    <daemonize>/home/tezro/logs_my/andreyshipilov_uwsgi.log</daemonize>
+    <socket>/home/tezro/sockets/andreyshipilov_uwsgi.sock</socket>
+    <pidfile>/home/tezro/pids/andreyshipilov_uwsgi.pid</pidfile>
+    <pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_venv/lib/python2.7/site-packages/</pythonpath>
+    <pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/</pythonpath>
+    <pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/uwsgi/</pythonpath>
+    <pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/andreyshipilov/</pythonpath>
+    <pythonpath>/home/tezro/django_projects/andreyshipilov/andreyshipilov_django/andreyshipilov/apps/</pythonpath>
 </uwsgi>

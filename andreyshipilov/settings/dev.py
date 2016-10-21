@@ -17,7 +17,7 @@ WSGI_APPLICATION = 'andreyshipilov.wsgi.dev.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': join(BASE_DIR, '../andreyshipilov.db'),
+        'NAME': join(BASE_DIR, '../dev.db'),
     }
 }
 
