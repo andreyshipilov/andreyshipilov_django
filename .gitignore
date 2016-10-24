@@ -10,5 +10,3 @@ static_root
 media_root
 
 secret_info.py
-fabfile.py
-
