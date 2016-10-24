@@ -44,6 +44,7 @@ def update():
             run('pip install -r requirements/{0}.txt'.format(env.type))
             run('python manage.py migrate {0}'.format(env.settings_args))
             run('python manage.py collectstatic --noinput {0}'.format(env.settings_args))
+            run('python manage.py compilemessages {0}'.format(env.settings_args))
 
 
 @task
