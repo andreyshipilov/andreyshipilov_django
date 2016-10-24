@@ -1,13 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import json
 from datetime import datetime
 
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
-from django.http import HttpResponse, JsonResponse
 from django.views.decorators.cache import cache_page
 from django.views.decorators.csrf import csrf_exempt
-# from django.core.cache import cache
 from django.utils.html import strip_tags
 from django.utils.translation import ugettext as _
 import tweepy
@@ -62,7 +60,7 @@ def home(request):
         url='/',
         image=projects[0].image.url,
         title=_('Andrey Shipilov'),
-        description=_('Some text about me'),
+        description=strip_tags(_('Some text about me')),
     )
 
     context = {
