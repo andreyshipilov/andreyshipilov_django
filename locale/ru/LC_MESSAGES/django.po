@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 00:07+1030\n"
+"POT-Creation-Date: 2016-10-25 00:26+1030\n"
 "PO-Revision-Date: 2016-04-15 05:40+0000\n"
 "Last-Translator: Andrey Shipilov <a@andreyshipilov.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,14 +24,14 @@ msgstr ""
 msgid "Curriculum Vitae, Resumé"
 msgstr ""
 
-#: .\andreyshipilov\apps\cv\views.py:16 .\andreyshipilov\apps\me\views.py:64
+#: .\andreyshipilov\apps\cv\views.py:16 .\andreyshipilov\apps\me\views.py:62
 #: .\andreyshipilov\templates\base.html:14
 #: .\andreyshipilov\templates\base.html:16
-#: .\andreyshipilov\templates\base.html:83
-#: .\andreyshipilov\templates\base.html:85
-#: .\andreyshipilov\templates\base.html:139
+#: .\andreyshipilov\templates\base.html:84
+#: .\andreyshipilov\templates\base.html:86
 #: .\andreyshipilov\templates\base.html:140
-#: .\andreyshipilov\templates\base.html:154
+#: .\andreyshipilov\templates\base.html:141
+#: .\andreyshipilov\templates\base.html:155
 msgid "Andrey Shipilov"
 msgstr "Андрей Шипилов"
 
@@ -62,22 +62,22 @@ msgstr "Скриншоты"
 msgid "Filter"
 msgstr "Фильтр"
 
-#: .\andreyshipilov\apps\me\views.py:65 .\andreyshipilov\templates\home.html:6
+#: .\andreyshipilov\apps\me\views.py:63 .\andreyshipilov\templates\home.html:6
 msgid "Some text about me"
 msgstr "Веб-разработчик. Инженер. Музыкант."
 
-#: .\andreyshipilov\apps\me\views.py:86 .\andreyshipilov\apps\me\views.py:98
-#: .\andreyshipilov\templates\base.html:93
-#: .\andreyshipilov\templates\base.html:95
+#: .\andreyshipilov\apps\me\views.py:84 .\andreyshipilov\apps\me\views.py:96
+#: .\andreyshipilov\templates\base.html:94
+#: .\andreyshipilov\templates\base.html:96
 #: .\andreyshipilov\templates\home.html:9
 msgid "Projects"
 msgstr "Проекты"
 
-#: .\andreyshipilov\apps\me\views.py:87
+#: .\andreyshipilov\apps\me\views.py:85
 msgid "Andrey Shipilov's projects"
 msgstr "Андрей Шипилов"
 
-#: .\andreyshipilov\apps\me\views.py:108
+#: .\andreyshipilov\apps\me\views.py:106
 #, python-format
 msgid "Projects tagged \"%s\""
 msgstr "Проекты в категории &laquo;%s&raquo;"
@@ -86,7 +86,7 @@ msgstr "Проекты в категории &laquo;%s&raquo;"
 msgid "Index Subtitle"
 msgstr "Веб-разработчик. Инженер. Музыкант."
 
-#: .\andreyshipilov\templates\base.html:123
+#: .\andreyshipilov\templates\base.html:124
 msgid "Switch language"
 msgstr "In English"
 
