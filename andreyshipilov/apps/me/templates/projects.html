@@ -7,7 +7,7 @@
         <li class="title">{% trans "Filter" %}</li>
         {% for item in project_types %}
             <li>
-                <a href="{{ item.get_absolute_url }}" rel="{{ item.slug }}">{{ item|capfirst }}</a>
+                <a href="{{ item.get_absolute_url }}" rel="{{ item.slug }}" title="{{ item|capfirst }}">{{ item|capfirst }}</a>
             </li>
         {% endfor %}
     </ul>

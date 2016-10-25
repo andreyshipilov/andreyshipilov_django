@@ -54,7 +54,6 @@ def home(request):
     else:
         frequency = int()
 
-
     projects = Project.get_published()
     meta = Meta(
         url='/',
@@ -138,8 +137,7 @@ def type_or_project(request, slug):
         meta = Meta(
             title=project.title,
             description=project.explict_title + '. ' + strip_tags(project.text),
-            keywords=project.project_type.language().values_list('title',
-                flat=True),
+            keywords=project.project_type.language().values_list('title', flat=True),
             image=project.image.url,
             url=project.get_absolute_url(),
         )
@@ -175,7 +173,7 @@ def everyone_tweet(request):
             try:
                 api.update_status(status=text, lat=lat, long=lng)
                 tweet = Tweet(text=text, country=country, longitude=lng,
-                    latitude=lat, )
+                              latitude=lat, )
                 tweet.save()
 
                 r = {

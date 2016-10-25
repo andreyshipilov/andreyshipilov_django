@@ -27,6 +27,7 @@
 
         {% compress js %}
             {% block compressed_js %}
+                <script type="text/javascript" src="{% static "js/jquery.masonry.js" %}"></script>
                 <script type="text/javascript" src="{% static "js/konami.js" %}"></script>
                 <script type="text/javascript" src="{% static "js/jquery.base.js" %}"></script>
                 <script type="text/javascript">

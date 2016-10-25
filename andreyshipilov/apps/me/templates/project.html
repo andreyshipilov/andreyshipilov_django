@@ -92,7 +92,7 @@
                             </div>
                             <div class="body">
                                 {% thumbnail s.image "412x9999" as img %}
-                                    <img src="{{ img.url }}" srcset="{{ img.url|resolution:"2x"}} 2x, {{ img.url|resolution:"3x"}} 3x" width="{{ img.width }}" height="{{ img.height }}" alt="{{ title }}" />
+                                    <img src="{{ img.url }}" srcset="{{ img.url|resolution:"1.5x"}} 1.5x, {{ img.url|resolution:"2x"}} 2x" width="{{ img.width }}" height="{{ img.height }}" alt="{{ title }}" />
                                 {% endthumbnail %}
                             </div>
                             <div class="footer">
@@ -103,22 +103,5 @@
                 {% endwith %}
             </div>
         </section>
-    {% endif %}
-{% endblock %}
-
-
-{% block compressed_js %}
-    {{ block.super }}
-
-    {% if has_screenshots %}
-        <script type="text/javascript" src="{% static "js/jquery.masonry.js" %}"></script>
-        <script type="text/javascript">
-            $(function () {
-                $('#screenshots .container').masonry({
-                    itemSelector: '.screenshot',
-                    isAnimated: true
-                });
-            });
-        </script>
     {% endif %}
 {% endblock %}

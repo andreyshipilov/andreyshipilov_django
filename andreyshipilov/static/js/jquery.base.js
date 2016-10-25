@@ -54,6 +54,11 @@ $(function () {
         }
     });
 
+    // Project screenshots.
+    $('#screenshots').find('.container').masonry({
+        itemSelector: '.screenshot',
+        isAnimated: true
+    });
 
     // Flickr restyling.
     /*
