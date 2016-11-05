@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load localeurl_tags i18n compress markdown_deux_tags %}
+{% load markdown_deux_tags %}
 
 
 {% block all_content %}
@@ -116,12 +116,3 @@
     {% endif %}
 {% endblock %}
 
-{% block compressed_js %}
-    {{ block.super }}
-
-    <script>
-        $(function(){
-            $('#cv-employment ul').addClass('list');
-        });
-    </script>
-{% endblock %}

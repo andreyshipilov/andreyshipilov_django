@@ -21,13 +21,8 @@ $(function () {
         $projects = $('#projects'),
         $projectTypes = $('#project-types').find('a');
 
-    // $(window).resize(function () {
-    //     cellWidth = 100 / Math.floor($projects.width() / maxCellSize);
-    //     $latest.css({
-    //         'width': cellWidth * 2 + '%'
-    //     });
-    //     $('.project', $projects).not($latest).width(cellWidth + '%');
-    // }).resize();
+    // CV lists.
+    $('#cv-employment ul').addClass('list');
 
     // Projects filter.
     $projectTypes.click(function (e) {
