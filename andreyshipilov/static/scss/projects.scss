@@ -259,6 +259,10 @@
             color: #acb178;
             text-decoration: none;
             font-weight: bold;
+
+            @include query(mobile) {
+                text-decoration: underline;
+            }
         }
         .title {
             @include transition(opacity 0.1s);
