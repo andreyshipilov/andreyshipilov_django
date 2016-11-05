@@ -177,7 +177,7 @@
         -ms-behavior: url('../css/backgroundsize.min.htc');
 
         @include query(mobile) {
-            @include border-top-radius(10px);
+            @include border-top-radius(5px);
             height: 150px;
         }
     }
@@ -186,6 +186,7 @@
         text-shadow: 0 1px 0 #222;
 
         @include query(mobile) {
+            @include border-bottom-radius(5px);
             height: auto;
         }
 
