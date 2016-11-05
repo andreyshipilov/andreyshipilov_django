@@ -11,6 +11,8 @@
         <aside class="left-column" style="background-image: url('{{ project.image.url }}');"></aside>
         <aside class="right-column clearfix horizontal-bg-{{ "024689"|random }}">
             <div class="wrap clearfix">
+                <div class="clear"></div>
+
                 {% if project.text %}
                     <article class="clearfix">
                         <p class="text">{{ project.text|safe|typogrify }}</p>
@@ -54,6 +56,8 @@
                         </p>
                     {% endif %}
                 {% endif %}
+
+                <div class="clear"></div>
             </div>
         </aside>
     </section>
