@@ -13,9 +13,9 @@
 var Konami = function (callback) {
     var konami = {
         addEvent: function (obj, type, fn, ref_obj) {
-            if (obj.addEventListener)
+            if (obj.addEventListener) {
                 obj.addEventListener(type, fn, false);
-            else if (obj.attachEvent) {
+            } else if (obj.attachEvent) {
                 // IE
                 obj["e" + type + fn] = fn;
                 obj[type + fn] = function () {
@@ -30,8 +30,9 @@ var Konami = function (callback) {
             this.addEvent(document, "keydown", function (e, ref_obj) {
                 if (ref_obj) konami = ref_obj; // IE
                 konami.input += e ? e.keyCode : event.keyCode;
-                if (konami.input.length > konami.pattern.length)
+                if (konami.input.length > konami.pattern.length) {
                     konami.input = konami.input.substr((konami.input.length - konami.pattern.length));
+                }
                 if (konami.input == konami.pattern) {
                     konami.code(link);
                     konami.input = "";
