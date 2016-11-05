@@ -44,7 +44,7 @@ section {
         list-style: none;
         padding: 0;
         margin: 0;
-        text-transform: uppercase;
+        //text-transform: uppercase;
 
         li {
             line-height: 1;
@@ -52,6 +52,14 @@ section {
             margin: 0 40px 0 0;
             position: relative;
             color: #fff;
+
+            @include query(mobile) {
+                clear: both;
+
+                &.first {
+                    margin-right: 100px;
+                }
+            }
 
             h1 {
                 display: inline;
@@ -78,9 +86,9 @@ section {
         top: 0;
         background-color: #da131a;
         border: 1px solid #fff;
-        line-height: 1.1;
-        padding: 3px;
-        border-radius: 1em;
+        line-height: 1;
+        padding: 3px 5px;
+        border-radius: 20px;
     }
     .nav-right {
         position: absolute;
@@ -118,6 +126,9 @@ section {
 }
 
 #socialism {
+    @include query(mobile) {
+        display: none;
+    }
     font-size: 0.9em;
 
     table {
@@ -131,7 +142,6 @@ section {
             a {
                 color: #798d7a;
                 text-decoration: none;
-                text-transform: uppercase;
             }
         }
     }

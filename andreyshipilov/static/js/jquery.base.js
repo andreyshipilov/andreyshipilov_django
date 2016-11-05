@@ -16,21 +16,18 @@ WebFontConfig = {
 
 // DOM Ready.
 $(function () {
-    // Projects list resize.
-    var maxCellSize = 220,
-        cellWidth,
+    var maxCellSize = 200,
         selectedSelector,
         $projects = $('#projects'),
-        $latest = $('.latest', $projects),
         $projectTypes = $('#project-types').find('a');
 
-    $(window).resize(function () {
-        cellWidth = 100 / Math.floor($projects.width() / maxCellSize);
-        $latest.css({
-            'width': cellWidth * 2 + '%'
-        });
-        $('.project', $projects).not($latest).width(cellWidth + '%');
-    }).resize();
+    // $(window).resize(function () {
+    //     cellWidth = 100 / Math.floor($projects.width() / maxCellSize);
+    //     $latest.css({
+    //         'width': cellWidth * 2 + '%'
+    //     });
+    //     $('.project', $projects).not($latest).width(cellWidth + '%');
+    // }).resize();
 
     // Projects filter.
     $projectTypes.click(function (e) {

@@ -18,7 +18,6 @@
         .project {
             @include transition(all 0.1s $ease-out-quint);
             display: block;
-            width: 15%;
             float: left;
             height: 150px;
             position: relative;
@@ -36,6 +35,26 @@
             &.latest {
                 background-size: auto 100%;
                 height: 300px;
+
+                @media all and (min-width: 1921px) {
+                    width: 30%;
+                }
+
+                @media all and (max-width: 1920px) {
+                    width: 40%;
+                }
+
+                @media all and (max-width: 1366px) {
+                    width: 50%;
+                }
+
+                @include query(tablet) {
+                    width: 66.66%;
+                }
+
+                @include query(mobile) {
+                    width: 100%;
+                }
 
                 &:hover {
                     background-size: auto 105%;
@@ -64,12 +83,32 @@
             .overlay {
                 @include transition(all 0.2s $ease-in-out-quart);
                 background-color: rgba(31, 22, 34, 0.85);
-                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#D91f1622, endColorstr=#D9550000);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#d91f1622, endColorstr=#d9550000);
                 -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#D9550000, endColorstr=#D91f1622)";
                 position: absolute;
                 width: 100%;
                 height: 0;
                 opacity: 0;
+            }
+
+            @media all and (min-width: 1921px) {
+                width: 15%;
+            }
+
+            @media all and (max-width: 1920px) {
+                width: 20%;
+            }
+
+            @media all and (max-width: 1366px) {
+                width: 25%;
+            }
+
+            @include query(tablet) {
+                width: 33.333%;
+            }
+
+            @include query(mobile) {
+                width: 100%;
             }
         }
     }

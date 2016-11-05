@@ -1,12 +1,13 @@
-{% load localeurl_tags i18n cache my_tags compress static %}{% spaceless %}
+{% load i18n cache my_tags compress static %}{% spaceless %}
 {% get_current_language as LANGUAGE_CODE %}
 
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}" itemscope itemtype="http://schema.org/WebPage">
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="google-site-verification" content="RBS4_d_XjKiL6X9y4NO7joVLKucVxfPXfjmcJ3E43_A" />
-        <meta name="yandex-verification" content="4fdc36451ff1cd86" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+        <meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+        <meta name="google-site-verification" content="RBS4_d_XjKiL6X9y4NO7joVLKucVxfPXfjmcJ3E43_A">
+        <meta name="yandex-verification" content="4fdc36451ff1cd86">
 
         {% include "meta.html" %}
 
@@ -80,7 +81,7 @@
         <div id="page">
             <nav id="main-nav">
                 <ul lang="{{ LANGUAGE_CODE }}">
-                    <li>
+                    <li class="first">
                         {% if is_home %}
                             <h1>{% trans "Andrey Shipilov" %}</h1>
                         {% else %}
@@ -122,7 +123,7 @@
                     <nav class="language-switch">
                         {% for lang in LANGUAGES %}
                             {% ifnotequal lang.0 LANGUAGE_CODE %}
-                                <a href="{{ request.path|chlocale:lang.0 }}">{% trans "Switch language" %}</a>
+                                <a href="{{ request.path }}">{% trans "Switch language" %}</a>
                             {% endifnotequal %}
                         {% endfor %}
                     </nav>

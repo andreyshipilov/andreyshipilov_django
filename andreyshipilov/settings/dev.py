@@ -8,9 +8,9 @@ from base import *
 
 DEBUG = True
 
-TEMPLATE_DEBUG = DEBUG
-
 THUMBNAIL_DEBUG = DEBUG
+
+TEMPLATES[0]['OPTIONS']['debug'] = True
 
 WSGI_APPLICATION = 'andreyshipilov.wsgi.dev.application'
 
@@ -18,6 +18,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': join(BASE_DIR, '../dev.db'),
+    }
+}
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
     }
 }
 

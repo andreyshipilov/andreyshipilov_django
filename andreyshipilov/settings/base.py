@@ -3,8 +3,7 @@
 import os
 import re
 import sys
-from django.conf.global_settings import (TEMPLATE_CONTEXT_PROCESSORS,
-                                         STATICFILES_FINDERS)
+from django.conf.global_settings import STATICFILES_FINDERS
 from secret_info import *
 
 
@@ -17,8 +16,6 @@ SECRET_KEY = '&*=gtkh3a_e@u76r0!$h26(w97ba+3r__jzbcc80)l#o6iaxy#'
 SITE_ID = 1
 
 DJANGO_APPS = (
-    'localeurl',
-    'flat',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,7 +33,6 @@ THIRD_PARTY_APPS = (
     'typogrify',
     'markdown_deux',
     'sorl.thumbnail',
-    # 'sitetree',
     'bourbon',
     'axes',
     'compressor',
@@ -55,8 +51,8 @@ LOCAL_APPS = (
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE_CLASSES = (
-    'localeurl.middleware.LocaleURLMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -65,10 +61,24 @@ MIDDLEWARE_CLASSES = (
     'axes.middleware.FailedLoginMiddleware',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS += (
-    'django.core.context_processors.request',
-    'me.context_processors.socials',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates')
+        ],
+        'OPTIONS': {
+            'context_processors': [
+                'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.request',
+                'me.context_processors.socials',
+            ],
+        },
+    },
+]
 
 ROOT_URLCONF = 'andreyshipilov.urls'
 
@@ -98,10 +108,6 @@ STATICFILES_FINDERS += (
 MEDIA_ROOT = os.path.join(BASE_DIR, '../media_root')
 MEDIA_URL = '/m/'
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates'),
-)
-
 LOCALE_PATHS = (
     os.path.join(BASE_DIR, '../locale'),
 )
@@ -111,11 +117,11 @@ Apps related settings.
 """
 
 # Localeurl
-PREFIX_DEFAULT_LOCALE = False
-LOCALE_INDEPENDENT_PATHS = (
-    re.compile('^/everyone-tweet/'),
-    re.compile('^/(i|lj|:3)/'),
-)
+# PREFIX_DEFAULT_LOCALE = False
+# LOCALE_INDEPENDENT_PATHS = (
+#     re.compile('^/everyone-tweet/'),
+#     re.compile('^/(i|lj|:3)/'),
+# )
 
 # Sorl
 THUMBNAIL_QUALITY = 80
@@ -145,6 +151,9 @@ META_USE_OG_PROPERTIES = True
 META_USE_TWITTER_PROPERTIES = True
 META_USE_GOOGLEPLUS_PROPERTIES = True
 META_OG_NAMESPACES = True
+
+# Solid i18n.
+SOLID_I18N_DEFAULT_PREFIX_REDIRECT = True
 
 # Local settings
 try:

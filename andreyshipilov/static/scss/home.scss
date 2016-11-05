@@ -1,5 +1,9 @@
 #index-header {
     width: 50%;
+
+    @include query(tablet) {
+        width: auto;
+    }
 }
 
 /*

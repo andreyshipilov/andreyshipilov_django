@@ -11,16 +11,17 @@ from hvad.models import TranslatableModel, TranslatedFields
 from any_imagefield.models import AnyImageField as ImageField
 
 
-class Social(models.Model):
-    title = models.CharField(max_length=100, )
-    link = models.URLField(max_length=300, )
-    image = ImageField(
-        upload_to=lambda instance, filename: "social_icons/%s%s" %
-                                             (slugify(
-                                                 instance.title.lower()) or
-                                              'icon',
-                                              splitext(filename)[1].lower()),
+def social_images(instance, filename):
+    return 'social_icons/{0}{1}'.format(
+        slugify(instance.title.lower()) or 'icon',
+        splitext(filename)[1].lower()
     )
+
+
+class Social(models.Model):
+    title = models.CharField(max_length=100)
+    link = models.URLField(max_length=300)
+    image = ImageField(upload_to=social_images)
 
     class Meta:
         ordering = ('title',)
@@ -47,6 +48,14 @@ class ProjectType(TranslatableModel):
         return ('type_or_project', (), {'slug': self.slug})
 
 
+def project_images(instance, filename):
+    return 'project/{0}/{1}-preview{2}'.format(
+        instance.slug,
+        instance.slug,
+        splitext(filename)[1].lower()
+    )
+
+
 class Project(TranslatableModel):
     is_published = models.BooleanField(default=False, db_index=True)
     is_alive = models.BooleanField(default=False, db_index=True,
@@ -56,13 +65,8 @@ class Project(TranslatableModel):
     date = models.DateField(db_index=True, )
     slug = models.SlugField(max_length=200, )
     link = models.URLField(max_length=500, blank=True)
-    project_type = models.ManyToManyField(ProjectType, blank=True, null=True)
-    image = ImageField(
-        blank=True, max_length=400, help_text='Save first.',
-        upload_to=lambda instance, filename: "project/%s/%s-preview%s" %
-                                             (instance.slug, instance.slug,
-                                              splitext(filename)[1].lower()),
-    )
+    project_type = models.ManyToManyField(ProjectType, blank=True)
+    image = ImageField(blank=True, max_length=400, help_text='Save first.', upload_to=project_images)
 
     translations = TranslatedFields(
         explict_title=models.CharField(max_length=250),
@@ -99,22 +103,24 @@ class Project(TranslatableModel):
         count = self.screenshot_set.count()
 
         if count:
-            return "{0} {1}".format(count,
-                                    ungettext("screenshot", "screenshots", count))
+            return '{0} {1}'.format(count,
+                                    ungettext('screenshot', 'screenshots', count))
         else:
-            return ""
+            return ''
+
+
+def screenshot_images(instance, filename):
+    return 'project/{0}/screenshots/{1}-screenshot{2}'.format(
+        instance.project.slug,
+        instance.project.slug,
+        splitext(filename)[1].lower()
+    )
 
 
 class Screenshot(models.Model):
     project = models.ForeignKey(Project)
     title = models.CharField(max_length=100, blank=True)
-    image = ImageField(
-        max_length=400,
-        upload_to=lambda instance,
-                         filename: "project/%s/screenshots/%s-screenshot%s" % \
-                                   (instance.project.slug, instance.project.slug,
-                                    splitext(filename)[1].lower()),
-    )
+    image = ImageField(max_length=400, upload_to=screenshot_images)
 
     class Meta:
         ordering = ('pk',)
