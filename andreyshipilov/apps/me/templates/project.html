@@ -9,7 +9,7 @@
         </header>
 
         <aside class="left-column" style="background-image: url('{{ project.image.url }}');"></aside>
-        <aside class="right-column horizontal-bg-0">
+        <aside class="right-column clearfix horizontal-bg-{{ project.pk|random }}">
             <div class="wrap">
                 {% if project.text %}
                     <article>
