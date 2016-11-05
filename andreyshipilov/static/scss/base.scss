@@ -26,6 +26,10 @@ section {
     color: #d7d6d2;
     padding: 20px;
     position: relative;
+
+    @include query(moblet) {
+        padding: 20px 10px;
+    }
 }
 
 #everyone-tweet-link {
@@ -177,30 +181,39 @@ section {
 .horizontal-bg-0 {
     @include horizontal-bg(#293149, #304a4f);
 }
+
 .horizontal-bg-1 {
     @include horizontal-bg(#798d7a, #ad9b8e);
 }
+
 .horizontal-bg-2 {
     @include horizontal-bg(#425b48, #32423e);
 }
+
 .horizontal-bg-3 {
     @include horizontal-bg(#a78e60, #666d4e);
 }
+
 .horizontal-bg-4 {
     @include horizontal-bg(#4e6b56, #354641);
 }
+
 .horizontal-bg-5 {
     @include horizontal-bg(#ad9b8e, #798d7a);
 }
+
 .horizontal-bg-6 {
     @include horizontal-bg(#304a4f, #293149);
 }
+
 .horizontal-bg-7 {
     @include horizontal-bg(#666d4e, #a78e60);
 }
+
 .horizontal-bg-8 {
     @include horizontal-bg(#32423e, #425b48);
 }
+
 .horizontal-bg-9 {
     @include horizontal-bg(#354641, #4e6b56);
 }
