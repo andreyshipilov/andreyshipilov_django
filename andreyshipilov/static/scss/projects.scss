@@ -175,6 +175,11 @@
         background-position: 50% 50%;
         background-size: cover;
         -ms-behavior: url('../css/backgroundsize.min.htc');
+
+        @include query(mobile) {
+            @include border-top-radius(10px);
+            height: 150px;
+        }
     }
     .right-column {
         color: #fff;
