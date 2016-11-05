@@ -23,12 +23,12 @@ html {
 body {
     padding: 20px;
     margin: 0;
-    font: normal 62.5%/1.4 'PT Sans', Tahoma, $helvetica;
+    font: normal 62.5%/1.4 'PT Sans', $helvetica;
     line-height: 140%;
     color: #333;
     background-color: #d7d6d2;
 
-    @include query(moblet) {
+    @include query(mobile) {
         padding: 10px;
     }
 }
