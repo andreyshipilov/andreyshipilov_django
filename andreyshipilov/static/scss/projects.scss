@@ -191,7 +191,7 @@
         }
 
         .wrap {
-            margin: 20px;
+            margin: 0 20px 20px 20px;
 
             @include query(mobile) {
                 margin: 0 10px;
@@ -238,7 +238,6 @@
         }
         .tags {
             color: #d7d6d2;
-            font-size: 1.1em;
 
             a {
                 color: #acb178;

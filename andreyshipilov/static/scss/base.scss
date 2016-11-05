@@ -130,12 +130,13 @@ section {
 }
 
 #socialism {
-    @include query(mobile) {
-        display: none;
-    }
     font-size: 0.9em;
 
     table {
+        @include query(mobile) {
+            display: none;
+        }
+
         width: 100%;
 
         td {
