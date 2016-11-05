@@ -12,7 +12,7 @@
         <aside class="right-column clearfix horizontal-bg-{{ "0123456789"|random }}">
             <div class="wrap clearfix">
                 {% if project.text %}
-                    <article>
+                    <article class="clearfix">
                         <p class="text">{{ project.text|safe|typogrify }}</p>
                     </article>
                 {% endif %}
