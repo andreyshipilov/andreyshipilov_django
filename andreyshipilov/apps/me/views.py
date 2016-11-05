@@ -28,7 +28,7 @@ def cv(request):
     return render(request, 'cv.html', )
 
 
-@cache_page(CACHE['hour'])
+@cache_page(CACHE['day'])
 def home(request):
     auth = tweepy.OAuthHandler(
         TWITTER_SECRETS['andreyshipilov']['consumer_key'],
@@ -75,7 +75,7 @@ def home(request):
     return render(request, 'home.html', context)
 
 
-@cache_page(CACHE['hour'])
+@cache_page(CACHE['day'])
 def projects(request):
     project_types = ProjectType.objects.language().all().distinct()
     projects = Project.get_published()
@@ -96,7 +96,7 @@ def projects(request):
     })
 
 
-@cache_page(CACHE['hour'])
+@cache_page(CACHE['day'])
 def type_or_project(request, slug):
     objects = Project.get_published().filter(project_type__slug=slug)
 
