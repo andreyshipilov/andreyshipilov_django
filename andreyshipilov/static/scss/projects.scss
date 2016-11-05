@@ -186,6 +186,10 @@
 
         .wrap {
             margin: 20px;
+
+            @include query(mobile) {
+                margin: 10px;
+            }
         }
         .text {
             color: #fff;
@@ -259,6 +263,10 @@
         .title {
             @include transition(opacity 0.1s);
             opacity: 0;
+
+            @include query(mobile) {
+                display: none;
+            }
         }
         &:hover {
             a {
@@ -278,6 +286,10 @@
 
 #screenshots {
     margin: 20px 0;
+
+    @include query(mobile) {
+        overflow: hidden;
+    }
 
     header {
         color: #d7d6d2;
