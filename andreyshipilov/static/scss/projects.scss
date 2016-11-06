@@ -220,6 +220,7 @@
         }
         .link-button {
             font-size: 1.6em;
+            margin-top: 1.5em;
 
             a {
                 @include transition(all 0.2s);
