@@ -42,17 +42,17 @@
                 {% if project.is_alive %}
                     {% if project.verbose_link and project.verbose_link_text %}
                         <p class="link-button">
-                            <a href="{{ project.verbose_link }}" title="{{ project.title }}">{{ project.verbose_link_text }}</a>
+                            <a href="{{ project.verbose_link }}" title="{{ project.title }}">{{ project.verbose_link_text }}<i></i></a>
                         </p>
                     {% elif project.link %}
                         <p class="link-button">
-                            <a href="{{ project.link }}" title="{{ project.title }}">{{ project.link }}</a>
+                            <a href="{{ project.link }}" title="{{ project.title }}" rel="nofollow">{{ project.link }}<i></i></a>
                         </p>
                     {% endif %}
                 {% else %}
                     {% if project.has_archive %}
                         <p class="link-button">
-                            <a href="{{ project.get_absolute_url }}archive/" title="{{ project.title }}" target="_blank">{% trans "View archived version" %}</a>
+                            <a href="{{ project.get_absolute_url }}archive/" title="{{ project.title }}" target="_blank">{% trans "View archived version" %}<i></i></a>
                         </p>
                     {% endif %}
                 {% endif %}

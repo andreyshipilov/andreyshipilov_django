@@ -234,6 +234,24 @@
                 &:hover {
                     background-color: #7a8e7a;
                 }
+
+                @include query(mobile) {
+                    width: 100%;
+                    overflow: hidden;
+                    box-sizing: border-box;
+                    white-space: nowrap;
+                    position: relative;
+                    text-align: center;
+
+                    i {
+                        @include background-image(linear-gradient(to right, rgba(193, 104, 97, 0), #c16861));
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        width: 30px;
+                        height: 100%;
+                    }
+                }
             }
         }
         .tags {
