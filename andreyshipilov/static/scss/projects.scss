@@ -277,6 +277,11 @@
     .next {
         display: inline-block;
 
+        @include query(mobile) {
+            font-size: 1.3em;
+            margin-top: 1em;
+        }
+
         a {
             display: inline-block;
             line-height: 3;
