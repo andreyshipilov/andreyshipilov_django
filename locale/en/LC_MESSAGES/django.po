@@ -8,58 +8,56 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-10-25 00:26+1030\n"
+"POT-Creation-Date: 2016-11-06 05:34+0000\n"
 "PO-Revision-Date: 2016-04-15 05:39+0000\n"
 "Last-Translator: Andrey Shipilov <a@andreyshipilov.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "X-Translated-Using: django-rosetta 0.7.11\n"
 
-#: .\andreyshipilov\apps\cv\views.py:13
+#: andreyshipilov/apps/cv/views.py:13
 msgid "Curriculum Vitae, Resumé"
 msgstr ""
 
-#: .\andreyshipilov\apps\cv\views.py:16 .\andreyshipilov\apps\me\views.py:62
-#: .\andreyshipilov\templates\base.html:14
-#: .\andreyshipilov\templates\base.html:16
-#: .\andreyshipilov\templates\base.html:84
-#: .\andreyshipilov\templates\base.html:86
-#: .\andreyshipilov\templates\base.html:140
-#: .\andreyshipilov\templates\base.html:141
-#: .\andreyshipilov\templates\base.html:155
+#: andreyshipilov/apps/cv/views.py:16 andreyshipilov/apps/me/views.py:61
+#: andreyshipilov/templates/base.html:15 andreyshipilov/templates/base.html:17
+#: andreyshipilov/templates/base.html:86 andreyshipilov/templates/base.html:88
+#: andreyshipilov/templates/base.html:142
+#: andreyshipilov/templates/base.html:143
+#: andreyshipilov/templates/base.html:157
 msgid "Andrey Shipilov"
 msgstr ""
 
-#: .\andreyshipilov\apps\me\models.py:99
+#: andreyshipilov/apps/me/models.py:107
 msgid "screenshot"
 msgid_plural "screenshots"
 msgstr[0] ""
 msgstr[1] ""
 
-#: .\andreyshipilov\apps\me\templates\project.html:53
+#: andreyshipilov/apps/me/templates/project.html:55
 msgid "View archived version"
 msgstr ""
 
-#: .\andreyshipilov\apps\me\templates\project.html:64
+#: andreyshipilov/apps/me/templates/project.html:68
 msgid "Next project"
 msgstr ""
 
-#: .\andreyshipilov\apps\me\templates\project.html:74
+#: andreyshipilov/apps/me/templates/project.html:78
 msgid "Previous project"
 msgstr ""
 
-#: .\andreyshipilov\apps\me\templates\project.html:81
+#: andreyshipilov/apps/me/templates/project.html:85
 msgid "Screenshots"
 msgstr ""
 
-#: .\andreyshipilov\apps\me\templates\projects.html:7
+#: andreyshipilov/apps/me/templates/projects.html:7
 msgid "Filter"
 msgstr ""
 
-#: .\andreyshipilov\apps\me\views.py:63 .\andreyshipilov\templates\home.html:6
+#: andreyshipilov/apps/me/views.py:62 andreyshipilov/templates/home.html:6
 msgid "Some text about me"
 msgstr ""
 "Hi. I'm a web developer from Adelaide, Australia. I work for Jamshop, Svelte "
@@ -67,57 +65,56 @@ msgstr ""
 "— web design, web development, graphic design and branding.\">Bear On "
 "Unicycle</a>. My contact e-mail is at the bottom of every page."
 
-#: .\andreyshipilov\apps\me\views.py:84 .\andreyshipilov\apps\me\views.py:96
-#: .\andreyshipilov\templates\base.html:94
-#: .\andreyshipilov\templates\base.html:96
-#: .\andreyshipilov\templates\home.html:9
+#: andreyshipilov/apps/me/views.py:83 andreyshipilov/apps/me/views.py:95
+#: andreyshipilov/templates/base.html:96 andreyshipilov/templates/base.html:98
+#: andreyshipilov/templates/home.html:9
 msgid "Projects"
 msgstr ""
 
-#: .\andreyshipilov\apps\me\views.py:85
+#: andreyshipilov/apps/me/views.py:84
 msgid "Andrey Shipilov's projects"
 msgstr ""
 
-#: .\andreyshipilov\apps\me\views.py:106
+#: andreyshipilov/apps/me/views.py:105
 #, python-format
 msgid "Projects tagged \"%s\""
 msgstr ""
 
-#: .\andreyshipilov\templates\base.html:14
+#: andreyshipilov/templates/base.html:15
 msgid "Index Subtitle"
 msgstr "Adelaide based web developer, engineer, musician."
 
-#: .\andreyshipilov\templates\base.html:124
+#: andreyshipilov/templates/base.html:126
 msgid "Switch language"
 msgstr "По-русски"
 
-#: .\andreyshipilov\templates\home.html:51
+#: andreyshipilov/templates/home.html:51
 msgid "Follow me on Twitter"
 msgstr ""
 
-#: .\andreyshipilov\templates\home.html:53
+#: andreyshipilov/templates/home.html:53
 msgid "I tweet rarely"
 msgstr ""
 
-#: .\andreyshipilov\templates\home.html:54
+#: andreyshipilov/templates/home.html:54
 #, python-format
 msgid "one %(tweet)s"
 msgid_plural "%(counter)s %(tweet)s"
 msgstr[0] "%(counter)s tweet"
 msgstr[1] "%(counter)s tweets"
 
-#: .\andreyshipilov\templates\home.html:55
+#: andreyshipilov/templates/home.html:55
 #, python-format
 msgid "one %(follower)s"
 msgid_plural "%(counter)s %(follower)s"
 msgstr[0] "%(counter)s follower"
 msgstr[1] "%(counter)s followers"
 
-#: .\andreyshipilov\templates\home.html:56
+#: andreyshipilov/templates/home.html:56
 msgid "and"
 msgstr ""
 
-#: .\andreyshipilov\templates\home.html:57
+#: andreyshipilov/templates/home.html:57
 #, python-format
 msgid "one %(friend)s"
 msgid_plural "%(counter)s %(friend)s"
