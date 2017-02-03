@@ -4,6 +4,7 @@ Production settings
 """
 from base import *
 
+
 # DEBUG = True
 
 DATABASES = {
@@ -51,3 +52,5 @@ SERVER_EMAIL = 'a@andreyshipilov.com'
 COMPRESS_PRECOMPILERS = (
     ('text/x-scss', '/home/tezro/django_projects/andreyshipilov/gems/bin/sass --scss {infile} {outfile}'),
 )
+
+COMPRESS_STORAGE = 'compressor.storage.GzipCompressorFileStorage'

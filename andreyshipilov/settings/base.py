@@ -135,7 +135,7 @@ AXES_LOGIN_FAILURE_LIMIT = 5
 AXES_COOLOFF_TIME = 0.08  # ~5 minutes.
 
 # Django Meta
-META_SITE_PROTOCOL = 'http'
+META_SITE_PROTOCOL = 'https'
 META_SITE_DOMAIN = 'www.andreyshipilov.com'
 META_SITE_TYPE = 'website'
 META_DEFAULT_KEYWORDS = ['Andrey Shipilov', 'Shipilov', 'web developer', 'web design', 'website', 'freelance', 'python',
