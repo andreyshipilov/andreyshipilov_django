@@ -116,13 +116,6 @@ LOCALE_PATHS = (
 Apps related settings.
 """
 
-# Localeurl
-# PREFIX_DEFAULT_LOCALE = False
-# LOCALE_INDEPENDENT_PATHS = (
-#     re.compile('^/everyone-tweet/'),
-#     re.compile('^/(i|lj|:3)/'),
-# )
-
 # Sorl
 THUMBNAIL_QUALITY = 80
 THUMBNAIL_UPSCALE = False
@@ -142,10 +135,8 @@ AXES_COOLOFF_TIME = 0.08  # ~5 minutes.
 META_SITE_PROTOCOL = 'http'
 META_SITE_DOMAIN = 'www.andreyshipilov.com'
 META_SITE_TYPE = 'website'
-META_DEFAULT_KEYWORDS = ['Andrey Shipilov', 'Shipilov', 'web developer',
-                         'web design', 'website', 'freelance', 'python',
-                         'django', 'html', 'javascript', 'sql', 'css',
-                         'Bear On Unicycle', 'Adelaide']
+META_DEFAULT_KEYWORDS = ['Andrey Shipilov', 'Shipilov', 'web developer', 'web design', 'website', 'freelance', 'python',
+                         'django', 'html', 'javascript', 'sql', 'css', 'Bear On Unicycle', 'Adelaide']
 META_INCLUDE_KEYWORDS = META_DEFAULT_KEYWORDS
 META_USE_OG_PROPERTIES = True
 META_USE_TWITTER_PROPERTIES = True
