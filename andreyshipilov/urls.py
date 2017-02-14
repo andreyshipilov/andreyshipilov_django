@@ -3,11 +3,10 @@ from django.conf.urls import url, include
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 
-# from localeurl.sitemaps import LocaleurlSitemap
-
-from me.models import Project
 import me.views
+import me.sitemaps
 import cv.views
 
 
@@ -21,6 +20,7 @@ if settings.DEBUG:
     urlpatterns += [url(r'^__debug__/', include(debug_toolbar.urls))]
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
+# Not i18n urls.
 urlpatterns += [
     url(r'^le_admin/', include(admin.site.urls)),
     url(r'^le_admin/rosetta/', include('rosetta.urls')),
@@ -29,6 +29,7 @@ urlpatterns += [
     url(r'^robots.txt', include('robots.urls')),
 ]
 
+# i18n urls.
 urlpatterns += i18n_patterns(
     url(r'^$', me.views.home, name='home'),
     url(r'^projects/$', me.views.projects, name='projects'),
@@ -37,23 +38,14 @@ urlpatterns += i18n_patterns(
     prefix_default_language=False
 )
 
+# Sitemaps.
+SITEMAPS = {
+    'projects': me.sitemaps.ProjectSitemap,
+    'static_views': me.sitemaps.StaticViewSitemap,
+}
 
-# class ProjectsSitemap(LocaleurlSitemap):
-#     """
-#     Multilingual sitemaps
-#     """
-#     priority = 0.6
-#     changefreq = 'monthly'
-#
-#     def items(self):
-#         return Project.get_published()
-
-
-# sitemaps = {
-#     'projects-ru': ProjectsSitemap('ru'),
-#     'projects-en': ProjectsSitemap('en'),
-# }
-# urlpatterns += [
-#     url(r'^sitemap.xml$', 'django.contrib.sitemaps.views.sitemap',
-#         {'sitemaps': sitemaps}),
-# ]
+urlpatterns += [
+    url(r'^sitemap.xml$', sitemap, {
+        'sitemaps': SITEMAPS
+    }),
+]
