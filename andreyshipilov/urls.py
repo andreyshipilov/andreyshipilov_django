@@ -45,7 +45,5 @@ SITEMAPS = {
 }
 
 urlpatterns += [
-    url(r'^sitemap.xml$', sitemap, {
-        'sitemaps': SITEMAPS
-    }),
+    url(r'^sitemap.xml$', sitemap, {'sitemaps': SITEMAPS}, name='django.contrib.sitemaps.views.sitemap'),
 ]
