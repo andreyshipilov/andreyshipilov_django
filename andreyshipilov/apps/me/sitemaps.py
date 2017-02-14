@@ -10,7 +10,6 @@ class ProjectSitemap(Sitemap):
     """
     priority = 0.7
     changefreq = 'monthly'
-    protocol = 'https'
     i18n = True
 
     def items(self):
@@ -23,6 +22,7 @@ class StaticViewSitemap(Sitemap):
     """
     priority = 0.6
     changefreq = 'monthly'
+    i18n = True
 
     def items(self):
         return ['home', 'projects', 'cv', 'everyone_tweet']
