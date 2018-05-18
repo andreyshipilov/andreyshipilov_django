@@ -159,7 +159,7 @@ class Participation(models.Model):
 
 
 class Tweet(models.Model):
-    text = models.CharField(max_length=160, )
+    text = models.CharField(max_length=280, )
     date = models.DateTimeField(auto_now_add=True, )
     country = models.CharField(blank=True, max_length=100, )
     latitude = models.DecimalField(max_digits=20, decimal_places=17, default=0.0)

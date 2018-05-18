@@ -192,12 +192,12 @@ def everyone_tweet(request):
         else:
             if len(text) == 0:
                 text = 'Write at least something.'
-            elif len(text) > 140:
+            elif len(text) > 280:
                 letter = ''
-                if len(text) - 140 > 1:
+                if len(text) - 280 > 1:
                     letter = 's'
                 text = 'Shorten it by %s letter%s.' % \
-                       (str(len(text) - 140), letter)
+                       (str(len(text) - 280), letter)
 
             r = {
                 'status': False,
