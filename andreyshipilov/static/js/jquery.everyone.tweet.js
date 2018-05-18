@@ -45,8 +45,8 @@ var Status = (function(){
 
 var counter = function(){
 	var length = $('#text').val().length;
-	length == 140 ? $('#counter').html('Please stop') : $('#counter').html(140 - length);
-	length > 140 ? $('#counter').addClass('counter-error') : $('#counter').removeClass('counter-error') ;
+	length == 280 ? $('#counter').html('Please stop') : $('#counter').html(280 - length);
+	length > 280 ? $('#counter').addClass('counter-error') : $('#counter').removeClass('counter-error') ;
 	setTimeout(counter, 50);
 };
 
